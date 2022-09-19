@@ -1,11 +1,11 @@
 import './Footer.scss';
-import { NavLink } from 'react-router-dom';
+
 
 function Footer() {
   return (
     <nav className="Footer">
-      <NavLink to="/apropos">A Propos</NavLink>
-      <NavLink to="/contact">Contact</NavLink>
+      <a className="Footer--link" href="/apropos">A Propos</a>
+      <a className="Footer--link" href="/contact">Contactez-Nous !</a>
     </nav>
   );
 }

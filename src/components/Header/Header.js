@@ -8,15 +8,19 @@ import logo from '../../assets/Images/Logo_3.png';
 function Header() {
   return (
     <header className="header">
-      <img src={logo} alt="logo LinkO'Dev" className="header--logo" />
-      <div className="header--Logged-buttons">
-        <MyPosts />
-        <LogOutButton />
-      </div>
-      <div className="header--noLogged-buttons">
-        <RegisterButton />
-        <ConnexionButton />
-      </div>
+      <img src={logo} alt="logo LinkO'Dev" className="header--logo" href="/" />
+      <section className="header__section--center">
+        <div className="header--Logged-buttons">
+          <MyPosts />
+          <LogOutButton />
+        </div>
+      </section>
+      <section className="header__section--right">
+        <div className="header--noLogged-buttons">
+          <RegisterButton />
+          <ConnexionButton />
+        </div>
+      </section>
 
     </header>
   );

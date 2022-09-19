@@ -10,14 +10,25 @@
   margin-top: 2rem;
   font-weight: bold;
   font-size: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  height: 4rem;
+  background-image: url('src/assets/Images/signUp.png');
+  background-size: 2rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 2rem;
+  transition: 0.3s;
+  padding-left: 4rem;
 }
 
 .RegisterButton--img {
   width: 1.7rem;
   margin-right: 2.5rem;
+}
+
+.RegisterButton--button:hover {
+  background-image: url('src/assets/Images/signUpHover.png');
+  background-color: vars.$white;
+  color: vars.$button;
+  transition: 0.3s;
 }
 

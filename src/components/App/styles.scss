@@ -1,11 +1,22 @@
 @use 'src/styles/vars';
 
+@use 'src/styles/reset';
+
+  html {
+    font-size: 10px;
+  }
+
+  body {
+    font-family: 'Chau Philomene One', sans-serif;
+  }
+
 .app {
   width: 100%;
   height: 100vh;
   text-align: center;
   background-color: vars.$mainBackground;
   padding: 3rem 15rem 3rem 8rem;
+  font-family: 'Chau Philomene One', sans-serif;
 }
 
 .app img {

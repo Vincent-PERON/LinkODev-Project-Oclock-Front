@@ -9,15 +9,21 @@
   margin-top: 2rem;
   font-weight: bold;
   font-size: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   width: 18rem;
-  justify-content: center;
+  height: 4rem;
+  background-image: url('src/assets/Images/logIn.png');
+  background-size: 2.5rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1.7rem;
+  text-align: center;
+  padding-left: 4rem;
+  transition: 0.3s;
 }
 
-.ConnexionButton--img {
-  width: 3rem;
-  margin-right: 1rem;
+.ConnexionButton--button:hover {
+  background-image: url('src/assets/Images/signUpHover.png');
+  background-color: vars.$white;
+  color: vars.$button;
+  transition: 0.3s;
 }
-

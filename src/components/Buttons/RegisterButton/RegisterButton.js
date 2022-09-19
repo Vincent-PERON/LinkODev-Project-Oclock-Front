@@ -6,7 +6,6 @@ function RegisterButton() {
   return (
     <div className="RegisterButton">
       <button type="button" className="RegisterButton--button">
-        <img src={logo} alt="logo d'inscription" className="RegisterButton--img" />
         S'inscrire
       </button>
     </div>
