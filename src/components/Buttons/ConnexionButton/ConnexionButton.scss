@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+
+.ConnexionButton--button {
+  background-color: vars.$button;
+  color: vars.$white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  border: none;
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 18rem;
+  justify-content: center;
+}
+
+.ConnexionButton--img {
+  width: 3rem;
+  margin-right: 1rem;
+}
+

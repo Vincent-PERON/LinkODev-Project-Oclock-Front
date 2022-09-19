@@ -1,0 +1,15 @@
+@use 'src/styles/vars';
+
+.header {
+  display: flex;
+  position: sticky;
+  justify-content: space-between;
+
+  &--Logged-buttons {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+}
+
+

@@ -1,0 +1,13 @@
+@use 'src/styles/vars';
+
+.app {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color: vars.$mainBackground;
+  padding: 3rem 15rem 3rem 8rem;
+}
+
+.app img {
+  max-width: 25rem;
+}
