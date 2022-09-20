@@ -1,0 +1,16 @@
+@use 'src/styles/vars';
+
+.Footer {
+    position: absolute;
+    bottom: 2rem;
+    right: 15rem;
+    display: flex;
+    text-align: right;
+    
+
+    &--link {
+        color: vars.$white;
+        padding-left: 15rem;
+        font-size: 2rem;
+    }
+}

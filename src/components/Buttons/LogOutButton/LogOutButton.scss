@@ -1,0 +1,28 @@
+@use 'src/styles/vars';
+
+.LogOutButton--button {
+  background-color: vars.$darkButton;
+  color: vars.$white;
+  padding: 1rem 3rem;
+  border-radius: 25px;
+  border: 1px solid vars.$white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-image: url('src/assets/Images/shutdown.png');
+  background-size: 2.5rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 2rem;
+  transition: 0.3s;
+  padding-left: 5.5rem;
+  
+}
+
+.LogOutButton--button:hover {
+  background-color: vars.$white;
+    color: vars.$button;
+    background-image: url('src/assets/Images/shutdownHover.png');
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
