@@ -1,21 +1,23 @@
 @use 'src/styles/vars';
 
-.header {
+.header__main__section {
   display: flex;
   position: sticky;
   justify-content: space-between;
 
   &--Logged-buttons {
     display: flex;
-    gap: 3rem;
+    gap: 6rem;
     align-items: center;
   }
 
-  &__section--center {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
 }
 
+.header__section--center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
 
