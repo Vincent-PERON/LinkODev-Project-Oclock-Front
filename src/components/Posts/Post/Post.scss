@@ -3,13 +3,42 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-top: 6rem;
+  margin: -8rem 8rem 0 8rem;
 
   &__container {
-    width: 100rem;
-    height: 100rem;
+    background-image: url("../../../assets/Images/postCard.png");
+    background-repeat: no-repeat;
+    background-size: 80rem;
+    background-position: center;
+    width: 80rem;
+    height: 80rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__container--intro {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: white;
+  }
+
+  &__container--body {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: white;
+  }
+
+  &__container--conclusion {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: white;
   }
 }
+
+img {
+  size: 1rem;
+}
+
