@@ -1,5 +1,17 @@
 .main__container {
-    display: flex;
-    justify-content: center;
-    margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+
+    &--redline {
+      border-top: 1px solid #FF1616;
+      width: 15rem;
+      margin: 4.5rem 5rem 0 5rem;
+    }
 }
+.main__container--button {
+  display: flex;
+  flex-direction: row;
+  margin: 6rem auto;
+}
+
+

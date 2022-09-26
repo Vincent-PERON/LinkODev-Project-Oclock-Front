@@ -3,7 +3,8 @@
 .LogOutButton--button {
   background-color: vars.$darkButton;
   color: vars.$white;
-  padding: 1rem 3rem;
+  padding: 1rem 3rem 1rem 5.5rem;
+  width: 23rem;
   border-radius: 25px;
   border: 1px solid vars.$white;
   font-weight: bold;
@@ -13,9 +14,7 @@
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 2rem;
-  transition: 0.3s;
-  padding-left: 5.5rem;
-  
+  transition: 0.3s;  
 }
 
 .LogOutButton--button:hover {

@@ -1,6 +1,4 @@
-// import { Feather } from 'react-feather';
 import './RegisterButton.scss';
-import logo from 'src/assets/Images/signup.gif';
 
 function RegisterButton() {
   return (
