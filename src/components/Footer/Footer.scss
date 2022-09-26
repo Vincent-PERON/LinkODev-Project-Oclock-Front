@@ -1,11 +1,10 @@
 @use 'src/styles/vars';
 
 .Footer {
-    position: absolute;
-    bottom: 2rem;
-    right: 15rem;
-    display: flex;
+    position: relative;
     text-align: right;
+    bottom: 0;
+    right: 1rem;
     
 
     &--link {
