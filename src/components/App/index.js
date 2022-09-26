@@ -8,6 +8,7 @@ import AboutUs from '../AboutUs/AboutUs';
 import FormGenerator from '../FormGenerator/FormGenerator';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
+import InfoProfile from '../InfoProfile/InfoProfile';
 
 // == Composant
 function App() {
@@ -20,6 +21,7 @@ function App() {
       {/* <Main /> */}
       {/* <FormGenerator /> */}
       {/* <PostGenerateButton /> */}
+      <InfoProfile />
       <ForgotPassword />
       <Footer />
     </div>
