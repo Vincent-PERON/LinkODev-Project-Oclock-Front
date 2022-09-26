@@ -3,42 +3,50 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin: -8rem 8rem 0 8rem;
+  margin: 2rem 8rem 0 8rem;
 
   &__container {
     background-image: url("../../../assets/Images/postCard.png");
     background-repeat: no-repeat;
-    background-size: 80rem;
+    background-size: 50rem;
     background-position: center;
-    width: 80rem;
-    height: 80rem;
+    min-width: 60rem;
+    min-height: 60rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     align-items: center;
     justify-content: center;
   }
 
-  &__container--intro {
-    font-size: 2rem;
+  &__container__content {
+    max-height: 35rem;
+    max-width: 35rem;
+    margin: 0 12rem;
+  }
+
+  &__container__content--intro {
+    font-size: 1.6rem;
+    color: white;
+  }
+
+  &__container__content--body {
+    font-size: 1.6rem;
     margin: 1rem 0;
     color: white;
   }
 
-  &__container--body {
-    font-size: 2rem;
+  &__container__content--conclusion {
+    font-size: 1.6rem;
     margin: 1rem 0;
     color: white;
   }
 
-  &__container--conclusion {
-    font-size: 2rem;
-    margin: 1rem 0;
-    color: white;
+  &__container--copyLogo {
+    width: 3.5rem;
+    position: relative;
+    bottom: -8rem;
+    left: 15rem;
   }
 }
 
-img {
-  size: 1rem;
-}
 
