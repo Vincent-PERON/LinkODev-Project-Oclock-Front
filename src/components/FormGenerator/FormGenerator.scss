@@ -1,0 +1,87 @@
+@use 'src/styles/vars';
+
+.FormGenerator {
+  color: vars.$white;
+  font-size: 1.8rem;
+  font-weight: bold;
+
+  &-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-top: 6rem;
+    margin-bottom:4rem;
+  }
+
+  &-subtitle {
+    margin-top: 3rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &-description {
+    margin-bottom: 3rem;
+
+}
+  &-card {
+    padding-top: 5.5rem;
+    background-image: url('src/assets/Images/PostsFormBg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65rem;
+    height: 33rem;
+  }
+
+  &-card-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &-card-description {
+    margin-bottom: 4rem;
+  }
+
+  &-form {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  &-form-group {
+    margin-bottom: 1rem;
+  }
+
+  &-label {
+    text-transform: uppercase;
+  }
+
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + span {
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  width: 20px;
+  height: 20px;
+  margin: 5px 15px 5px 5px;
+  vertical-align: middle;
+  background: vars.$mainBackground;
+  border: 3px solid vars.$button;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main__container--redline {
+  border-top: 1px solid #FF1616;
+  width: 15rem;
+  margin: 4.5rem 5rem 0 5rem;
+}
+
+.main__container--button {
+  display: flex;
+  justify-content: center;
+}
