@@ -1,3 +1,4 @@
+import './styles.scss';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
@@ -5,8 +6,8 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import AboutUs from '../AboutUs/AboutUs';
 import FormGenerator from '../FormGenerator/FormGenerator';
-import './styles.scss';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
+import ForgotPassword from '../ForgotPassword/ForgotPassword';
 
 // == Composant
 function App() {
@@ -17,8 +18,9 @@ function App() {
       {/* <Register /> */}
       {/* <AboutUs /> */}
       {/* <Main /> */}
-      <FormGenerator />
+      {/* <FormGenerator /> */}
       {/* <PostGenerateButton /> */}
+      <ForgotPassword />
       <Footer />
     </div>
   );
