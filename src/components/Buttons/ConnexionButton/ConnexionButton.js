@@ -1,5 +1,4 @@
 import './ConnexionButton.scss';
-import test from 'src/assets/Images/connexion.gif';
 
 function ConnexionButton() {
   return (
