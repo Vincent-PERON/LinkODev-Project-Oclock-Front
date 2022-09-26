@@ -1,6 +1,5 @@
 import './Footer.scss';
 
-
 function Footer() {
   return (
     <nav className="Footer">
