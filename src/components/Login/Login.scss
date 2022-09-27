@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .Login {
-  margin: 0 auto;
+  margin: 4.5rem auto;
 
   &-title {
     color: vars.$white;
@@ -15,41 +15,37 @@
     color: vars.$white;
     font-weight: bold;
     font-size: 1.5rem;
-    margin-bottom: 8rem;
+    margin-bottom: 4.5rem;
+  }
+
+  &-separation {
+    width: 80vw;
   }
 
   &-form-group {
     display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    justify-content: center;
-  }
-
-  &-form {
-    display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    gap: 2rem;
     align-items: center;
+    gap: 2rem;
+    margin-top: 4.5rem;
   }
 
   &-form-elem {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 32rem;
+    align-items: center;
+    gap: 1rem;
   }
 
   &-form-label {
     color: vars.$white;
     font-weight: bold;
     font-size: 1.5rem;
-    padding-left: 1.5rem;
     margin-bottom: 1rem;
   }
 
   &-form-input {
-    width:100%;
+    width:32rem;
     margin-bottom: 2rem;
     height: 4.5rem;
     background-color: vars.$formInput;
@@ -66,22 +62,26 @@
     padding: 1rem 2rem;
     border-radius: 25px;
     border: none;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     font-weight: bold;
     font-size: 1.5rem;
     width: 40rem;
     height: 5rem;
-    margin-bottom: 3rem;
-  }
-  
-  &-form-button:hover {
-      background-color: vars.$white;
-      color: vars.$button;
   }
 
-  &-p {
-    color: vars.$white;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
+  &-form-button:hover {
+    background-color: vars.$white;
+    color: vars.$button;
 }
+
+&-a {
+  color: vars.$white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+}
+
+.main__container--redline {
+  border-top: 1px solid #FF1616;
+  width: 15rem;
+ }
