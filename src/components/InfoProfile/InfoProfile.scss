@@ -15,13 +15,13 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 4rem;
+    gap: 2rem;
     background-image: url('src/assets/Images/profileBox.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 70rem;
-    height: 35rem;
-    padding-bottom: 3rem;
+    background-size: 72rem;
+    height: 40rem;
+    padding-bottom: 5rem;
   }
 
   &-group {
@@ -29,10 +29,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
-  }
-
-  &-group-left {
-    border-right: 1.5px solid vars.$red;
   }
 
   &-group-content {
@@ -72,8 +68,13 @@
       font-size: 1.3rem;
       transition: 0.3s;
     }
+    
     &-button-mail {
       margin-top: 4rem;
+    }
+
+    &-button-password {
+      margin-left: 1.5rem;
     }
     
     &-button:hover {

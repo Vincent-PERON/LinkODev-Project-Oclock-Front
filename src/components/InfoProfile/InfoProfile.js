@@ -31,7 +31,7 @@ function InfoProfile() {
             <label htmlFor="password" className="InfoProfile-form-label">CONFIRMATION DU MOT DE PASSE</label>
             <input id="new-password-confirm" type="password" className="InfoProfile-form-input" placeholder="Tapez votre nouveau mot de passe" />
           </div>
-          <button className="InfoProfile-button" type="button">Mettre à jour mon mot de passe</button>
+          <button className="InfoProfile-button InfoProfile-button-password" type="button">Mettre à jour mon mot de passe</button>
         </div>
       </form>
     </div>
