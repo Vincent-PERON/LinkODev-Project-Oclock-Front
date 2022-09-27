@@ -14,7 +14,6 @@ function Main() {
           to="/generator"
         ><PostGenerateButton />
         </NavLink>
-
         <div className="main__container--redline" />
       </section>
       <SeparationBar />

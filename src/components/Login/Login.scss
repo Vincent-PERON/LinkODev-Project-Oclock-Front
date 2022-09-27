@@ -62,12 +62,11 @@
     padding: 1rem 2rem;
     border-radius: 25px;
     border: none;
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     font-weight: bold;
     font-size: 1.5rem;
     width: 40rem;
     height: 5rem;
-    margin-bottom: 1.5rem;
   }
 
   &-form-button:hover {
@@ -81,3 +80,8 @@
   font-size: 1.2rem;
 }
 }
+
+.main__container--redline {
+  border-top: 1px solid #FF1616;
+  width: 15rem;
+ }

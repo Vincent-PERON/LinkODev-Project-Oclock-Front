@@ -35,12 +35,16 @@ function Register() {
             </div>
           </section>
         </div>
-        <button
-          type="submit"
-          className="Register-form-button"
-        >
-          S'INSCRIRE
-        </button>
+        <section className="main__container--button">
+          <div className="main__container--redline" />
+          <button
+            type="submit"
+            className="Register-form-button"
+          >
+            S'INSCRIRE
+          </button>
+          <div className="main__container--redline" />
+        </section>
       </form>
       <p className="Register-p">Les champs avec(*) sont obligatoires</p>
     </div>
