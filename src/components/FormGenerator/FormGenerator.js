@@ -1,8 +1,54 @@
+// import axios from 'axios';
+import { useState } from 'react';
+
+import data from 'src/data/tags.json';
+
 import './FormGenerator.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
 
 function FormGenerator() {
+  const [tags, setTags] = useState([]);
+  // here the possibility to modify the state of checkboxes onClick. value by default : false
+  const [checked, setChecked] = useState(true);
+
+  // const cssClassNames = zenMode ? 'blog blog--zen' : 'blog';
+
+  const handleChange = () => {
+    setChecked(!checked);
+    console.log(checked);
+  };
+
+  // // Au premier rendu du composant
+  // useEffect(() => {
+  //   // Je récupère les tâches depuis l'API
+  //   axios.get('https://linkodevapi.cyber-one.fr/tags')
+  //     .then((res) => {
+  //       // Je les stocke dans mon state
+  //       setTags(res.data);
+  //     });
+  // }, []);
+
+  const toggleTagChecked = (tagId) => {
+    axios.get(`http://linkodevapi.cyber-one.fr/tags`)
+      .then(() => {
+        const updatedTags = tags.map((tag) => {
+          if (tag.id === tagId) {
+            return {
+              ...tag,
+              checked: !checked,
+            };
+          }
+          return tag;
+        });
+
+        setTags(updatedTags);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div className="FormGenerator">
       <h1 className="FormGenerator-title">Générateur de posts LinkedIn pour les développeurs webs</h1>
@@ -15,23 +61,57 @@ function FormGenerator() {
 
         <form className="FormGenerator-form">
           <div className="FormGenerator-form-group-by-3">
-            <div className="FormGenerator-form-group">
+            <ul className="FormGenerator-form-group">
+              {data.map((tag) => (
+                <li key={tag.id} className="FormGenerator-li">
+                  <label className="FormGenerator-label">
+                    <input
+                      type="checkbox"
+                      id={tag.id}
+                      className="FormGenerator-checkbox"
+                      checked={checked}
+                      onChange={handleChange}
+                    />
+                    <span />
+                    {tag.title}
+                  </label>
+                </li>
+              ))}
+            </ul>
+
+            {/* <div className="FormGenerator-form-group">
               <label className="FormGenerator-label">
-                <input className="FormGenerator-checkbox" type="checkbox" />
+                <input
+                  className="FormGenerator-checkbox"
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChange}
+                />
                 <span />
                 Good News
               </label>
             </div>
+
             <div className="FormGenerator-form-group">
               <label className="FormGenerator-label">
-                <input className="FormGenerator-checkbox" type="checkbox" />
+                <input
+                  className="FormGenerator-checkbox"
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChange}
+                />
                 <span />
                 React
               </label>
             </div>
             <div className="FormGenerator-form-group">
               <label className="FormGenerator-label">
-                <input className="FormGenerator-checkbox" type="checkbox" />
+                <input
+                  className="FormGenerator-checkbox"
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChange}
+                />
                 <span />
                 Prise de position
               </label>
@@ -40,25 +120,40 @@ function FormGenerator() {
           <div className="FormGenerator-form-group-by-3">
             <div className="FormGenerator-form-group">
               <label className="FormGenerator-label">
-                <input className="FormGenerator-checkbox" type="checkbox" />
+                <input
+                  className="FormGenerator-checkbox"
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChange}
+                />
                 <span />
                 Design web
               </label>
             </div>
             <div className="FormGenerator-form-group">
               <label className="FormGenerator-label">
-                <input className="FormGenerator-checkbox" type="checkbox" />
+                <input
+                  className="FormGenerator-checkbox"
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChange}
+                />
                 <span />
                 Autre catégorie
               </label>
             </div>
             <div className="FormGenerator-form-group">
               <label className="FormGenerator-label">
-                <input className="FormGenerator-checkbox" type="checkbox" />
+                <input
+                  className="FormGenerator-checkbox"
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChange}
+                />
                 <span />
                 Autre catégorie
               </label>
-            </div>
+            </div> */}
           </div>
         </form>
       </section>
