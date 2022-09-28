@@ -9,38 +9,53 @@
     font-weight: bold;
     font-size: 2rem;
     margin-bottom: 1rem;
+    margin-top: 4.5rem;
   }
 
   &-subtitle {
     color: vars.$white;
     font-weight: bold;
     font-size: 1.5rem;
-    margin-bottom: 8rem;
+    margin-bottom: 4.5rem;
+  }
+
+  &-separation {
+    width: 80vw;;
   }
 
   &-form-group {
     display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    justify-content: center;
+    margin-top: 4.5rem;
+  }
+
+  &-form {
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 2rem;
+    align-items: center;
   }
 
   &-form-elem {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    width: 32rem;
   }
 
   &-form-label {
     color: vars.$white;
     font-weight: bold;
     font-size: 1.5rem;
+    padding-left: 1.5rem;
     margin-bottom: 1rem;
   }
 
   &-form-input {
-    width:32rem;
+    width:100%;
     margin-bottom: 2rem;
     height: 4.5rem;
     background-color: vars.$formInput;
@@ -57,22 +72,21 @@
     padding: 1rem 2rem;
     border-radius: 25px;
     border: none;
-    margin-top: 5rem;
+    margin-top: 2rem;
     font-weight: bold;
     font-size: 1.5rem;
     width: 40rem;
     height: 5rem;
-    margin-bottom: 1.5rem;
+  }
+  
+  &-form-button:hover {
+      background-color: vars.$white;
+      color: vars.$button;
   }
 
-  &-form-button:hover {
-    background-color: vars.$white;
-    color: vars.$button;
-}
-
-&-a {
-  color: vars.$white;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
+  &-p {
+    color: vars.$white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
 }

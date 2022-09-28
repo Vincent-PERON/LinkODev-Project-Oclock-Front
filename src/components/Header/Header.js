@@ -1,3 +1,5 @@
+import { Link, NavLink } from 'react-router-dom';
+
 import './Header.scss';
 import ConnexionButton from 'src/components/Buttons/ConnexionButton/ConnexionButton';
 import RegisterButton from 'src/components/Buttons/RegisterButton/RegisterButton';
@@ -10,12 +12,20 @@ function Header() {
     <header className="header">
       <section className="header__main__section">
         <section className="header__section--left">
-          <img src={logo} alt="logo LinkO'Dev" className="header--logo" href="/" />
+          <Link to="/">
+            <img src={logo} alt="logo LinkO'Dev" className="header--logo" />
+          </Link>
         </section>
         <section className="header__section--right">
           <div className="header--noLogged-buttons">
-            <RegisterButton />
-            <ConnexionButton />
+            <NavLink
+              to="/register"
+            ><RegisterButton />
+            </NavLink>
+            <NavLink
+              to="/login"
+            ><ConnexionButton />
+            </NavLink>
           </div>
         </section>
       </section>
