@@ -7,8 +7,10 @@ import data from 'src/data/tags.json';
 import './FormGenerator.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
+import Posts from '../Posts/Posts';
+import Post from '../Posts/Post/Post';
 
-function FormGenerator({ setGeneratedPost }) {
+function FormGenerator({ setGeneratedPosts, setLastGeneratedPost }) {
   const [tags, setTags] = useState([]);
   const [checkedTags, setCheckedTags] = useState([]);
 
@@ -28,10 +30,12 @@ function FormGenerator({ setGeneratedPost }) {
     axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
       .then((response) => {
         console.log(response);
-        // je stocke la response dans setGeneratedPost pour pouvoir l'afficher dans les
-        // components Posts et Post
-        const resultPost = response.data;
-        // setGeneratedPost(response.data);
+        // je stocke la response dans setGeneratedPost pour pouvoir modifier le generatedPosts et
+        // l'afficher dans les components Posts et Post
+        // on voudra réutiliser le component Post avec le dernier post généré
+        // pour l'afficher en résultat
+        setLastGeneratedPost(response.data);
+        setGeneratedPosts(response.data);
       }).catch((err) => {
         console.error(err);
       });
@@ -97,7 +101,8 @@ function FormGenerator({ setGeneratedPost }) {
 }
 
 FormGenerator.propTypes = {
-  setGeneratedPost: PropTypes.func.isRequired,
+  setGeneratedPosts: PropTypes.func.isRequired,
+  setLastGeneratedPost: PropTypes.func.isRequired,
 };
 
 export default FormGenerator;
