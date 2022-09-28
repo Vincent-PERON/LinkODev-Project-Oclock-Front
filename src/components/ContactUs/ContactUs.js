@@ -8,7 +8,6 @@ function ContactUs() {
       <div className="ContactUs-separation"><SeparationBar /></div>
       <p className="ContactUs-description">Bienvenue sur le projet LinkO'Dev !</p>
       <p className="ContactUs-description">Vous souhaitez nous contacter pour une idée de contenu, pour une question, ou simplement pour nous envoyer un message plein d'amour, vous pouvez utiliser le formulaire suivant. Nous vous recontacterons dès que possible.</p>
-
       <form className="ContactUs-form">
         <div className="ContactUs-form-group">
           <section className="ContactUs-form-section">
