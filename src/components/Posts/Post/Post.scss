@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .PostCard {
   display: flex;
   flex-direction: row;
@@ -24,29 +26,26 @@
     margin: 0 12rem;
   }
 
-  &__container__content--intro {
+  &__container__content--text {
     font-size: 1.6rem;
-    color: white;
-  }
-
-  &__container__content--body {
-    font-size: 1.6rem;
-    margin: 1rem 0;
-    color: white;
-  }
-
-  &__container__content--conclusion {
-    font-size: 1.6rem;
-    margin: 1rem 0;
-    color: white;
+    color: vars.$white;
   }
 
   &__container--copyLogo {
     width: 3.5rem;
     position: relative;
-    bottom: -8rem;
-    left: 15rem;
+    left: 18rem;
+    bottom: -1rem;
   }
 }
+
+.btn {
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  color: vars.$red;
+  cursor: pointer;
+}
+
 
 
