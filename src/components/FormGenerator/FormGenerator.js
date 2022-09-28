@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
 import data from 'src/data/tags.json';
 
@@ -7,7 +8,7 @@ import './FormGenerator.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
 
-function FormGenerator() {
+function FormGenerator({ setGeneratedPost }) {
   const [tags, setTags] = useState([]);
   const [checkedTags, setCheckedTags] = useState([]);
 
@@ -27,8 +28,13 @@ function FormGenerator() {
     axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
       .then((response) => {
         console.log(response);
-        const post = response.data;
-      })
+        // je stocke la response dans setGeneratedPost pour pouvoir l'afficher dans les
+        // components Posts et Post
+        const resultPost = response.data;
+        // setGeneratedPost(response.data);
+      }).catch((err) => {
+        console.error(err);
+      });
   };
 
   // Au premier rendu du composant
@@ -38,6 +44,8 @@ function FormGenerator() {
       .then((res) => {
         // Je les stocke dans mon state
         setTags(res.data);
+      }).catch((err) => {
+        console.error(err);
       });
   }, []);
 
@@ -87,5 +95,9 @@ function FormGenerator() {
     </div>
   );
 }
+
+FormGenerator.propTypes = {
+  setGeneratedPost: PropTypes.func.isRequired,
+};
 
 export default FormGenerator;
