@@ -2,17 +2,14 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-import data from 'src/data/tags.json';
-
 import './FormGenerator.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
-import Posts from '../Posts/Posts';
-import Post from '../Posts/Post/Post';
 
-function FormGenerator({ setGeneratedPosts, setLastGeneratedPost }) {
+function FormGenerator({ setGeneratedPost }) {
   const [tags, setTags] = useState([]);
   const [checkedTags, setCheckedTags] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const selectedTag = (event) => {
     // si case cochée, on veut ajouter l'id, sinon, on veut supprimer l'id de la liste
@@ -26,6 +23,8 @@ function FormGenerator({ setGeneratedPosts, setLastGeneratedPost }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsLoading(true);
+
     const selectedTagsURL = JSON.stringify(checkedTags);
     axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
       .then((response) => {
@@ -34,11 +33,11 @@ function FormGenerator({ setGeneratedPosts, setLastGeneratedPost }) {
         // l'afficher dans les components Posts et Post
         // on voudra réutiliser le component Post avec le dernier post généré
         // pour l'afficher en résultat
-        setLastGeneratedPost(response.data);
-        setGeneratedPosts(response.data);
+        setGeneratedPost(response.data);
       }).catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   // Au premier rendu du composant
@@ -69,7 +68,7 @@ function FormGenerator({ setGeneratedPosts, setLastGeneratedPost }) {
         >
           <div className="FormGenerator-form-group-by-3">
             <ul className="FormGenerator-form-group">
-              {data.map((tag) => (
+              {tags.map((tag) => (
                 <li key={tag.id} className="FormGenerator-li">
                   <label htmlFor={tag.id} className="FormGenerator-label">
                     <input
@@ -77,6 +76,7 @@ function FormGenerator({ setGeneratedPosts, setLastGeneratedPost }) {
                       id={tag.id}
                       value={tag.id}
                       className="FormGenerator-checkbox"
+                      disabled={isLoading}
                       // dans notre tableau checkedTags, on vérifie la présence du tag.id :
                       // si oui, c'est coché, sinon non
                       checked={checkedTags.includes(tag.id)}
@@ -90,7 +90,7 @@ function FormGenerator({ setGeneratedPosts, setLastGeneratedPost }) {
           </div>
           <section className="main__container--button">
             <div className="main__container--redline" />
-            <PostGenerateButton />
+            <PostGenerateButton disabled={isLoading} />
             <div className="main__container--redline" />
           </section>
         </form>
@@ -101,8 +101,7 @@ function FormGenerator({ setGeneratedPosts, setLastGeneratedPost }) {
 }
 
 FormGenerator.propTypes = {
-  setGeneratedPosts: PropTypes.func.isRequired,
-  setLastGeneratedPost: PropTypes.func.isRequired,
+  setGeneratedPost: PropTypes.func.isRequired,
 };
 
 export default FormGenerator;
