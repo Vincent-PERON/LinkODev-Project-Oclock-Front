@@ -12,6 +12,7 @@ import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import InfoProfile from '../InfoProfile/InfoProfile';
 import Posts from '../Posts/Posts';
+import ContactUs from '../ContactUs/ContactUs';
 
 // == Composant
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/profile" element={<InfoProfile />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/contact" element={<ContactUs />} />
 
         {/* <Route path="*" element={<404 />} /> */}
       </Routes>
