@@ -12,7 +12,9 @@ import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import InfoProfile from '../InfoProfile/InfoProfile';
 import Posts from '../Posts/Posts';
+import WrapperResultPost from '../WrapperResultPost/wrapperResultPost';
 import ContactUs from '../ContactUs/ContactUs';
+
 
 // == Composant
 function App() {
@@ -21,8 +23,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/generator" element={<FormGenerator />} />
-        <Route path="/generator/result" element={<FormGenerator />} />
+        <Route path="/generator" element={<WrapperResultPost />} />
         <Route path="/login" element={<Register />} />
         <Route path="/register" element={<Login />} />
         <Route path="/profile" element={<InfoProfile />} />

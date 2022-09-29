@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
 import SeparationBar from '../SeparationBar/SeparationBar';
@@ -17,7 +17,6 @@ function Main() {
         <div className="main__container--redline" />
       </section>
       <SeparationBar />
-      <Post />
     </div>
   );
 }
