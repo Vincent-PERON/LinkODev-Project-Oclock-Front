@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './Login.scss';
-import { actionChangeInputValue } from 'src/actions/user';
+import { actionChangeInputValue, actionCheckLogin } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
 function Login() {
@@ -13,16 +13,20 @@ function Login() {
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
 
-  // Au submit du formulaire, on veut interroger l'API pour vérifier que password et email
-  // existent et sont valides grâce à une requête post
+  /**
+ * fonction au submit du form qui dispatch l'actionCheckLogin pour interroger
+ * l'API et vérifier que password et email sont valides grâce à une requête post
+ */
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch(actionCheckLogin());
   };
 
-  // Au changement à l'écriture dans l'input, je veux récupérer la valeur puis l'enregistrer
-  // pour comparer state.user.email à event.target.value.email et idem password
-  // pour modifier la valeur d'un des inputs dans le state
-  // on dispatch actionChangeInputValue
+/**
+ * fonction qui récupère la valeur inscrite par l'utilisateur dans l'input
+ * pour modifier la valeur d'un des inputs dans le state
+ * on dispatch actionChangeInputValue
+ */
   const changeInputValue = (event) => {
     const newValue = event.target.value;
     const inputName = event.target.name;
