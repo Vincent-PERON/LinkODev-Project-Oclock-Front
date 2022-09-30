@@ -1,0 +1,34 @@
+@use 'src/styles/vars';
+
+.RegisterButton--button {
+  width: 18rem;
+  background-color: vars.$button;
+  color: vars.$white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  border: none;
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  height: 4rem;
+  background-image: url('src/assets/Images/signUp.png');
+  background-size: 2rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 2rem;
+  transition: 0.3s;
+  padding-left: 4rem;
+}
+
+.RegisterButton--img {
+  width: 1.7rem;
+  margin-right: 2.5rem;
+}
+
+.RegisterButton--button:hover {
+  background-image: url('src/assets/Images/signUpHover.png');
+  background-color: vars.$white;
+  color: vars.$button;
+  transition: 0.3s;
+}
+

@@ -1,0 +1,69 @@
+@use 'src/styles/vars';
+
+.ContactUs {
+  color: vars.$white;
+  font-size: 1.8rem;
+  height: auto;
+
+  &-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 4.5rem;
+  }
+
+  &-separation {
+    margin-bottom: 4.5rem;
+  }
+
+  &-description {
+    margin-bottom: 1rem;
+  }
+
+  &-form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    justify-content: center;
+    margin-top: 4.5rem;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  &-form-elem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 32rem;
+  }
+
+  &-form-label {
+    color: vars.$white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &-form-input {
+    width:100%;
+    margin-bottom: 2rem;
+    height: 4.5rem;
+    background-color: vars.$formInput;
+    padding: 1.5rem;
+    border: none;
+    outline: 2px dashed grey;
+    outline-offset: -5px;
+    border-radius: 10px;
+
+    &-textarea {
+      height: 22.5rem;;
+    }
+  }
+}

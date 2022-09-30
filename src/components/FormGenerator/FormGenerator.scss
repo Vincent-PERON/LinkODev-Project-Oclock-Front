@@ -1,0 +1,81 @@
+@use 'src/styles/vars';
+
+.FormGenerator {
+  color: vars.$white;
+  font-size: 1.8rem;
+  font-weight: bold;
+
+  &-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-top: 6rem;
+    margin-bottom: 4.5rem;
+  }
+
+  &-subtitle {
+    margin-top: 4.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &-description {
+    margin-bottom: 3rem;
+
+}
+  &-card {
+    padding-top: 5.5rem;
+    background-image: url('src/assets/Images/PostsFormBg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65rem;
+    height: 33rem;
+  }
+
+  &-card-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &-card-description {
+    margin-bottom: 4rem;
+  }
+
+  &-form-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 60rem;
+    margin: 0 auto;
+    margin-bottom: 12.5rem;
+  }
+
+  &-label {
+    text-transform: uppercase;
+  }
+
+}
+input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem 1.5rem 0.5rem 0.5rem;
+  vertical-align: middle;
+  background: vars.$mainBackground;
+  border: 3px solid vars.$button;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked {
+  background: vars.$red -1.9rem top no-repeat;
+}
+
+.main__container--redline {
+  border-top: 0.1rem solid #FF1616;
+  width: 15rem;
+  margin: 4.5rem 5rem 0 5rem;
+}
+
+.main__container--button {
+  display: flex;
+  justify-content: center;
+}

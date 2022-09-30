@@ -1,0 +1,15 @@
+@use 'reset';
+@use 'vars';
+
+@font-face {
+    font-family: 'Chau Philomene One';
+    src: url('../assets/fonts/LeagueSpartan-VariableFont_wght.ttf');
+  }
+  
+  html {
+    font-size: 10px;
+  }
+  
+  body {
+    font-family: 'Chau Philomene One', sans-serif;
+  }

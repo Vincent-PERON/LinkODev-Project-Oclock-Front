@@ -1,0 +1,28 @@
+@use 'src/styles/vars';
+
+@use 'src/styles/reset';
+
+  html {
+    font-size: 10px;
+  }
+
+  body {
+    font-family: 'Chau Philomene One', sans-serif;
+  }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: 100%;
+  text-align: center;
+  background-color: vars.$mainBackground;
+  padding: 2rem 5rem;
+  font-family: 'Chau Philomene One', sans-serif;
+}
+
+.app img {
+  max-width: 25rem;
+}
+
+

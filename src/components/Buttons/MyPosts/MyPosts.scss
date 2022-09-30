@@ -1,0 +1,27 @@
+@use 'src/styles/vars';
+
+.MyPosts--button {
+  background-color: vars.$darkButton;
+  color: vars.$white;
+  padding: 1rem 3rem 1rem 5.5rem;
+  width: 23rem;
+  border-radius: 25px;
+  border: 1px solid vars.$white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-image: url('src/assets/Images/MyPosts.png');
+  background-size: 2rem;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 2rem;
+  transition: 0.3s;
+}
+
+.MyPosts--button:hover {
+    background-color: vars.$white;
+    color: vars.$button;
+    background-image: url('src/assets/Images/MyPostsHover.png');
+    transition: 0.3s;
+}
+
+
