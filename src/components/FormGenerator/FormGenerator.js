@@ -28,7 +28,7 @@ function FormGenerator({ setGeneratedPost }) {
     const selectedTagsURL = JSON.stringify(checkedTags);
     axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
       .then((response) => {
-        console.log(response);
+        // console.log(response.data);
         // je stocke la response dans setGeneratedPost pour pouvoir modifier le generatedPosts et
         // l'afficher dans les components Posts et Post
         // on voudra réutiliser le component Post avec le dernier post généré

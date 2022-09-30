@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 import './Post.scss';
+// import { CopyToClipBoard } from 'react-copy-to-clipboard';
 
 function PostCard({ generatedPost }) {
   const postRef = useRef(null);
@@ -9,7 +10,12 @@ function PostCard({ generatedPost }) {
     postRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [generatedPost]);
 
+  // const handleCopy = () => {
+  //   console.log('Copied');
+  // };
+
   return (
+  // <CopyToClipBoard text={generatedPost} onCopy={handleCopy}>
     <div className="PostCard">
       <div className="PostCard__container">
         <div className="PostCard__container__content" ref={postRef}>
@@ -22,6 +28,7 @@ function PostCard({ generatedPost }) {
         </div>
       </div>
     </div>
+  // </CopyToClipBoard>
   );
 }
 
