@@ -1,22 +1,9 @@
 import { Link, NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import './Login.scss';
 import { useSelector, useDispatch } from 'react-redux';
 
+import './Login.scss';
 import { actionChangeInputValue } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
-
-// plan d'action côté front en utilisant redux pour un state global:
-// gérer les champs contrôlés email et password
-// initialiser un state qui contiendra l'email et le mot de passe.
-// lire le state via useSelector et vérifier si valeur state = valeur de l'input
-// fonction onChange sur l'input
-// utiliser redux pour faire une action pour changer la valeur de l'input
-// action dans le reducer
-// fonction onSubmit sur le formulaire
-// action dispatchée puis middleware pour appel API
-// enregistrer le retour de l'API dispatch action pour mémoriser le user
-// reducer pour nouveau state user
 
 function Login() {
   // accès au hook useDispatch() pour dispatcher les actions
@@ -69,7 +56,11 @@ function Login() {
             />
           </div>
           <div className="Login-form-elem">
-            <label htmlFor="password" className="Login-form-label">MOT DE PASSE (*)</label>
+            <label
+              htmlFor="password"
+              className="Login-form-label"
+            >MOT DE PASSE (*)
+            </label>
             <input
               id="password"
               name="password"
