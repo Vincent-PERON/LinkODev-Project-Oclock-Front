@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
-/* eslint-disable no-const-assign */
 import './Post.scss';
-import logo from '../../../assets/Images/copyIcon.png';
+// import { CopyToClipBoard } from 'react-copy-to-clipboard';
 
 function PostCard({ generatedPost }) {
   const postRef = useRef(null);
@@ -11,20 +10,33 @@ function PostCard({ generatedPost }) {
     postRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [generatedPost]);
 
+  // const handleCopy = () => {
+  //   console.log('Copied');
+  // };
+
   return (
+  // <CopyToClipBoard text={generatedPost} onCopy={handleCopy}>
     <div className="PostCard">
       <div className="PostCard__container">
-        <div className="PostCard__container__content" ref={postRef}> {generatedPost.content}
-          <img className="PostCard__container--copyLogo" src={logo} alt="Copy" />
+        <div className="PostCard__container__content" ref={postRef}>
+          <div className="PostCard__container__content--contain">
+            <p className="PostCard__container__content--text">{generatedPost.introduction.content}</p>
+            <p className="PostCard__container__content--text">{generatedPost.body.content}</p>
+            <p className="PostCard__container__content--text">{generatedPost.conclusion.content}</p>
+            <button className="PostCard__container__content--copyBtn" type="button">Copier</button>
+          </div>
         </div>
       </div>
     </div>
+  // </CopyToClipBoard>
   );
 }
 
 PostCard.propTypes = {
   generatedPost: PropTypes.shape({
-    content: PropTypes.string.isRequired,
+    introduction: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    conclusion: PropTypes.string.isRequired,
   }).isRequired,
 };
 
