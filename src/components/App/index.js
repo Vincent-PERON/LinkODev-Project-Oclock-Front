@@ -15,7 +15,6 @@ import Posts from '../Posts/Posts';
 import WrapperResultPost from '../WrapperResultPost/wrapperResultPost';
 import ContactUs from '../ContactUs/ContactUs';
 
-
 // == Composant
 function App() {
   return (
