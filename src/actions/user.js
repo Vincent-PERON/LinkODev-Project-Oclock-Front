@@ -1,6 +1,7 @@
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const CHECK_LOGIN = 'CHECK_LOGIN';
 export const SAVE_USER = 'SAVE_USER';
+export const LOG_OUT = 'LOG_OUT';
 
 /**
  * action dispatchée sur le onChange d'un input du Login form oudu Register form
@@ -31,4 +32,12 @@ export const actionCheckLogin = () => ({
 export const actionSaveUser = (token) => ({
   type: SAVE_USER,
   token,
+});
+
+/**
+ * action dispatchée au click sur le bouton se déconnecter du Header
+ * le reducer doit supprimer le token enregistré dans le state et passer isLogged: false
+ */
+export const actionLogOut = () => ({
+  type: LOG_OUT,
 });
