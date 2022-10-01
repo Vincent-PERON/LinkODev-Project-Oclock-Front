@@ -1,8 +1,8 @@
-import { CHANGE_INPUT_VALUE } from 'src/actions/user';
+import { CHANGE_INPUT_VALUE, SAVE_USER } from 'src/actions/user';
 
 export const initialState = {
   // ici le state initial qui concerne les users
-  logged: false,
+  isLogged: false,
   email: '',
   password: '',
 };
@@ -16,6 +16,16 @@ function reducer(state = initialState, action = {}) {
       return {
         ...state,
         [action.inputName]: action.newValue,
+      };
+    case SAVE_USER:
+      // on sauvegarde le token de l'utilisateur, et il passe en isLogged: true
+      return {
+        ...state,
+        isLogged: true,
+        token: action.token,
+        // on vide les inputs dans le state une fois connecté
+        email: '',
+        password: '',
       };
     default:
       return state;

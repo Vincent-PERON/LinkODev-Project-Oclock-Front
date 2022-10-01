@@ -8,8 +8,7 @@ const authMiddleware = (store) => (next) => (action) => {
       on va faire l'appel API  avec envoi à /login en back le email + password
       on récupère le state géré par le reducer user.js
       */
-      const { user } = store.getState();
-      const { email, password } = user;
+      const { user: { email, password } } = store.getState();
 
       axios.post('https://linkodevapi.cyber-one.fr/login', {
         email: email,
@@ -17,7 +16,7 @@ const authMiddleware = (store) => (next) => (action) => {
       }).then((response) => {
         console.log('response', response);
         /*
-        if user connected, il faut changer logged en true dans le state
+        if user connected, il faut changer isLogged en true dans le state
         on save le JSON WebToken dans le state ou localStorage (mémoire navigateur)
         On recupère aussi un JWT : JSON Web Token
         */
