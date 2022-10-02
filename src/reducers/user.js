@@ -5,6 +5,8 @@ export const initialState = {
   isLogged: false,
   email: '',
   password: '',
+  firstname: '',
+  lastname: '',
 };
 
 function reducer(state = initialState, action = {}) {

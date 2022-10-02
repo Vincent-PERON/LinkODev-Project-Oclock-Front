@@ -1,9 +1,9 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import './Login.scss';
 import { actionChangeInputValue, actionCheckLogin } from 'src/actions/user';
-import { useEffect } from 'react';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
 function Login() {

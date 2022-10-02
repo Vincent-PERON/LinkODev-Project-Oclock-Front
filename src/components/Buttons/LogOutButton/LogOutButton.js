@@ -14,7 +14,6 @@ function LogOutButton() {
           dispatch(actionLogOut());
         }}
       >
-        
         Me Déconnecter
       </button>
     </div>
