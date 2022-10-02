@@ -3,12 +3,13 @@ export const CHECK_LOGIN = 'CHECK_LOGIN';
 export const SAVE_USER = 'SAVE_USER';
 export const LOG_OUT = 'LOG_OUT';
 export const REGISTER_NEW_USER = 'REGISTER_NEW_USER';
+export const ERROR_CONFIRM_PASSWORD = 'ERROR_CONFIRM_PASSWORD';
 
 /**
  * action dispatchée sur le onChange d'un input du Login form ou du Register form
  * @param {string} newValue : nouvelle valeur de l'input récupérée dans le event.target.value
  * @param {string} inputName : le nom de l'input et de l'emplacement de la valeur dans le
- * state (lastname, firstname, email, password), récupéré dans le event.target.name
+ * state (lastname, firstname, email, password, confirmPassword), récupéré dans le event.target.name
  */
 
 export const actionChangeInputValue = (newValue, inputName) => ({
@@ -51,10 +52,19 @@ export const actionLogOut = () => ({
  * @param {string} email : l'email à sauvegarder du user tout juste créé
  * @param {string} password : le mot de passe à sauvegarder du user tout juste créé
  */
-export const actionRegisterNewUser = (lastname, firstname, email, password) => ({
+export const actionRegisterNewUser = (lastname, firstname, email, password, confirmPassword) => ({
   type: REGISTER_NEW_USER,
   lastname,
   firstname,
   email,
   password,
+  confirmPassword,
+});
+
+/**
+ * action dispatchée au submit du Register Form, si password !== confirmPassword
+ * le reducer doit afficher un message d'erreur : les mots de passe ne correspondent pas
+ */
+export const actionErrorConfirmPassword = () => ({
+  type: ERROR_CONFIRM_PASSWORD,
 });

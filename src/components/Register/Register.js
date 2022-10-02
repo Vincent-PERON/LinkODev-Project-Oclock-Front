@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import './Register.scss';
 import {
-  actionChangeInputValue, actionRegisterNewUser,
+  actionChangeInputValue, actionRegisterNewUser, actionErrorConfirmPassword,
 } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
@@ -27,9 +27,14 @@ function Register() {
   const firstname = useSelector((state) => state.user.firstname);
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
+  const confirmPassword = useSelector((state) => state.user.confirmPassword);
+  const message = useSelector((state) => state.user.message);
 
   // je veux déterminer si oui ou non le user sera connecté
   const isLogged = useSelector((state) => state.user.isLogged);
+
+  // je veux déterminer si le password et le confirmPassword sont identiques
+  const isValid = useSelector((state) => state.user.isValid);
 
   /**
  * fonction au submit du form qui dispatch l'actionSaveNewUser pour envoyer à
@@ -40,6 +45,12 @@ function Register() {
     event.preventDefault();
     dispatch(actionRegisterNewUser());
     console.log(actionRegisterNewUser());
+
+    // au submit du form, error if confirmPassword !== password
+    if (password !== confirmPassword) {
+      event.preventDefault();
+      dispatch(actionErrorConfirmPassword());
+    }
   };
 
   /**
@@ -137,21 +148,22 @@ function Register() {
             </div>
             <div className="Register-form-elem">
               <label
-                htmlFor="password-confirm"
+                htmlFor={confirmPassword}
                 className="Register-form-label"
               >
                 CONFIRMER VOTRE MOT DE PASSE (*)
               </label>
               <input
-                id="password-confirm"
+                id={confirmPassword}
                 type="password"
-                name="password"
+                name="confirmPassword"
                 className="Register-form-input"
                 placeholder="Votre mot de passe"
-                value={password}
+                value={confirmPassword}
                 onChange={changeInputValue}
               />
             </div>
+            <p className="Register-form-message">{message}</p>
           </section>
         </div>
         <section className="main__container--button">
