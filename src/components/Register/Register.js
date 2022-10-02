@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import './Register.scss';
 import {
-  actionChangeInputValue, CHECK_LOGIN, actionSaveUser, actionSaveNewUser,
+  actionChangeInputValue, actionRegisterNewUser,
 } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
@@ -23,10 +23,10 @@ function Register() {
   const navigate = useNavigate();
 
   // je récupère l'email et le password du state, le lastname, firstname aussi :
+  const lastname = useSelector((state) => state.user.lastname);
+  const firstname = useSelector((state) => state.user.firstname);
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
-  const firstname = useSelector((state) => state.user.firstname);
-  const lastname = useSelector((state) => state.user.lastname);
 
   // je veux déterminer si oui ou non le user sera connecté
   const isLogged = useSelector((state) => state.user.isLogged);
@@ -38,8 +38,8 @@ function Register() {
  */
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actionSaveNewUser());
-    console.log(actionSaveNewUser());
+    dispatch(actionRegisterNewUser());
+    console.log(actionRegisterNewUser());
   };
 
   /**
@@ -75,6 +75,7 @@ function Register() {
               <input
                 id={lastname}
                 type="text"
+                name="lastname"
                 className="Register-form-input"
                 placeholder="Votre nom"
                 value={lastname}
@@ -91,6 +92,7 @@ function Register() {
               <input
                 id={firstname}
                 type="text"
+                name="firstname"
                 className="Register-form-input"
                 placeholder="Votre prénom"
                 value={firstname}
@@ -107,6 +109,7 @@ function Register() {
               <input
                 id={email}
                 type="email"
+                name="email"
                 className="Register-form-input"
                 placeholder="Votre email"
                 value={email}
@@ -125,6 +128,7 @@ function Register() {
               <input
                 id={password}
                 type="password"
+                name="password"
                 className="Register-form-input"
                 placeholder="Votre mot de passe"
                 value={password}
@@ -141,6 +145,7 @@ function Register() {
               <input
                 id="password-confirm"
                 type="password"
+                name="password"
                 className="Register-form-input"
                 placeholder="Votre mot de passe"
                 value={password}
