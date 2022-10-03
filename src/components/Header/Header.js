@@ -6,6 +6,7 @@ import RegisterButton from 'src/components/Buttons/RegisterButton/RegisterButton
 import LogOutButton from 'src/components/Buttons/LogOutButton/LogOutButton';
 import MyPosts from 'src/components/Buttons/MyPosts/MyPosts';
 import logo from '../../assets/Images/Logo_3.png';
+import Profil from '../dashboard/profil/profil';
 
 function Header() {
   return (
@@ -26,6 +27,7 @@ function Header() {
               to="/login"
             ><ConnexionButton />
             </NavLink>
+            <Profil />
           </div>
         </section>
       </section>

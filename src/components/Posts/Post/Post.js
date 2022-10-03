@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import './Post.scss';
-import { CopyToClipBoard } from 'react-copy-to-clipboard';
 
 function PostCard({ generatedPost }) {
   const postRef = useRef(null);
