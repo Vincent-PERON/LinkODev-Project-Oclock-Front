@@ -18,7 +18,7 @@ function Main() {
         <div className="main__container--redline" />
       </section>
       <SeparationBar />
-      /* <section className="main__container--posts">
+        <section className="main__container--posts">
         <Posts />
       </section> 
     </div>
