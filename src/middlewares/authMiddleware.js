@@ -18,13 +18,12 @@ const authMiddleware = (store) => (next) => (action) => {
         console.log('response', response.data);
         /*
         if user connected, il faut changer isLogged en true dans le state
-        on save le JSON WebToken dans le state ou localStorage (mémoire navigateur)
-        On recupère aussi un JWT : JSON Web Token
+        on save le JSON WebToken récupéré dans le state, et le firstname de data.user
         */
-        store.dispatch(actionSaveUser(response.data.accessToken));
+        store.dispatch(actionSaveUser(response.data.accessToken, response.data.user));
       }).catch((error) => {
         console.log('erreur', error);
-        alert('erreur de chargement axios.post route/login, veuillez réessayer');
+        alert('Le mot de passe ou l\'email sont invalides, veuillez réessayer');
       });
 
       break;
