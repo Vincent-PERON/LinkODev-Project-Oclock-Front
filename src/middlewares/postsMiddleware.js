@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_LATEST_POSTS, actionSaveLatestPosts } from 'src/actions/post';
+import { actionSaveLatestPosts, GET_LATEST_POSTS } from 'src/actions/post';
 
 const postsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -7,14 +7,13 @@ const postsMiddleware = (store) => (next) => (action) => {
       /*
       on veut faire l'appel API  pour récupérer les 3 derniers posts de la route /posts/latest
       */
-
       axios.get('https://linkodevapi.cyber-one.fr/posts/latest')
         .then((response) => {
-          console.log('response', response.data);
+          
           /*
         On veut enregistrer le contenu des posts dans le state des posts
         */
-          store.dispatch(actionSaveLatestPosts(response.data));
+        store.dispatch(actionSaveLatestPosts(response.data));
         }).catch((error) => {
           console.log('erreur', error);
           alert('Impossible de récupérer les 3 derniers posts, veuillez réessayer');
@@ -25,8 +24,7 @@ const postsMiddleware = (store) => (next) => (action) => {
 
     default:
   }
-
-  return next(action);
+  next(action);  // vipe retrait du "return"
 };
 
 export default postsMiddleware;

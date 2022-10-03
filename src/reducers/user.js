@@ -1,6 +1,4 @@
-import {
-  CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, REGISTER_NEW_USER, ERROR_CONFIRM_PASSWORD,
-} from 'src/actions/user';
+import { CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, REGISTER_NEW_USER, ERROR_CONFIRM_PASSWORD,} from 'src/actions/user';
 
 export const initialState = {
   // ici le state initial qui concerne les users

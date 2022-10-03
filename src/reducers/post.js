@@ -1,12 +1,12 @@
 import { SAVE_LATEST_POSTS } from 'src/actions/post';
 
-export const initialState = {
+export const initialState2 = {
   // ici le state initial
   latestPosts: [],
   favPosts: [],
 };
 
-function reducer(state = initialState, action = {}) {
+function reducer(state = initialState2, action = {}) {
   switch (action.type) {
     case SAVE_LATEST_POSTS:
       return {

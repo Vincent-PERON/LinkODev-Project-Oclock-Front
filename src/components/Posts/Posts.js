@@ -1,21 +1,33 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 
-import Post from 'src/components/Posts/Post/Post';
+/* VIPE */ 
+import { useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionGetLatestPosts } from 'src/actions/post';
+
+// import Post from 'src/components/Posts/Post/Post';
+// import { initialState } from '../../reducers/post';
+
 
 function Posts() {
-  // component de la page d'accueil avec les 3 derniers posts :
-  // route get /posts/latest déjà prévue en back donc requête axios via postsMiddleware
+  const dispatch = useDispatch();
+  /*
+  Au premier rendu du composant on dispatch actionGetLatestPosts
+  pour que le middleware l'intercepte et aille faire la requette vers l'APInpour recuperer les recettes
+  */
+  useEffect(() => {
+    const action = actionGetLatestPosts(); // action => { type: 'GET_LATEST_POSTS' }
+    dispatch(action);
+  }, []);
 
-  const latestPosts = useSelector((state) => state.posts.latestPosts);
+  // const latestPosts = useSelector((state) => state.posts.latestPosts);
 
-  console.log(latestPosts);
   return (
 
     <div>
-      {latestPosts.map((post) => (
+      {/* latestPosts.map((post) => (
         <Post key={post.id} {...post} />
-      ))}
+      ))  */}
     </div>
   );
 }
