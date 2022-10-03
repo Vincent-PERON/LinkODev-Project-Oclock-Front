@@ -29,6 +29,7 @@ const authMiddleware = (store) => (next) => (action) => {
 
       break;
     }
+    // A RETRAVAILLER
     case REGISTER_NEW_USER: {
       /*
       on va faire l'appel API  avec envoi à /register en back les infos du user :
