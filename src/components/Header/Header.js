@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import './Header.scss';
 import ConnexionButton from 'src/components/Buttons/ConnexionButton/ConnexionButton';
@@ -8,6 +9,8 @@ import MyPosts from 'src/components/Buttons/MyPosts/MyPosts';
 import logo from '../../assets/Images/Logo_3.png';
 
 function Header() {
+  // je veux déterminer si oui ou non le user sera connecté
+  const isLogged = useSelector((state) => state.user.isLogged);
   return (
     <header className="header">
       <section className="header__main__section">
@@ -17,6 +20,7 @@ function Header() {
           </Link>
         </section>
         <section className="header__section--right">
+          {!isLogged && (
           <div className="header--noLogged-buttons">
             <NavLink
               to="/register"
@@ -27,8 +31,10 @@ function Header() {
             ><ConnexionButton />
             </NavLink>
           </div>
+          )}
         </section>
       </section>
+      {isLogged && (
       <section className="header__section--center">
         <div className="header__Logged-buttons--myposts">
           <MyPosts />
@@ -37,6 +43,7 @@ function Header() {
           <LogOutButton />
         </div>
       </section>
+      )}
     </header>
   );
 }
