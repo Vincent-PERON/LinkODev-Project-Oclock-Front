@@ -10,6 +10,7 @@ export const initialState = {
   firstname: '',
   lastname: '',
   confirmPassword: '',
+  token: null,
   // to check password and confirmPassword
   isValid: true,
   message: '',
@@ -33,8 +34,8 @@ function reducer(state = initialState, action = {}) {
         isLogged: true,
         token: action.token,
         // on vide les inputs dans le state une fois connecté
-        email: '',
-        password: '',
+        // email: '',
+        // password: '',
       };
     case LOG_OUT:
       return {

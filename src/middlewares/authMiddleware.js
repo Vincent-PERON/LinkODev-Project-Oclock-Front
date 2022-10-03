@@ -7,6 +7,7 @@ const authMiddleware = (store) => (next) => (action) => {
       /*
       on va faire l'appel API  avec envoi à /login en back le email + password
       on récupère le state géré par le reducer user.js
+      on doit récupérer : le token pour enregistrer la session user + le firstname pour msg profil
       */
       const { user: { email, password } } = store.getState();
 
@@ -14,14 +15,13 @@ const authMiddleware = (store) => (next) => (action) => {
         email: email,
         password: password,
       }).then((response) => {
-        console.log('response', response);
+        console.log('response', response.data);
         /*
         if user connected, il faut changer isLogged en true dans le state
         on save le JSON WebToken dans le state ou localStorage (mémoire navigateur)
         On recupère aussi un JWT : JSON Web Token
         */
-        store.dispatch(actionSaveUser(response.accessToken));
-        // à vérifier pour la réception du token
+        store.dispatch(actionSaveUser(response.data.accessToken));
       }).catch((error) => {
         console.log('erreur', error);
         alert('erreur de chargement axios.post route/login, veuillez réessayer');
