@@ -14,7 +14,7 @@ const postsMiddleware = (store) => (next) => (action) => {
           store.dispatch(actionSaveLatestPosts(response.data));
         }).catch((error) => {
           console.log('erreur', error);
-          alert('Impossible de récupérer les 3 derniers posts, veuillez réessayer');
+          // alert('Impossible de récupérer les 3 derniers posts, veuillez réessayer');
         });
 
       break;
@@ -35,7 +35,7 @@ const postsMiddleware = (store) => (next) => (action) => {
           //store.dispatch(actionSaveMyFavoritesPosts(response.data));
         }).catch((error) => {
           console.log('erreur', error);
-          alert('Impossible de récupérer les posts favoris, veuillez réessayer');
+          // alert('Impossible de récupérer les posts favoris, veuillez réessayer');
         });
 
       break;

@@ -1,86 +1,63 @@
-@use 'src/styles/vars';
-
-.InfoProfile {
-  color: vars.$white;
-  font-weight: bold;
-
-  &-title {
-    font-size: 2.5rem;
-    margin-top: 4.5rem;
-    margin-bottom: 4.5rem;
-  }
-
-  &-form {
-    margin-top: 4.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 2rem;
-    background-image: url('src/assets/Images/profileBox.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 72rem;
-    height: 40rem;
-    padding-bottom: 5rem;
-  }
-
-  &-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-
-  &-group-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    width: 27rem;
-  }
-
-  &-form-label {
-    font-size: 1.5rem;
-    color: vars.$darkText;
-  }
-
-  &-form-input {
-    width: 95%;
-    height: 3.3rem;
-    border-width: 0 0 0 2.5px solid vars.$darkText;
-    background-color: #8d8f99;
-    margin-left: 0.6rem;
-  }
-
-  &-form-input::placeholder {
-    color: vars.$darkTextTrans;
-    font-size: 1.5rem;
-  }
-
-  &-button {
-      background-color: vars.$darkButton;
-      color: vars.$white;
-      padding: 1rem;
-      width: 23rem;
-      border-radius: 25px;
-      border: 1px solid vars.$white;
-      font-weight: bold;
-      font-size: 1.3rem;
-      transition: 0.3s;
-    }
-    
-    &-button-mail {
-      margin-top: 4rem;
-    }
-
-    &-button-password {
-      margin-left: 1.5rem;
-    }
-    
-    &-button:hover {
-        background-color: vars.$white;
-        color: vars.$button;
-        transition: 0.3s;
-    }
+.favorites__container {
+  background-color: aqua;
+  max-width: 1600px;
+  margin : 0  auto;
 
 }
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+// .PostCardFav {
+
+//   &__container {
+//     background-image: url("../../assets/Images/postCard.svg");
+//     background-repeat: no-repeat;
+//     background-size: 100%;
+//     background-position: center;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//   }
+
+//   &__container__content {
+//     display: flex;
+//     flex-direction: row;
+//     color: vars.$white;
+//     font-size: 1.4rem;
+//     min-height: 60rem;
+//     max-width: 60rem;
+//     margin-top: 2rem;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+//   &__container__content--contain {
+//     margin: 12rem 10rem ;
+//     align-content: center;
+//   }
+
+//   &__container__content--text {
+//     margin-bottom: 2rem;
+//     text-align: left;
+//     align-content: center;
+//   }
+//   &__container__content--copyBtn {
+//     align-items: flex-end;
+//     border: none;
+//     background-color: vars.$blueText;
+//     color: vars.$white;
+//     text-transform: uppercase;
+//     width: 15rem;
+//     height: 3rem;
+//     font-weight: bold;
+//   }
+  
+//   &__container__content--copyBtn:hover{
+//     background-color: vars.$red;
+//     color: vars.$white;
+//   }
+// }
