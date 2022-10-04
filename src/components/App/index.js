@@ -22,7 +22,7 @@ import ForgotPassword from '../ForgotPassword/ForgotPassword';
 
 /* User Profile */
 import InfoProfile from '../InfoProfile/InfoProfile';
-import MyPosts from '../MyPosts/MyPosts';
+import MyFavoritesPosts from '../MyFavoritesPosts/MyFavoritesPosts';
 
 /* Posts */
 import WrapperResultPost from '../WrapperResultPost/wrapperResultPost';
@@ -39,7 +39,7 @@ function App() {
         <Route path="/login" element={<Register />} />
         <Route path="/register" element={<Login />} />
         <Route path="/me" element={<InfoProfile />} />
-        <Route path="/me/posts" element={<MyPosts />} />
+        <Route path="/me/posts" element={<MyFavoritesPosts />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/contact" element={<ContactUs />} />

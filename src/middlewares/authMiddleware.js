@@ -15,7 +15,7 @@ const authMiddleware = (store) => (next) => (action) => {
         email: email,
         password: password,
       }).then((response) => {
-        console.log('response', response.data);
+        // console.log('response', response.data);
         /*
         if user connected, il faut changer isLogged en true dans le state
         on save le JSON WebToken récupéré dans le state, et le firstname de data.user
@@ -46,7 +46,7 @@ const authMiddleware = (store) => (next) => (action) => {
         email: email,
         password: password,
       }).then((response) => {
-        console.log('response', response);
+        // console.log('response', response);
         /*
         if user créé et connecté, il faut changer isLogged en true dans le state
         on save le JSON WebToken dans le state ou localStorage (mémoire navigateur)
