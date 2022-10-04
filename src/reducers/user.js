@@ -1,4 +1,4 @@
-import { CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, REGISTER_NEW_USER, ERROR_CONFIRM_PASSWORD,} from 'src/actions/user';
+import { CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, REGISTER_NEW_USER, ERROR_CONFIRM_PASSWORD } from 'src/actions/user';
 
 export const initialState = {
   // ici le state initial qui concerne les users
@@ -44,14 +44,14 @@ function reducer(state = initialState, action = {}) {
         isLogged: false,
         token: null,
       };
-    case REGISTER_NEW_USER:
+    case REGISTER_NEW_USER: // RESET_REGISTER_FORM => vider les infos du user
       // on sauvegarde les infos du nouvel user : nom, prénom, email, mot de passe
       return {
         ...state,
-        lastname: action.lastname,
-        firstname: action.firstname,
-        email: action.email,
-        password: action.password,
+        // lastname: action.lastname,
+        // firstname: action.firstname,
+        // email: action.email,
+        // password: action.password,
         // on vide les inputs dans le state une fois connecté
         lastname: '',
         firstname: '',

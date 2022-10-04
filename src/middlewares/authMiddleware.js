@@ -8,6 +8,7 @@ const authMiddleware = (store) => (next) => (action) => {
       on va faire l'appel API  avec envoi à /login en back le email + password
       on récupère le state géré par le reducer user.js
       on doit récupérer : le token pour enregistrer la session user + le firstname pour msg profil
+      au submit du formulaire
       */
       const { user: { email, password } } = store.getState();
 
@@ -52,6 +53,7 @@ const authMiddleware = (store) => (next) => (action) => {
         on save le JSON WebToken dans le state ou localStorage (mémoire navigateur)
         peut-on récupérer directement un JWT : JSON Web Token pour passer le user en connected ????
         */
+        // ne pas connecter automatiquement un utilisateur, redirect vers le login si ok
         store.dispatch(actionSaveUser(response.accessToken));
         // à vérifier pour la réception du token
       }).catch((error) => {

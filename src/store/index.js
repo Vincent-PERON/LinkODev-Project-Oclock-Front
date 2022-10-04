@@ -1,5 +1,5 @@
 import { applyMiddleware, legacy_createStore as createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+// import { devToolsEnhancer } from 'redux-devtools-extension';
 import authMiddleware from 'src/middlewares/authMiddleware';
 import postsMiddleware from 'src/middlewares/postsMiddleware';
 
