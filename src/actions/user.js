@@ -55,16 +55,12 @@ export const actionLogOut = () => ({
  * @param {string} email : l'email à sauvegarder du user tout juste créé
  * @param {string} password : le mot de passe à sauvegarder du user tout juste créé
  */
-export const actionSubmitRegisterForm = (lastname, firstname, email, password, confirmPassword) => ({
+export const actionSubmitRegisterForm = (successCallback) => ({
   type: SUBMIT_REGISTER_FORM,
-  lastname,
-  firstname,
-  email,
-  password,
-  confirmPassword,
+  successCallback,
 });
 
-export const actionResetRegisterForm = (lastname, firstname, email, password, confirmPassword) => ({
+export const actionResetRegisterForm = () => ({
   type: RESET_REGISTER_FORM,
 });
 

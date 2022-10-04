@@ -1,19 +1,11 @@
-import { Link, NavLink, useNavigate, useHistory } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 import './Register.scss';
 import {
   actionChangeInputValue, actionSubmitRegisterForm, actionErrorConfirmPassword,
 } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
-
-// étapes pour gérer le register :
-// Champs contrôlés du formulaire avec actionChangeInputValue et action SAVE_NEW_USER
-// appel middleware API post
-// condition de vérification password === confirmPassword
-// condition de vérification email === unique donc n'existe pas encoore en BDD
-// après l'enregistrement du nouveau compte, l'user est connected et redirigé home
 
 function Register() {
   // accès au hook useDispatch() pour dispatcher les actions
@@ -31,12 +23,6 @@ function Register() {
   const message = useSelector((state) => state.user.message);
   const messageBack = useSelector((state) => state.user.messageBack);
 
-  // je veux déterminer si oui ou non le user sera connecté
-  const isLogged = useSelector((state) => state.user.isLogged);
-
-  // je veux déterminer si le password et le confirmPassword sont identiques
-  const isValid = useSelector((state) => state.user.isValid);
-
   /**
  * fonction au submit du form qui dispatch l'actionResetRegisterForm pour supprimer les
  * infos précédemment envoyées au back via la requête /register de l'authMiddleware
@@ -47,7 +33,7 @@ function Register() {
     if (password !== confirmPassword) {
       return dispatch(actionErrorConfirmPassword());
     }
-    dispatch(actionSubmitRegisterForm());
+    dispatch(actionSubmitRegisterForm(() => navigate('/login')));
   };
 
   /**

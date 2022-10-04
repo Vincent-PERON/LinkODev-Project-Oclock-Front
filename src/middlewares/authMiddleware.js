@@ -41,7 +41,6 @@ const authMiddleware = (store) => (next) => (action) => {
           lastname, firstname, email, password, confirmPassword,
         },
       } = store.getState();
-
       axios.post('https://linkodevapi.cyber-one.fr/register', {
         lastname: lastname,
         firstname: firstname,
@@ -57,6 +56,7 @@ const authMiddleware = (store) => (next) => (action) => {
         // les infos du state pour sécuriser l'app
         store.dispatch(actionResetRegisterForm());
         store.dispatch(actionErrorBack(response.data.error));
+        action.successCallback();
       }).catch((error) => {
         console.log('erreur', error, error.response.data.error);
         store.dispatch(actionErrorBack(error.response.data.error));
