@@ -13,7 +13,8 @@ function Posts() {
   const dispatch = useDispatch();
   /*
   Au premier rendu du composant on dispatch actionGetLatestPosts
-  pour que le middleware l'intercepte et aille faire la requette vers l'APInpour recuperer les recettes
+  pour que le middleware l'intercepte et aille faire la requette vers l'API pour
+  recuperer les recettes
   */
   useEffect(() => {
     const action = actionGetLatestPosts(); // action => { type: 'GET_LATEST_POSTS' }
@@ -23,11 +24,6 @@ function Posts() {
   const latestPosts = useSelector((state) => state.post.latestPosts);
 
   // eslint-disable-next-line max-len
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(message);
-    console.log(message);
-  };
 
   return (
     <div className="content-list">
@@ -40,7 +36,7 @@ function Posts() {
                   <p className="PostCard3__container__content--text">{post.introduction.content}</p>
                   <p className="PostCard3__container__content--text">{post.body.content}</p>
                   <p className="PostCard3__container__content--text">{post.conclusion.content}</p>
-                  <button className="PostCard__container__content--copyBtn" type="button" onClick={copyToClipboard}>Copier</button>
+                  <button className="PostCard__container__content--copyBtn" type="button">Copier</button>
                 </div>
               </div>
             </div>
