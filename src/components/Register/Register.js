@@ -1,19 +1,11 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 import './Register.scss';
 import {
-  actionChangeInputValue, actionRegisterNewUser, actionErrorConfirmPassword,
+  actionChangeInputValue, actionSubmitRegisterForm, actionErrorConfirmPassword,
 } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
-
-// étapes pour gérer le register :
-// Champs contrôlés du formulaire avec actionChangeInputValue et action SAVE_NEW_USER
-// appel middleware API post
-// condition de vérification password === confirmPassword
-// condition de vérification email === unique donc n'existe pas encoore en BDD
-// après l'enregistrement du nouveau compte, l'user est connected et redirigé home
 
 function Register() {
   // accès au hook useDispatch() pour dispatcher les actions
@@ -29,28 +21,19 @@ function Register() {
   const password = useSelector((state) => state.user.password);
   const confirmPassword = useSelector((state) => state.user.confirmPassword);
   const message = useSelector((state) => state.user.message);
-
-  // je veux déterminer si oui ou non le user sera connecté
-  const isLogged = useSelector((state) => state.user.isLogged);
-
-  // je veux déterminer si le password et le confirmPassword sont identiques
-  const isValid = useSelector((state) => state.user.isValid);
+  const messageBack = useSelector((state) => state.user.messageBack);
 
   /**
- * fonction au submit du form qui dispatch l'actionSaveNewUser pour envoyer à
- * l'API les infos du user grâce à une requête post + connecte le nouvel utilisateur grâce
- * au case CHECK_LOGIN déjà créé dans l'authMiddleware
+ * fonction au submit du form qui dispatch l'actionResetRegisterForm pour supprimer les
+ * infos précédemment envoyées au back via la requête /register de l'authMiddleware
  */
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actionRegisterNewUser());
-    console.log(actionRegisterNewUser());
-
     // au submit du form, error if confirmPassword !== password
     if (password !== confirmPassword) {
-      event.preventDefault();
-      dispatch(actionErrorConfirmPassword());
+      return dispatch(actionErrorConfirmPassword());
     }
+    dispatch(actionSubmitRegisterForm(() => navigate('/login')));
   };
 
   /**
@@ -81,7 +64,7 @@ function Register() {
                 htmlFor={lastname}
                 className="Register-form-label"
               >
-                NOM
+                NOM (*)
               </label>
               <input
                 id={lastname}
@@ -98,7 +81,7 @@ function Register() {
                 htmlFor={firstname}
                 className="Register-form-label"
               >
-                PRENOM
+                PRENOM (*)
               </label>
               <input
                 id={firstname}
@@ -127,6 +110,7 @@ function Register() {
                 onChange={changeInputValue}
               />
             </div>
+            <p className="Register-form-message">{messageBack}</p>
           </section>
           <section className="Register-form-section">
             <div className="Register-form-elem">

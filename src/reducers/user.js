@@ -1,4 +1,6 @@
-import { CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, REGISTER_NEW_USER, ERROR_CONFIRM_PASSWORD,} from 'src/actions/user';
+import {
+  CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK,
+} from 'src/actions/user';
 
 export const initialState = {
   // ici le state initial qui concerne les users
@@ -13,6 +15,7 @@ export const initialState = {
   // to check password and confirmPassword
   isValid: true,
   message: '',
+  messageBack: '',
 };
 
 function reducer(state = initialState, action = {}) {
@@ -35,8 +38,8 @@ function reducer(state = initialState, action = {}) {
         firstname: action.firstname,
         token: action.token,
         // on vide les inputs dans le state une fois connecté, à voir car redirect
-        // email: '',
-        // password: '',
+        email: '',
+        password: '',
       };
     case LOG_OUT:
       return {
@@ -44,15 +47,11 @@ function reducer(state = initialState, action = {}) {
         isLogged: false,
         token: null,
       };
-    case REGISTER_NEW_USER:
+    case RESET_REGISTER_FORM:
       // on sauvegarde les infos du nouvel user : nom, prénom, email, mot de passe
       return {
         ...state,
-        lastname: action.lastname,
-        firstname: action.firstname,
-        email: action.email,
-        password: action.password,
-        // on vide les inputs dans le state une fois connecté
+        // on vide les inputs dans le state une fois la requête envoyée sur la route /register
         lastname: '',
         firstname: '',
         email: '',
@@ -65,6 +64,13 @@ function reducer(state = initialState, action = {}) {
         isLogged: false,
         isValid: false,
         message: 'Les mots de passe ne correspondent pas',
+      };
+    case ERROR_BACK:
+      // on sauvegarde le message d'erreur pour l'afficher à l'utilisateur
+      return {
+        ...state,
+        isLogged: false,
+        messageBack: action.messageBack,
       };
     default:
       return state;
