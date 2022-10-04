@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import './Register.scss';
 import {
-  actionChangeInputValue, actionResetRegisterForm, actionErrorConfirmPassword,
+  actionChangeInputValue, actionSubmitRegisterForm, actionErrorConfirmPassword,
 } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
@@ -38,29 +38,16 @@ function Register() {
   const isValid = useSelector((state) => state.user.isValid);
 
   /**
- * hook useEffect qui redirige le user vers le Login si la requête axios /register
- * renvoie bien un status 200
- */
-  // useEffect(() => {
-  //   if (response.status === 200) {
-  //     navigate('/login');
-  //   }
-  // });
-
-  /**
  * fonction au submit du form qui dispatch l'actionResetRegisterForm pour supprimer les
  * infos précédemment envoyées au back via la requête /register de l'authMiddleware
  */
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actionResetRegisterForm());
-    console.log(actionResetRegisterForm());
-
     // au submit du form, error if confirmPassword !== password
     if (password !== confirmPassword) {
-      event.preventDefault();
-      dispatch(actionErrorConfirmPassword());
+      return dispatch(actionErrorConfirmPassword());
     }
+    dispatch(actionSubmitRegisterForm());
   };
 
   /**

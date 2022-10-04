@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  CHECK_LOGIN, actionSaveUser, RESET_REGISTER_FORM, actionResetRegisterForm,
+  CHECK_LOGIN, actionSaveUser, SUBMIT_REGISTER_FORM, actionResetRegisterForm,
 } from 'src/actions/user';
 import { actionErrorBack } from '../actions/user';
 
@@ -31,7 +31,7 @@ const authMiddleware = (store) => (next) => (action) => {
 
       break;
     }
-    case RESET_REGISTER_FORM: {
+    case SUBMIT_REGISTER_FORM: {
       /*
       on va faire l'appel API  avec envoi à /register en back les infos du user :
       lastname, firstname, email, password

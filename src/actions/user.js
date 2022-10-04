@@ -2,6 +2,7 @@ export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const CHECK_LOGIN = 'CHECK_LOGIN';
 export const SAVE_USER = 'SAVE_USER';
 export const LOG_OUT = 'LOG_OUT';
+export const SUBMIT_REGISTER_FORM = 'SUBMIT_REGISTER_FORM';
 export const RESET_REGISTER_FORM = 'RESET_REGISTER_FORM';
 export const ERROR_CONFIRM_PASSWORD = 'ERROR_CONFIRM_PASSWORD';
 export const ERROR_BACK = 'ERROR_BACK';
@@ -54,13 +55,17 @@ export const actionLogOut = () => ({
  * @param {string} email : l'email à sauvegarder du user tout juste créé
  * @param {string} password : le mot de passe à sauvegarder du user tout juste créé
  */
-export const actionResetRegisterForm = (lastname, firstname, email, password, confirmPassword) => ({
-  type: RESET_REGISTER_FORM,
+export const actionSubmitRegisterForm = (lastname, firstname, email, password, confirmPassword) => ({
+  type: SUBMIT_REGISTER_FORM,
   lastname,
   firstname,
   email,
   password,
   confirmPassword,
+});
+
+export const actionResetRegisterForm = (lastname, firstname, email, password, confirmPassword) => ({
+  type: RESET_REGISTER_FORM,
 });
 
 /**
