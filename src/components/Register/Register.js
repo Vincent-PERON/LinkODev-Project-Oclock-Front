@@ -1,10 +1,10 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import './Register.scss';
 import {
-  actionChangeInputValue, actionRegisterNewUser, actionErrorConfirmPassword,
+  actionChangeInputValue, actionResetRegisterForm, actionErrorConfirmPassword,
 } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
@@ -29,6 +29,7 @@ function Register() {
   const password = useSelector((state) => state.user.password);
   const confirmPassword = useSelector((state) => state.user.confirmPassword);
   const message = useSelector((state) => state.user.message);
+  const messageBack = useSelector((state) => state.user.messageBack);
 
   // je veux déterminer si oui ou non le user sera connecté
   const isLogged = useSelector((state) => state.user.isLogged);
@@ -37,14 +38,23 @@ function Register() {
   const isValid = useSelector((state) => state.user.isValid);
 
   /**
- * fonction au submit du form qui dispatch l'actionSaveNewUser pour envoyer à
- * l'API les infos du user grâce à une requête post + connecte le nouvel utilisateur grâce
- * au case CHECK_LOGIN déjà créé dans l'authMiddleware
+ * hook useEffect qui redirige le user vers le Login si la requête axios /register
+ * renvoie bien un status 200
+ */
+  // useEffect(() => {
+  //   if (response.status === 200) {
+  //     navigate('/login');
+  //   }
+  // });
+
+  /**
+ * fonction au submit du form qui dispatch l'actionResetRegisterForm pour supprimer les
+ * infos précédemment envoyées au back via la requête /register de l'authMiddleware
  */
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actionRegisterNewUser());
-    console.log(actionRegisterNewUser());
+    dispatch(actionResetRegisterForm());
+    console.log(actionResetRegisterForm());
 
     // au submit du form, error if confirmPassword !== password
     if (password !== confirmPassword) {
@@ -81,7 +91,7 @@ function Register() {
                 htmlFor={lastname}
                 className="Register-form-label"
               >
-                NOM
+                NOM (*)
               </label>
               <input
                 id={lastname}
@@ -98,7 +108,7 @@ function Register() {
                 htmlFor={firstname}
                 className="Register-form-label"
               >
-                PRENOM
+                PRENOM (*)
               </label>
               <input
                 id={firstname}
@@ -127,6 +137,7 @@ function Register() {
                 onChange={changeInputValue}
               />
             </div>
+            <p className="Register-form-message">{messageBack}</p>
           </section>
           <section className="Register-form-section">
             <div className="Register-form-elem">

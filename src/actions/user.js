@@ -2,8 +2,9 @@ export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const CHECK_LOGIN = 'CHECK_LOGIN';
 export const SAVE_USER = 'SAVE_USER';
 export const LOG_OUT = 'LOG_OUT';
-export const REGISTER_NEW_USER = 'REGISTER_NEW_USER';
+export const RESET_REGISTER_FORM = 'RESET_REGISTER_FORM';
 export const ERROR_CONFIRM_PASSWORD = 'ERROR_CONFIRM_PASSWORD';
+export const ERROR_BACK = 'ERROR_BACK';
 
 /**
  * action dispatchée sur le onChange d'un input du Login form ou du Register form
@@ -53,13 +54,22 @@ export const actionLogOut = () => ({
  * @param {string} email : l'email à sauvegarder du user tout juste créé
  * @param {string} password : le mot de passe à sauvegarder du user tout juste créé
  */
-export const actionRegisterNewUser = (lastname, firstname, email, password, confirmPassword) => ({
-  type: REGISTER_NEW_USER,
+export const actionResetRegisterForm = (lastname, firstname, email, password, confirmPassword) => ({
+  type: RESET_REGISTER_FORM,
   lastname,
   firstname,
   email,
   password,
   confirmPassword,
+});
+
+/**
+ * action dispatchée au submit du Register Form, si une erreur est remontée par le back
+ * elle doit s'afficher en messageBack dans le state pour être utilisée dans le RegisterForm
+ */
+export const actionErrorBack = (messageBack) => ({
+  type: ERROR_BACK,
+  messageBack,
 });
 
 /**

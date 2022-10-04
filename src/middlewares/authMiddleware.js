@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { CHECK_LOGIN, actionSaveUser, REGISTER_NEW_USER } from 'src/actions/user';
+import {
+  CHECK_LOGIN, actionSaveUser, RESET_REGISTER_FORM, actionResetRegisterForm,
+} from 'src/actions/user';
+import { actionErrorBack } from '../actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -28,15 +31,14 @@ const authMiddleware = (store) => (next) => (action) => {
 
       break;
     }
-    // A RETRAVAILLER
-    case REGISTER_NEW_USER: {
+    case RESET_REGISTER_FORM: {
       /*
       on va faire l'appel API  avec envoi à /register en back les infos du user :
       lastname, firstname, email, password
       */
       const {
         user: {
-          lastname, firstname, email, password,
+          lastname, firstname, email, password, confirmPassword,
         },
       } = store.getState();
 
@@ -45,17 +47,19 @@ const authMiddleware = (store) => (next) => (action) => {
         firstname: firstname,
         email: email,
         password: password,
+        confirmPassword: confirmPassword,
+        // mettre en option une condition checkbox pour se connecter automatiquement
       }).then((response) => {
-        console.log('response', response);
-        /*
-        if user créé et connecté, il faut changer isLogged en true dans le state
-        on save le JSON WebToken dans le state ou localStorage (mémoire navigateur)
-        peut-on récupérer directement un JWT : JSON Web Token pour passer le user en connected ????
-        */
-        store.dispatch(actionSaveUser(response.accessToken));
-        // à vérifier pour la réception du token
+        console.log('response', response, response.data.error);
+        // sous condition if, connecter automatiquement l'utilisateur
+        // store.dispatch(actionSaveUser(response.accessToken));
+        // ici, on veut simplement envoyer les infos au back pour enregistrement et supprimer
+        // les infos du state pour sécuriser l'app
+        store.dispatch(actionResetRegisterForm());
+        store.dispatch(actionErrorBack(response.data.error));
       }).catch((error) => {
-        console.log('erreur', error);
+        console.log('erreur', error, error.response.data.error);
+        store.dispatch(actionErrorBack(error.response.data.error));
         alert('erreur de chargement axios.post route/register, veuillez réessayer');
       });
 
