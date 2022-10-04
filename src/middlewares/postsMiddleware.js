@@ -9,11 +9,10 @@ const postsMiddleware = (store) => (next) => (action) => {
       */
       axios.get('https://linkodevapi.cyber-one.fr/posts/latest')
         .then((response) => {
-          
           /*
         On veut enregistrer le contenu des posts dans le state des posts
         */
-        store.dispatch(actionSaveLatestPosts(response.data));
+          store.dispatch(actionSaveLatestPosts(response.data));
         }).catch((error) => {
           console.log('erreur', error);
           alert('Impossible de récupérer les 3 derniers posts, veuillez réessayer');
@@ -24,7 +23,7 @@ const postsMiddleware = (store) => (next) => (action) => {
 
     default:
   }
-  next(action);  // vipe retrait du "return"
+  next(action); // vipe retrait du "return"
 };
 
 export default postsMiddleware;
