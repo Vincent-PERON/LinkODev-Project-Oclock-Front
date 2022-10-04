@@ -5,20 +5,19 @@ import './Post.scss';
 function PostCard({ generatedPost }) {
   const postRef = useRef(null);
 
+  /* Un message c'est une intro, un corps, une conclusion */
+  // eslint-disable-next-line max-len
+  const message = generatedPost.introduction.content + generatedPost.body.content + generatedPost.conclusion.content;
 
- /* Un message c'est une intro, un corps, une conclusion */
-  const message = generatedPost.introduction.content + generatedPost.body.content + generatedPost.conclusion.content
-
- /* Fonction copy to  clipboard */
+  /* Fonction copy to  clipboard */
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(message)
-    console.log(message)
-};
+    navigator.clipboard.writeText(message);
+    console.log(message);
+  };
 
   useEffect(() => {
     postRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [generatedPost]);
-
 
   return (
     <div className="PostCard">
@@ -28,7 +27,7 @@ function PostCard({ generatedPost }) {
             <p className="PostCard__container__content--text">{generatedPost.introduction.content}</p>
             <p className="PostCard__container__content--text">{generatedPost.body.content}</p>
             <p className="PostCard__container__content--text">{generatedPost.conclusion.content}</p>
-          <button className="PostCard__container__content--copyBtn" type="button" onClick={copyToClipboard} >Copier</button>
+            <button className="PostCard__container__content--copyBtn" type="button" onClick={copyToClipboard}>Copier</button>
           </div>
         </div>
       </div>

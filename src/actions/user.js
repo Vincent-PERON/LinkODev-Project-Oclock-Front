@@ -31,8 +31,9 @@ export const actionCheckLogin = () => ({
  * sauvegarde du token dans le state via le reducer
  * @param {string} token : le token à sauvegarder du user tout juste connecté
  */
-export const actionSaveUser = (token) => ({
+export const actionSaveUser = (token, firstname) => ({
   type: SAVE_USER,
+  firstname,
   token,
 });
 

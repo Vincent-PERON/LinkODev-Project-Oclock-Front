@@ -1,6 +1,4 @@
-import {
-  CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, REGISTER_NEW_USER, ERROR_CONFIRM_PASSWORD,
-} from 'src/actions/user';
+import { CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, REGISTER_NEW_USER, ERROR_CONFIRM_PASSWORD,} from 'src/actions/user';
 
 export const initialState = {
   // ici le state initial qui concerne les users
@@ -10,6 +8,8 @@ export const initialState = {
   firstname: '',
   lastname: '',
   confirmPassword: '',
+  // Name for Backend = "apitoken"
+  token: null,
   // to check password and confirmPassword
   isValid: true,
   message: '',
@@ -28,13 +28,15 @@ function reducer(state = initialState, action = {}) {
       };
     case SAVE_USER:
       // on sauvegarde le token de l'utilisateur, et il passe en isLogged: true
+      // on sauvegarde aussi le firstname renvoyé pour msg de bienvenue
       return {
         ...state,
         isLogged: true,
+        firstname: action.firstname,
         token: action.token,
-        // on vide les inputs dans le state une fois connecté
-        email: '',
-        password: '',
+        // on vide les inputs dans le state une fois connecté, à voir car redirect
+        // email: '',
+        // password: '',
       };
     case LOG_OUT:
       return {
