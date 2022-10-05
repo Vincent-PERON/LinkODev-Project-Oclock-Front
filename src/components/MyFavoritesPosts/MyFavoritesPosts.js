@@ -1,15 +1,12 @@
-import { useNavigate, NavLink,} from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import './MyFavoritesPosts.scss';
+import { actionGetMyFavoritesPosts } from 'src/actions/post';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
-import { actionGetMyFavoritesPosts } from 'src/actions/post';
-
-
 function MyFavoritesPosts() {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -19,7 +16,7 @@ function MyFavoritesPosts() {
   }, []);
 
   const favoritesPosts = useSelector((state) => state.post.favoritesPosts);
-  console.log('STATE FAVORIS:' , favoritesPosts)
+  console.log('STATE FAVORIS:', favoritesPosts);
 
   const isLogged = useSelector((state) => state.user.isLogged);
 
@@ -28,7 +25,6 @@ function MyFavoritesPosts() {
       navigate('/');
     }
   });
-
 
   return (
     <div className="InfoProfile">
@@ -44,28 +40,28 @@ function MyFavoritesPosts() {
           <SeparationBar />
 
           <section className="favorites__container">
-                <ul>
-                  {favoritesPosts.map(((post) => (
-                    <div className="PostCardFav">
-                      <div className="PostCardFav__container">
-                        <div className="PostCardFav__container__content">
-                          <div className="PostCardFav__container__content--contain">
-                            <p className="PostCardFav__container__content--text">{post.introduction.content}</p>
-                            <p className="PostCardFav__container__content--text">{post.body.content}</p>
-                            <p className="PostCardFav__container__content--text">{post.conclusion.content}</p>
-                            <button className="PostCard__container__content--copyBtn" type="button">Copier</button> 
-                          </div>
-                        </div>
+            <ul>
+              {favoritesPosts.map(((post) => (
+                <div className="PostCardFav">
+                  <div className="PostCardFav__container">
+                    <div className="PostCardFav__container__content">
+                      <div className="PostCardFav__container__content--contain">
+                        <p className="PostCardFav__container__content--text">{post.introduction.content}</p>
+                        <p className="PostCardFav__container__content--text">{post.body.content}</p>
+                        <p className="PostCardFav__container__content--text">{post.conclusion.content}</p>
+                        <button className="PostCard__container__content--copyBtn" type="button">Copier</button>
                       </div>
                     </div>
-                  )))}
-                </ul>
+                  </div>
+                </div>
+              )))}
+            </ul>
           </section>
 
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default MyFavoritesPosts;

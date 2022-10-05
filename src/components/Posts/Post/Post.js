@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './Post.scss';
 
 function PostCard({ generatedPost }) {
   const postRef = useRef(null);
+  const isLogged = useSelector((state) => state.user.isLogged);
 
   /* Un message c'est une intro, un corps, une conclusion */
   // eslint-disable-next-line max-len
@@ -21,6 +23,7 @@ function PostCard({ generatedPost }) {
 
   return (
     <div className="PostCard">
+
       <div className="PostCard__container">
         <div className="PostCard__container__content" ref={postRef}>
           <div className="PostCard__container__content--contain">
@@ -28,6 +31,9 @@ function PostCard({ generatedPost }) {
             <p className="PostCard__container__content--text">{generatedPost.body.content}</p>
             <p className="PostCard__container__content--text">{generatedPost.conclusion.content}</p>
             <button className="PostCard__container__content--copyBtn" type="button" onClick={copyToClipboard}>Copier</button>
+            {isLogged && (
+              <button className="PostCard__container__content--copyBtn" type="button">Enregistrer</button>
+            )}
           </div>
         </div>
       </div>
