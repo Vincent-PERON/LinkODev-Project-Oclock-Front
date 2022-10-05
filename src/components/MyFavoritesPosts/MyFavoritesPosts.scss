@@ -1,0 +1,70 @@
+@use 'src/styles/vars';
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.PostCardFav {
+
+  &__container {
+    background-image: url("../../assets/Images/postCard.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-height: 60rem;
+    margin-top: 4.5rem;
+  }
+
+  &__container__content {
+    display: flex;
+    flex-direction: row;
+    color: vars.$white;
+    font-size: 1.37rem;
+    height:  60rem;
+    max-width: 100%;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container__content--contain {
+    margin: 12rem 10rem ;
+    align-content: center;
+    max-width: 70%;
+    max-height: fit-content;
+  }
+
+  &__container__content--text {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    align-content: center;
+  }
+  &__container__content--copyBtn {
+    align-items: flex-end;
+    border: none;
+    background-color: vars.$blueText;
+    color: vars.$white;
+    text-transform: uppercase;
+    width: 15rem;
+    height: 3rem;
+    font-weight: bold;
+  }
+  
+  &__container__content--copyBtn:hover{
+    background-color: vars.$red;
+    color: vars.$white;
+  }
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 60rem;
+  height: 65rem;
+  margin-bottom: 5rem;
+}

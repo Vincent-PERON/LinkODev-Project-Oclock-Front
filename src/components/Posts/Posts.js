@@ -31,8 +31,6 @@ function Posts() {
     <Swiper
       spaceBetween={25}
       slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
     >
       <div className="content-list">
         <ul>
