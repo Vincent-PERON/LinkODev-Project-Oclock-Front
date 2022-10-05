@@ -6,8 +6,15 @@ import './MyFavoritesPosts.scss';
 
 import { actionGetMyFavoritesPosts } from 'src/actions/post';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SeparationBar from '../SeparationBar/SeparationBar';
+import {
+  Navigation, Pagination, Scrollbar, A11y, EffectCoverflow,
+} from 'swiper';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/effect-coverflow';
+import SeparationBar from '../SeparationBar/SeparationBar';
 
 function MyFavoritesPosts() {
   const dispatch = useDispatch();
@@ -42,17 +49,28 @@ function MyFavoritesPosts() {
           <h1 className="InfoProfile-title">MES FAVORIS</h1>
           <SeparationBar />
           <Swiper
+            effect="coverflow"
+            grabCursor
+            centeredSlides
+            slidesPerView="auto"
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            modules={[EffectCoverflow, Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={25}
-            slidesPerView={3}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            // slidesPerView={3}
+            scrollbar={{ draggable: true }}
           >
 
-            <section className="favorites__container">
-              <ul>
+            <section className="favorites__container swiper-container">
+              <ul className="swiper-wrapper">
                 {favoritesPosts.map(((post) => (
                   <SwiperSlide>
-                    <div className="PostCardFav">
+                    <div className="PostCardFav swiper-slide">
                       <div className="PostCardFav__container">
                         <div className="PostCardFav__container__content">
                           <div className="PostCardFav__container__content--contain">
