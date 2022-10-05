@@ -14,7 +14,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-coverflow';
-import SeparationBar from '../SeparationBar/SeparationBar';
+import ProfilSeparationBar from '../ProfilSeparationBar/ProfilSeparationBar';
 
 function MyFavoritesPosts() {
   const dispatch = useDispatch();
@@ -46,8 +46,9 @@ function MyFavoritesPosts() {
       )}
       {isLogged && (
         <div>
-          <h1 className="InfoProfile-title">MES FAVORIS</h1>
-          <SeparationBar />
+          <ProfilSeparationBar>
+            <p>MES POSTS</p>
+          </ProfilSeparationBar>
           <Swiper
             effect="coverflow"
             grabCursor

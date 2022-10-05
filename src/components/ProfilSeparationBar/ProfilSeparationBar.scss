@@ -1,0 +1,24 @@
+.ProfilSeparationBar {
+  display: block;
+  align-items: center;
+  margin-top: 6rem;
+
+    &--redLine {
+      border-top: 1px solid #FF1616;
+      width: 80%;
+      margin-left: 10%;
+    }
+
+    &--rectangle {
+      padding: 0.8rem;
+      background-color: #FF1616;
+      width: 12%;
+      margin-left: 44%;
+      margin-top: -1.8rem;
+    }
+
+    &--title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+}
