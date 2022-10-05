@@ -1,0 +1,14 @@
+@use 'src/styles/vars';
+
+.ProfileButton {
+
+  &--button {
+    background-color: transparent;
+    border: none;
+  }
+
+  &--img {
+    width: 8rem;
+  }
+}
+

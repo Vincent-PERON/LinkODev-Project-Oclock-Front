@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
 import SeparationBar from '../SeparationBar/SeparationBar';
-import Post from '../Posts/Post/Post';
+import Posts from '../Posts/Posts';
 import './Main.scss';
 
 function Main() {
@@ -17,6 +17,9 @@ function Main() {
         <div className="main__container--redline" />
       </section>
       <SeparationBar />
+      <section className="main__container--posts">
+        <Posts />
+      </section>
     </div>
   );
 }

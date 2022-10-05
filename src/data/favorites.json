@@ -1,0 +1,119 @@
+{
+  "id": 1,
+  "firstname": "Estelle",
+  "lastname": "Oclock",
+  "posts": [
+    {
+      "id": 1,
+      "updatedAt": "2022-10-03T14:15:25.758Z",
+      "introduction": {
+        "id": 1,
+        "content": "Certains débats entre dev’ font couler bcp d’encre virtuelle… Parmi les plus connus, 2 ou 4 espaces pour l’indentation, Javascript ou PHP, faut-il utiliser Redux avec React, ou encore, doit-on créer nos propres Hooks avec React ? Chacun a son avis. De grandes et petites questions qui s’affrontent pour l’amour du code Voyons ça de plus près…"
+      },
+      "body": {
+        "id": 1,
+        "content": " React est une librairie JS qui me passionne, et à juste titre je pense. Les possibilités sont infinies… Et les hésitations aussi ! Tous les morceaux que l’on code deviennent réutilisables, tels de magnifiques Lego. Et ces Lego que l’on peut imbriquer de façons différentes, sont fabriqués avec des composants et des sous-composants. React propose déjà des Hooks essentiels, comme useState, useEffect ou encore useRef. Par conséquent, pourquoi créer nos propres Hooks ? Pour avoir du code toujours plus générique et réutilisable, surtout dans un gros projet. Vous l’avez compris, je suis totalement pour créer nos propres Hooks React, dès qu’on réutilise les mêmes lignes de code plus de 2 fois dans des composants différents. Vous adorez le principe mais vous ne savez par où commencer ? Vous pouvez retrouver des exemples de Hooks sur le site de https://usehooks.com/"
+      },
+      "conclusion": {
+        "id": 1,
+        "content": "Pour autant, les possibilités offertes par React sont très importantes, et les manières de coder également. Que préférez-vous faire de votre côté, que ce soit sur vos projets personnels ou sur vos projets professionnels ? "
+      }
+    },
+    {
+      "id": 3,
+      "updatedAt": "2022-10-03T14:15:25.758Z",
+      "introduction": {
+        "id": 3,
+        "content": "Certains débats entre dev’ font couler beaucoup d’encre virtuelle… Parmi les plus connus, 2 ou 4 espaces pour l’indentation, Javascript ou PHP, ou dans un autre thème, que penser de l’extension du congé paternité ? Chacun son avis. De grandes questions qui s’affrontent pour l’amour du code Voyons ça de plus près."
+      },
+      "body": {
+        "id": 3,
+        "content": "Je commence par le point le plus important. Le choix du langage évidemment ! PHP ou Javascript, les 2 sont clairement très demandés en entreprise. Alors, si vous voulez approfondir vos connaissances, lequel devriez-vous choisir ? Question demande, Javascript a un léger avantage. Il est à la 7ème place du classement des langages d’août 2022, quand PHP est à la 10ème. Pour autant, cette différence est minime, et les 2 langages sont dans le top 10. Tout va bien de ce côté-là. Niveau difficulté alors ? Les départager est compliqué. Les 2 langages permettent d’utiliser la programmation orientée objet, mais l’avantage est plutôt à PHP sur ce point. Javascript est un langage faiblement typé, à moins d’utiliser une surcouche Typescript, quand PHP est un langage fortement typé, donc moins permissif. Pour conclure sur ce match amical (si, c’est un match amical on vous dit), Javascript gagne "
+      },
+      "conclusion": {
+        "id": 3,
+        "content": "Comme il est peu probable que vous meniez votre carrière de développeur sans toucher aux deux solutions, et que le débat déchaine les passions, je vous laisse vous exprimer en commentaire"
+      }
+    },
+    {
+      "id": 5,
+      "updatedAt": "2022-10-03T14:15:25.758Z",
+      "introduction": {
+        "id": 5,
+        "content": "Je n’ai jamais voulu avoir une grosse équipe.Je trouve que manager est la chose la plus difficile de l’entrepreneuriat."
+      },
+      "body": {
+        "id": 5,
+        "content": "J’ai recruté au compte goutte. Pas par manque d’argent mais pour : -Recruter les bonnes personnes qui s’entendent bien entre elles-Ne pas diluer le dealflow clients-Maximiser l'autonomie et éviter le middle managementJe préfère une petite équipe bien dans ses baskets, que devoir fixer des objectifs inatteignables pour couvrir le coût de recrutements précipités.Recruter pour recruter (ou pour l’orgueil) n’a pas de sens, le recrutement doit servir un objectif.Rester “petit” n'est pas antinomique avec croissance.Être plus petit que ses concurrents ne veut pas dire être moins bons."
+      },
+      "conclusion": {
+        "id": 5,
+        "content": "Ne jugez pas une entreprise à sa taille mais à son service et ses clients ! "
+      }
+    },
+    {
+      "id": 7,
+      "updatedAt": "2022-10-03T14:15:25.758Z",
+      "introduction": {
+        "id": 7,
+        "content": "“T’avais qu’à monter une pizzeria” — C’est en substance ce que m’a dit ma mère, hier, quand je suis me suis plaint de la difficulté de recruter pour xxxxxLa pauvre, si seulement elle savait.À lire la presse, on dirait justement que la pizzeria du coin s’apprête à lever 200M€ pour accélérer en Europe.Le moindre pizzaïolo compétent est dans 8 processus de recrutement en parallèle et, à peine répond-il sur LinkedIn à la cinquième relance, qu’il a déjà signé ailleurs.Et ne parlons pas d’un bon Head of Margherita.Ces profils sont plus faciles à trouver qu’un Dahu sur les plages du Mont Saint-Michel."
+      },
+      "body": {
+        "id": 7,
+        "content": "Alors quand en plus de ça on recherche un profil particulièrement rare, à savoir un/e xxxxxx, et qu’on se casse les dents sur ce recrutement depuis des mois... on a juste envie de mettre de l’huile piquante et de manger la boite en carton.Plus sérieusement.Avec mme xxxx, on cherche vraiment un/e xxxxxx pour xxxxxxx\\n La personne idéale n’est pas facile à décrire.Mais on peut essayer.Elle serait, elle-même, naturellement passionnée de création de contenus en tous genre : on pourrait s’attendre à la trouver sur Medium, Dribble, Twitter, Github, Figma ou les 5 à la fois.Elle serait, enfin, du genre à codouiller son propre site ou blog, à se former à 100,000 trucs différents et évidemment à être tout en haut du leaderboard de partages de liens chelous de sa boite actuelle."
+      },
+      "conclusion": {
+        "id": 7,
+        "content": "Si vous êtes cette personne : on aimerait vraiment vous parler !!(Et oui, on est tellement désespérés qu'on mis tout ce qu'on pouvait dans le title de l'annonce : produit, marketing, contenu, manager, etc. La totale !)."
+      }
+    },
+    {
+      "id": 10,
+      "updatedAt": "2022-10-03T14:15:25.758Z",
+      "introduction": {
+        "id": 10,
+        "content": "Le calme avant la tempête… Demain, j’attaque un nouveau projet. J’ai donc pris le temps de faire un tour des outils de design. Nouveau projet, nouvelle maquette à réussir !"
+      },
+      "body": {
+        "id": 10,
+        "content": "Le design est vraiment une partie que j’adore. C’est d’ailleurs pour ça que je suis développeur web full-stack. Le numérique regorge de métiers qui font appel à toutes sortes de compétences. Et s’intéresser au design UX/UI, à l’accessibilité numérique, et aux soft-skills qui favorisent le travail en équipe est indispensable. Revenons au design. L’essentiel dans l’élaboration du design est de bien cibler les attentes et les objectifs du client. Communiquer, beaucoup, et prendre le temps de définir les bases, l’organisation et la structure du projet. La rédaction d’un cahier des charges, si elle peut parfois sembler fastidieuse, est indispensable pour éclaircir les attentes, et permettre d’exprimer les spécificités attendues. C’est pendant cette étape que, si vous êtes un développeur front-end avec une appétence pour l’UX/UI, vous pouvez participer directement à l’élaboration du design et des maquettes."
+      },
+      "conclusion": {
+        "id": 10,
+        "content": "J’ai besoin de vos retours d’expérience au sujet du design. Vous participez à son élaboration, ou vous faites systématiquement appel à un designer pour vos projets ?"
+      }
+    },
+    {
+      "id": 12,
+      "updatedAt": "2022-10-03T14:15:25.758Z",
+      "introduction": {
+        "id": 12,
+        "content": "La communauté des développeurs webs est une source inépuisable d'astuces de personnes passionnées. Sur des aspects techniques, sur la productivité, et sur des partages totalement passionnants et hors thème. Alors un grand merci à tous et à toutes, et je vais pour ma part apporter ma petite pierre à l’édifice avec ce post."
+      },
+      "body": {
+        "id": 12,
+        "content": "Alors parlons de la cybersécurité. Nous rêvons tous d’un Gandalf aux cheveux blancs hurlant “Vous ne passerez paaaaas” à chaque fois que nécessaire. Sauf que non. Alors quelques règles à respecter. Faire gaffe à ses mots de passe. C’est comme la clé de chez soi. On ne fait pas 40 doubles qu’on distribuerait à tout le monde en soirée. Faire ses mises à jour. Oui, dès le premier jour s’il vous plaît. Que celui qui n’a jamais cliqué sur “me le rappeler demain” me jette la première pierre. Sauvegarder, encore et encore. Faire des sauvegardes régulières, c’est indispensable. Sur disque externe, sur cloud, dans un cadre professionnel ou personnel. Ah, et une dernière chose : soyez aussi prudent avec votre smartphone qu’avec votre ordinateur. Un wifi sécurisé, un code pin, un verrouillage automatique, et si vous avez un VPN ou un antivirus qui peut se télécharger sur votre téléphone, faites-le."
+      },
+      "conclusion": {
+        "id": 12,
+        "content": "Que ce soit des astuces de cybersécurité, de développement web, ou de softs skills, j’ai très envie de partager ce genre de contenus avec vous. C’est quelque chose susceptible de vous intéresser ?"
+      }
+    },
+    {
+      "id": 13,
+      "updatedAt": "2022-10-03T14:15:25.758Z",
+      "introduction": {
+        "id": 13,
+        "content": "Méthodologie, astuces techniques, organisation, les tips sont nombreux. Chez les développeurs web particulièrement je trouve. Aujourd’hui, je vous en partage qui m’a beaucoup marqué."
+      },
+      "body": {
+        "id": 13,
+        "content": "Comment travailler à distance ? Travailler sereinement, j’entends. Parce qu’avec le télétravail, on peut tous se dire qu’un endroit avec une bonne connexion suffit. Sauf que non. Déjà, il faut un endroit avec une bonne connexion ET qu’il soit calme. Parce que se concentrer dans le bruit, des conditions météos compliquées, ou un espace communautaire c’est tout de suite plus compliqué. Lorsque que je travaille à un endroit différent de mon bureau habituel, j’applique cette règle simple : j’emporte uniquement le strict nécessaire. Inutile de m’encombrer avec des données ou du matériel dont je n’aurais finalement pas besoin. Je fais attention aux sauvegardes, et aux accès avant de partir. Et comme je travaille parfois durant mes trajets, je mets systématiquement un filtre de protection sur mon écran. Histoire que le passager d’à côté ne regarde pas par-dessus mon épaule. "
+      },
+      "conclusion": {
+        "id": 13,
+        "content": "Le développement web permet de partager de supers astuces. J’ai hâte de lire et de pouvoir partager les vôtres. En cybersécurité notamment, ou pour le full remote comment vous organisez-vous ?"
+      }
+    }
+  ]
+}
