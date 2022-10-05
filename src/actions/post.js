@@ -6,7 +6,7 @@ export const SAVE_MY_FAVORITES_POSTS = 'SAVE_MY_FAVORITES_POSTS';
 
 export const SAVE_GENERATED_POSTS = 'SAVE_GENERATED_POSTS';
 
-export const SAVE_A_POST_IN_FAVORITES = 'SAVE_MY_FAVORITES_POSTS';
+export const SAVE_A_POST_IN_FAVORITES = 'SAVE_A_POST_IN_FAVORITES';
 
 /* 
 ** LATEST POSTS 
@@ -32,9 +32,8 @@ export const actionSaveMyFavoritesPosts = (data) => ({
   data,
 });
 
-export const actionSaveToFavorites = (data) => ({
+export const actionSaveToFavorites = () => ({
   type: SAVE_A_POST_IN_FAVORITES,
-  data,
 });
 
 /* 

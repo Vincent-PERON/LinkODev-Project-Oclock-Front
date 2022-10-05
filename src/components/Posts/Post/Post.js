@@ -22,9 +22,9 @@ function PostCard({ generatedPost }) {
   };
 
    /* Fonction copy to  clipboard */
-  const generatedPostFromState = useSelector((state) => state.post.generatedPost);
+  // const generatedPostFromState = useSelector((state) => state.post.generatedPost);
   const saveToFavorites = () => {
-  const action = actionSaveToFavorites(generatedPostFromState); // action => { type: 'GET_MY_FAVORITES_POSTS' }
+  const action = actionSaveToFavorites(); // action => { type: 'GET_MY_FAVORITES_POSTS' }
   dispatch(action);
   };
 
@@ -55,9 +55,15 @@ function PostCard({ generatedPost }) {
 
 PostCard.propTypes = {
   generatedPost: PropTypes.shape({
-    introduction: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-    conclusion: PropTypes.string.isRequired,
+    introduction: PropTypes.shape({
+        content: PropTypes.string.isRequired,}),
+
+    body: PropTypes.shape({
+        content: PropTypes.string.isRequired,}),
+
+    conclusion: PropTypes.shape({
+        content: PropTypes.string.isRequired,}),
+        
   }).isRequired,
 };
 

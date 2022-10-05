@@ -16,8 +16,6 @@ function MyFavoritesPosts() {
   }, []);
 
   const favoritesPosts = useSelector((state) => state.post.favoritesPosts);
-  console.log('STATE FAVORIS:', favoritesPosts);
-
   const isLogged = useSelector((state) => state.user.isLogged);
 
   useEffect(() => {
