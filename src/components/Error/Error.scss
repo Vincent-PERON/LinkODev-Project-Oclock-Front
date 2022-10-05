@@ -10,31 +10,19 @@
   font-size: 1.8rem;
   height: 100vh;
   display: flex;
-  flex-wrap: wrap;
   gap: 3rem;
   padding : 8rem;
 
   &-title {
-    font-size: 1000%;
+    font-size: 10rem;
     font-weight: bold;
   }
   &-subtitle {
     font-size: 320%;
-    text-transform: uppercase;
+    margin-bottom: 2rem;
   }
   &-description {
     font-size: 160%;
     text-transform: uppercase;
-  }
-  &-redirect {
-    font-size: 350%;
-    text-transform: uppercase;
-    text-decoration: underline;
-  }
-  &-redirect-generator {
-    margin-top: 1.5rem;
-    font-size: 90%;
-    text-transform: uppercase;
-    text-decoration: underline;
   }
 }
