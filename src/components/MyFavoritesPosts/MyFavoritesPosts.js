@@ -16,6 +16,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/effect-coverflow';
 import ProfilSeparationBar from '../ProfilSeparationBar/ProfilSeparationBar';
 
+
 function MyFavoritesPosts() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,7 +27,6 @@ function MyFavoritesPosts() {
   }, []);
 
   const favoritesPosts = useSelector((state) => state.post.favoritesPosts);
-  console.log('STATE FAVORIS:', favoritesPosts);
 
   const isLogged = useSelector((state) => state.user.isLogged);
 
@@ -88,6 +88,7 @@ function MyFavoritesPosts() {
               </ul>
             </section>
           </Swiper>
+
 
         </div>
       )}

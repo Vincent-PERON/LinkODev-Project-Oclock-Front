@@ -1,12 +1,17 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {  actionSaveGeneratedPost } from 'src/actions/post';
 
 import './FormGenerator.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
 
 function FormGenerator({ setGeneratedPost }) {
+  const dispatch = useDispatch();
+
   const [tags, setTags] = useState([]);
   const [checkedTags, setCheckedTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,12 +33,12 @@ function FormGenerator({ setGeneratedPost }) {
     const selectedTagsURL = JSON.stringify(checkedTags);
     axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
       .then((response) => {
-        // console.log(response.data);
-        // je stocke la response dans setGeneratedPost pour pouvoir modifier le generatedPosts et
-        // l'afficher dans les components Posts et Post
-        // on voudra réutiliser le component Post avec le dernier post généré
-        // pour l'afficher en résultat
         setGeneratedPost(response.data);
+
+        const generatedPost = [response.data.introduction.id , response.data.body.id , response.data.conclusion.id]
+        const action = actionSaveGeneratedPost(generatedPost); 
+        dispatch(action);
+
       }).catch((err) => {
         console.error(err);
       })

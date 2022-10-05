@@ -50,6 +50,18 @@
     height: 3rem;
     font-weight: bold;
   }
+
+  &__container__content--saveBtn {
+    align-items: flex-end;
+    border: none;
+    background-color: vars.$blueText;
+    color: vars.$white;
+    text-transform: uppercase;
+    width: 15rem;
+    height: 3rem;
+    font-weight: bold;
+    margin-left: 3rem;
+  }
   
   &__container__content--copyBtn:hover{
     background-color: vars.$red;
