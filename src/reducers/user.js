@@ -4,7 +4,7 @@ import {
 
 export const initialState = {
   // ici le state initial qui concerne les users
-  isLogged: false,
+  isLogged: true,
   email: '',
   password: '',
   firstname: '',
