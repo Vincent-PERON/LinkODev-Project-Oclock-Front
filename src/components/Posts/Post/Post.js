@@ -22,10 +22,10 @@ function PostCard({ generatedPost }) {
   };
 
    /* Fonction copy to  clipboard */
+  const generatedPostFromState = useSelector((state) => state.post.generatedPost);
   const saveToFavorites = () => {
-    console.log('JE MET EN FAVORIS');
-    const action = actionSaveToFavorites(); // action => { type: 'GET_MY_FAVORITES_POSTS' }
-    dispatch(action);
+  const action = actionSaveToFavorites(generatedPostFromState); // action => { type: 'GET_MY_FAVORITES_POSTS' }
+  dispatch(action);
   };
 
   useEffect(() => {
