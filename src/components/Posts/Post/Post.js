@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { actionSaveToFavorites } from 'src/actions/post';
+
 import './Post.scss';
 
 function PostCard({ generatedPost }) {
+  const dispatch = useDispatch();
+
   const postRef = useRef(null);
   const isLogged = useSelector((state) => state.user.isLogged);
 
@@ -15,6 +19,13 @@ function PostCard({ generatedPost }) {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(message);
     console.log(message);
+  };
+
+   /* Fonction copy to  clipboard */
+  const saveToFavorites = () => {
+    console.log('JE MET EN FAVORIS');
+    const action = actionSaveToFavorites(); // action => { type: 'GET_MY_FAVORITES_POSTS' }
+    dispatch(action);
   };
 
   useEffect(() => {
@@ -31,8 +42,9 @@ function PostCard({ generatedPost }) {
             <p className="PostCard__container__content--text">{generatedPost.body.content}</p>
             <p className="PostCard__container__content--text">{generatedPost.conclusion.content}</p>
             <button className="PostCard__container__content--copyBtn" type="button" onClick={copyToClipboard}>Copier</button>
+
             {isLogged && (
-              <button className="PostCard__container__content--copyBtn" type="button">Enregistrer</button>
+              <button className="PostCard__container__content--saveBtn" type="button" onClick={saveToFavorites}>Enregistrer</button>
             )}
           </div>
         </div>
