@@ -46,9 +46,8 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        {/* Route without Header and Footer for page 404 */}
-        <Route path="*" element={<Error />} />
         <Route element={<Layout />}>
+          <Route path="*" element={<Error />} />
           <Route path="/" element={<Main />} />
           <Route path="/generator" element={<WrapperResultPost />} />
           <Route path="/login" element={<Register />} />

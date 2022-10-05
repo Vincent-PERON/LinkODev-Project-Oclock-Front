@@ -4,7 +4,7 @@ import './Error.scss';
 function Error() {
   return (
     <div className="Error">
-      <h1 className="Error-title">OUPS </h1>
+      <h1 className="Error-title">404 ! </h1>
       <div className="Error-content">
         <h2 className="Error-subtitle">Rien à voir ici !</h2>
         <p className="Error-description">Pour retourner à l'accueil</p>

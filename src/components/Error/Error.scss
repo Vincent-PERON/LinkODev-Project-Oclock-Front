@@ -1,8 +1,8 @@
 @use 'src/styles/vars';
 
 .Error {
-  color: vars.$mainBackground;
-  background-color: vars.$formInput;
+  color: vars.$white;
+  background-color: vars.$mainBackground;
   background-image: url('src/assets/Images/404_chuck_norris.png');
   background-repeat: no-repeat;
   background-position: 90% 75%;
@@ -11,7 +11,7 @@
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 3rem;
   padding : 8rem;
 
   &-title {
