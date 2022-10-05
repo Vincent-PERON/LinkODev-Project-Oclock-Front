@@ -5,6 +5,8 @@ import './Posts.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetLatestPosts } from 'src/actions/post';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 import Post from 'src/components/Posts/Post/Post';
 // import { initialState } from '../../reducers/post';
@@ -26,24 +28,33 @@ function Posts() {
   // eslint-disable-next-line max-len
 
   return (
-    <div className="content-list">
-      <ul>
-        {latestPosts.map(((post) => (
-          <div className="PostCard3">
-            <div className="PostCard3__container">
-              <div className="PostCard3__container__content">
-                <div className="PostCard3__container__content--contain">
-                  <p className="PostCard3__container__content--text">{post.introduction.content}</p>
-                  <p className="PostCard3__container__content--text">{post.body.content}</p>
-                  <p className="PostCard3__container__content--text">{post.conclusion.content}</p>
-                  <button className="PostCard__container__content--copyBtn" type="button">Copier</button>
+    <Swiper
+      spaceBetween={25}
+      slidesPerView={3}
+      onSlideChange={() => console.log('slide change')}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+      <div className="content-list">
+        <ul>
+          {latestPosts.map(((post) => (
+            <SwiperSlide>
+              <div className="PostCard3">
+                <div className="PostCard3__container">
+                  <div className="PostCard3__container__content">
+                    <div className="PostCard3__container__content--contain">
+                      <p className="PostCard3__container__content--text">{post.introduction.content}</p>
+                      <p className="PostCard3__container__content--text">{post.body.content}</p>
+                      <p className="PostCard3__container__content--text">{post.conclusion.content}</p>
+                      <button className="PostCard__container__content--copyBtn" type="button">Copier</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        )))}
-      </ul>
-    </div>
+            </SwiperSlide>
+          )))}
+        </ul>
+      </div>
+    </Swiper>
   );
 }
 
