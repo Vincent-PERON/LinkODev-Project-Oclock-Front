@@ -1,0 +1,9 @@
+@use 'src/styles/vars';
+
+.Error {
+  color: vars.$mainBackground;
+  background-color: vars.$formInput;
+  font-size: 1.8rem;
+  height: auto;
+
+}
