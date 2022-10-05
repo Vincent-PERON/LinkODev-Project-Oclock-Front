@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {
   CHECK_LOGIN, actionSaveUser, SUBMIT_REGISTER_FORM, actionResetRegisterForm,
+  actionErrorBack,
 } from 'src/actions/user';
-import { actionErrorBack } from '../actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -22,8 +22,10 @@ const authMiddleware = (store) => (next) => (action) => {
         /*
         if user connected, il faut changer isLogged en true dans le state
         on save le JSON WebToken récupéré dans le state, et le firstname de data.user
+        on enregistre aussi le token dans le localStorage
         */
         store.dispatch(actionSaveUser(response.data.accessToken, response.data.user));
+        localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken));
       }).catch((error) => {
         console.log('erreur', error);
         alert('Le mot de passe ou l\'email sont invalides, veuillez réessayer');
