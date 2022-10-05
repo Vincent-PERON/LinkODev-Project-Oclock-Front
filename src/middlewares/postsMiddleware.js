@@ -1,29 +1,46 @@
 import axios from 'axios';
-import { actionSaveLatestPosts, GET_LATEST_POSTS } from 'src/actions/post';
+import { useSelector } from 'react-redux';
+import {  actionSaveLatestPosts, GET_LATEST_POSTS, 
+          GET_MY_FAVORITES_POSTS ,
+          actionSaveMyFavoritesPosts, 
+        } from 'src/actions/post';
 
 const postsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
+
     case GET_LATEST_POSTS: {
-      /*
-      on veut faire l'appel API  pour récupérer les 3 derniers posts de la route /posts/latest
-      */
       axios.get('https://linkodevapi.cyber-one.fr/posts/latest')
         .then((response) => {
-          /*
-        On veut enregistrer le contenu des posts dans le state des posts
-        */
+        console.log('LATEST:',response.data)
           store.dispatch(actionSaveLatestPosts(response.data));
         }).catch((error) => {
           console.log('erreur', error);
-          alert('Impossible de récupérer les 3 derniers posts, veuillez réessayer');
+          // alert('Impossible de récupérer les 3 derniers posts, veuillez réessayer');
         });
+
+      break;
+    }
+
+    case GET_MY_FAVORITES_POSTS: {
+
+      /* Récupération du token depuis le state */
+      const { user: { token } } = store.getState();
+
+      axios.get('https://linkodevapi.cyber-one.fr/me/posts', { headers: {"Authorization" : `Bearer ${token}`} })
+        .then((response) => { 
+          console.log('FAVORIS:',response.data.posts)
+          store.dispatch(actionSaveMyFavoritesPosts(response.data.posts));
+        }).catch((error) => {
+          console.log('erreur', error);
+        // alert('Impossible de récupérer les posts favoris, veuillez réessayer');
+      });
 
       break;
     }
 
     default:
   }
-  next(action); // vipe retrait du "return"
+  next(action); 
 };
 
 export default postsMiddleware;

@@ -53,7 +53,7 @@ function Header() {
             </section>
             <section className="header__section--right">
               <div className="header--Logged-buttons">
-                <NavLink to="/profile">
+                <NavLink to="/me">
                   <ProfileButton />
                 </NavLink>
                 <p className="header__Logged-message">Bienvenue {firstname}</p>
@@ -62,7 +62,9 @@ function Header() {
           </section>
           <section className="header__Loggedsection--center">
             <div className="header__Logged-buttons--myposts">
-              <MyPosts />
+            <NavLink to="/me/posts">
+              <MyPosts  />
+              </NavLink>
             </div>
             <div className="header__Logged-buttons--logout">
               <LogOutButton />

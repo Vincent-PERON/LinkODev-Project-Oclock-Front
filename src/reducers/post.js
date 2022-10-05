@@ -1,9 +1,8 @@
-import { SAVE_LATEST_POSTS } from 'src/actions/post';
+import { SAVE_LATEST_POSTS, SAVE_MY_FAVORITES_POSTS } from 'src/actions/post';
 
 const initialState = {
-  // ici le state initial
   latestPosts: [],
-  favPosts: [],
+  favoritesPosts: [],
 };
 
 function reducer(state = initialState, action = {}) {
@@ -13,6 +12,14 @@ function reducer(state = initialState, action = {}) {
         ...state,
         latestPosts: action.data,
       };
+
+      case SAVE_MY_FAVORITES_POSTS:
+      return {
+        ...state,
+        favoritesPosts: action.data,
+      };
+
+
     default:
       return state;
   }
