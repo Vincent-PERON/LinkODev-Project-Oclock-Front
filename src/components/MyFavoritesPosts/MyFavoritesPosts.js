@@ -7,8 +7,6 @@ import SeparationBar from '../SeparationBar/SeparationBar';
 
 import { actionGetMyFavoritesPosts } from 'src/actions/post';
 
-import favorites from 'src/data/favorites'
-
 
 function MyFavoritesPosts() {
 
@@ -20,21 +18,17 @@ function MyFavoritesPosts() {
     dispatch(action);
   }, []);
 
-  // const favoritesPosts = useSelector((state) => state.post.latestPosts);
-  // console.log('favoris:' , favoritesPosts)
-
+  const favoritesPosts = useSelector((state) => state.post.favoritesPosts);
+  console.log('STATE FAVORIS:' , favoritesPosts)
 
   const isLogged = useSelector((state) => state.user.isLogged);
-  /**
-  * hook useEffect qui redirige le user vers la home au changement de isLogged = false
-  */
+
   useEffect(() => {
     if (!isLogged) {
       navigate('/');
     }
   });
 
-  const favoritesPosts = favorites.posts
 
   return (
     <div className="InfoProfile">
@@ -59,7 +53,7 @@ function MyFavoritesPosts() {
                             <p className="PostCardFav__container__content--text">{post.introduction.content}</p>
                             <p className="PostCardFav__container__content--text">{post.body.content}</p>
                             <p className="PostCardFav__container__content--text">{post.conclusion.content}</p>
-                            {/* <button className="PostCard__container__content--copyBtn" type="button">Copier</button> */}
+                            <button className="PostCard__container__content--copyBtn" type="button">Copier</button> 
                           </div>
                         </div>
                       </div>
