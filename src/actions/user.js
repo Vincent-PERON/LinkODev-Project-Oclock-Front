@@ -1,4 +1,4 @@
-import { logOut, authHeader } from 'src/services/authJWT';
+import { authHeader } from 'src/services/authJWT';
 
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const CHECK_LOGIN = 'CHECK_LOGIN';
