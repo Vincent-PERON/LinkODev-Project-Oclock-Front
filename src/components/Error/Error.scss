@@ -3,7 +3,38 @@
 .Error {
   color: vars.$mainBackground;
   background-color: vars.$formInput;
+  background-image: url('src/assets/Images/404_chuck_norris.png');
+  background-repeat: no-repeat;
+  background-position: 90% 75%;
+  background-size: 30%;
   font-size: 1.8rem;
-  height: auto;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding : 8rem;
 
+  &-title {
+    font-size: 1000%;
+    font-weight: bold;
+  }
+  &-subtitle {
+    font-size: 320%;
+    text-transform: uppercase;
+  }
+  &-description {
+    font-size: 160%;
+    text-transform: uppercase;
+  }
+  &-redirect {
+    font-size: 350%;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+  &-redirect-generator {
+    margin-top: 1.5rem;
+    font-size: 90%;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
 }
