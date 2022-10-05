@@ -1,4 +1,3 @@
-import { Link, NavLink } from 'react-router-dom';
 import './Error.scss';
 
 function Error() {
