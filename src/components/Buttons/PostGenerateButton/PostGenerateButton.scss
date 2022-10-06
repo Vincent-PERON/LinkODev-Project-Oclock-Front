@@ -22,6 +22,15 @@
     color: vars.$button;
 }
 
+/*
+    Styles pour les écrans de moins de 780px de large :
+*/
+@media screen and (max-width: 768px) {
+
+  .PostGenerateButton--button {
+    width: 20rem;
+  }
+}
 
 
 

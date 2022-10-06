@@ -14,7 +14,7 @@
     &--redline {
       border-top: 1px solid #FF1616;
       width: 15rem;
-      margin: 4.5rem 5rem 0 5rem;
+      margin: 4.5rem ;
     }
 
     &--button {
@@ -36,5 +36,13 @@
     }
 }
 
-
-
+/*
+    Styles pour les écrans de moins de 780px de large :
+*/
+@media screen and (max-width: 780px) {
+  .main__container {
+    &--redline {
+      width: 8rem;
+    }
+}
+}

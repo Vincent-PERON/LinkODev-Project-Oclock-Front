@@ -19,9 +19,8 @@ function Main() {
       </section>
       <section className="main__container--button">
         <div className="main__container--redline" />
-        <NavLink
-          to="/generator"
-        ><PostGenerateButton />
+        <NavLink to="/generator" >
+          <PostGenerateButton />
         </NavLink>
         <div className="main__container--redline" />
       </section>
