@@ -4,6 +4,7 @@ import {
   actionErrorBack,
 } from 'src/actions/user';
 
+
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CHECK_LOGIN: {
@@ -25,7 +26,9 @@ const authMiddleware = (store) => (next) => (action) => {
         on enregistre aussi le token dans le localStorage
         */
         store.dispatch(actionSaveUser(response.data.accessToken, response.data.user));
+        console.log('USERRRR',response.data.user)
         localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken));
+        localStorage.setItem('user', JSON.stringify(response.data.user));
       }).catch((error) => {
         console.log('erreur', error);
         alert('Le mot de passe ou l\'email sont invalides, veuillez réessayer');

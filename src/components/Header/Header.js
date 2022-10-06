@@ -12,7 +12,7 @@ import logo from '../../assets/Images/Logo_3.png';
 function Header() {
   // je veux déterminer si oui ou non le user sera connecté
   const isLogged = useSelector((state) => state.user.isLogged);
-  const firstname = useSelector((state) => state.user.firstname);
+  const firstname = JSON.parse(localStorage.getItem('user'));
 
   // récupérer le token enregistré dans le state pour le décoder, et récupérer les
   // infos email, firstname et lastname pour les utiliser côté front

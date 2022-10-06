@@ -4,6 +4,7 @@ import {  GET_LATEST_POSTS, actionSaveLatestPosts,
           SAVE_A_POST_IN_FAVORITES,
         } from 'src/actions/post';
 
+import {authHeader} from "src/services/authHeader";
 
 const postsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -21,12 +22,8 @@ const postsMiddleware = (store) => (next) => (action) => {
 
     case GET_MY_FAVORITES_POSTS: {
 
-      /* Récupération du token depuis le state */
-      const { user: { token } } = store.getState();
 
-      axios.get('https://linkodevapi.cyber-one.fr/me/posts', { 
-          headers: {"Authorization" : `Bearer ${token}`} 
-        })
+      axios.get('https://linkodevapi.cyber-one.fr/me/posts', { headers: authHeader() })
         .then((response) => { 
           store.dispatch(actionSaveMyFavoritesPosts(response.data.posts));
         }).catch((error) => { console.log('erreur', error); // alert('Impossible de récupérer les posts favoris, veuillez réessayer');
@@ -37,8 +34,6 @@ const postsMiddleware = (store) => (next) => (action) => {
 
     case SAVE_A_POST_IN_FAVORITES: {
 
-      /* Récupération du token depuis le state */
-      const { user: { token } } = store.getState();
       const { post: {generatedPost}} = store.getState();
 
       axios.post('https://linkodevapi.cyber-one.fr/me/posts', 
@@ -48,14 +43,15 @@ const postsMiddleware = (store) => (next) => (action) => {
           conclusionId: generatedPost[2]
           },
       
-          { /* Headers */
-              headers: {"Authorization" : `Bearer ${token}`},
+          { /*Headers */
+            headers: authHeader() 
           })
+
         .then((response) => { 
-          console.log(response);
+        alert('Le post est sauvegardé en favoris');
         }).catch((error) => {
           console.log('erreur', error);
-        // alert('Impossible de récupérer les posts favoris, veuillez réessayer');
+        alert('Impossible de récupérer les posts favoris, veuillez réessayer');
       });
       break;
     }
