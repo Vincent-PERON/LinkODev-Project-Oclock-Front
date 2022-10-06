@@ -47,3 +47,21 @@
   align-items: center;
 }
 
+/*
+    Styles pour les écrans de moins de 780px de large :
+*/
+@media screen and (max-width: 768px) {
+
+  .header__main__section {
+    margin-bottom: 2rem;
+  }
+}
+
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  .header__main__section {
+    // margin-bottom: 2rem;
+  }
+}
