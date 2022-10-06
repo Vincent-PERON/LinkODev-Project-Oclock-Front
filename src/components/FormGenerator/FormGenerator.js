@@ -59,10 +59,10 @@ function FormGenerator({ setGeneratedPost }) {
 
   return (
     <div className="FormGenerator">
-      <h1 className="FormGenerator-title">Générateur de posts LinkedIn pour les développeurs webs</h1>
-      <SeparationBar />
-      <h2 className="FormGenerator-subtitle">Pour poster facilement sur des sujets dev' sans prise de tête !</h2>
-      <h3 className="FormGenerator-description">Pour créer votre premier post, sélectionnez les tags qui correspondent à votre envie du jour et découvrez votre résultat.</h3>
+      <h1 className="FormGenerator-title">Générateur de posts LinkedIn pour les développeurs Web</h1>
+       <SeparationBar />
+        <h2 className="FormGenerator-subtitle">Pour poster facilement sur des sujets dev' sans prise de tête !</h2>
+        <h3 className="FormGenerator-description">Pour créer votre premier post, sélectionnez les tags qui correspondent à votre envie du jour et découvrez votre résultat.</h3>
       <section className="FormGenerator-card">
         <h4 className="FormGenerator-card-title">Que voulez-vous écrire aujourd'hui ?</h4>
         <p className="FormGenerator-card-description">(plusieurs choix possibles)</p>
@@ -100,7 +100,6 @@ function FormGenerator({ setGeneratedPost }) {
           </section>
         </form>
       </section>
-
     </div>
   );
 }

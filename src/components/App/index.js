@@ -35,8 +35,9 @@ function Layout() {
       <Header />
       <div className="container">
         <Outlet />
-        <Footer />
       </div>
+        <Footer />
+      
     </>
   );
 }
