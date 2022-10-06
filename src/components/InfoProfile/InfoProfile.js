@@ -62,9 +62,9 @@ function InfoProfile() {
             </div>
           </form>
         </div>
-      )};
+      )}
     </div>
-  );
+  )
 }
 
 export default InfoProfile;
