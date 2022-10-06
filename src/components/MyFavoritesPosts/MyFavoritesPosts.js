@@ -7,7 +7,7 @@ import './MyFavoritesPosts.scss';
 import { actionGetMyFavoritesPosts } from 'src/actions/post';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {
-  Navigation, Pagination, Scrollbar, A11y, EffectCoverflow,
+  Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Mousewheel, Keyboard,
 } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -15,7 +15,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-coverflow';
 import ProfilSeparationBar from '../ProfilSeparationBar/ProfilSeparationBar';
-
 
 function MyFavoritesPosts() {
   const dispatch = useDispatch();
@@ -54,6 +53,10 @@ function MyFavoritesPosts() {
             grabCursor
             centeredSlides
             slidesPerView="auto"
+            mousewheel
+            keyboard={{
+              enabled: true,
+            }}
             coverflowEffect={{
               rotate: 50,
               stretch: 0,
@@ -61,10 +64,12 @@ function MyFavoritesPosts() {
               modifier: 1,
               slideShadows: true,
             }}
-            modules={[EffectCoverflow, Navigation, Pagination, Scrollbar, A11y]}
+            // eslint-disable-next-line max-len
+            modules={[EffectCoverflow, Navigation, Pagination, Scrollbar, Mousewheel, Keyboard, A11y]}
             spaceBetween={25}
             // slidesPerView={3}
             scrollbar={{ draggable: true }}
+            className="myFavoritePost--Swiper"
           >
 
             <section className="favorites__container swiper-container">
@@ -88,7 +93,6 @@ function MyFavoritesPosts() {
               </ul>
             </section>
           </Swiper>
-
 
         </div>
       )}

@@ -6,7 +6,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetLatestPosts } from 'src/actions/post';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCube, Pagination } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/effect-cube';
+import 'swiper/css/pagination';
 
 import Post from 'src/components/Posts/Post/Post';
 // import { initialState } from '../../reducers/post';
@@ -29,8 +32,17 @@ function Posts() {
 
   return (
     <Swiper
-      spaceBetween={25}
-      slidesPerView={3}
+      effect="cube"
+      grabCursor
+      cubeEffect={{
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 10,
+        shadowScale: 0.5,
+      }}
+      pagination
+      modules={[EffectCube, Pagination]}
+      className="mySwiper"
     >
       <div className="content-list">
         <ul>
