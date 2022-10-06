@@ -36,6 +36,16 @@ function MyFavoritesPosts() {
     }
   });
 
+  const copyToClipboard = (postID) => {
+    const selectedPost = favoritesPosts.map((post) => {
+    if (post.id === postID) {
+
+    const message = post.introduction.content + post.body.content + post.conclusion.content;
+    navigator.clipboard.writeText(message);
+  }
+    }); 
+  };
+
   return (
     <div className="InfoProfile">
       {!isLogged && (
@@ -78,7 +88,13 @@ function MyFavoritesPosts() {
                             <p className="PostCardFav__container__content--text">{post.introduction.content}</p>
                             <p className="PostCardFav__container__content--text">{post.body.content}</p>
                             <p className="PostCardFav__container__content--text">{post.conclusion.content}</p>
-                            <button className="PostCard__container__content--copyBtn" type="button">Copier</button>
+                            <button className="PostCard__container__content--copyBtn" 
+                              type="button"     
+                              onClick={() => {
+                                copyToClipboard(post.id);
+                              }}>
+                        Copier
+                      </button>
                           </div>
                         </div>
                       </div>
