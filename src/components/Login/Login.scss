@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .Login {
-  margin: 4.5rem auto;
+  margin: 4.5rem 0rem;
 
   &-title {
     color: vars.$white;
@@ -62,7 +62,7 @@
     padding: 1rem 2rem;
     border-radius: 25px;
     border: none;
-    margin-top: 2.5rem;
+    margin-top: 2.3rem;
     font-weight: bold;
     font-size: 1.5rem;
     width: 40rem;

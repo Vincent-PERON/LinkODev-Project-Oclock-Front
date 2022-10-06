@@ -61,7 +61,7 @@ function Login() {
       {!isLogged && (
       <><h1 className="Login-title">SE CONNECTER</h1>
         <h2 className="Login-subtitle">Pas encore inscrit ? <NavLink to="/register">S'inscrire</NavLink></h2>
-        <div className="Login-separation"><SeparationBar /></div>
+        <SeparationBar />
         <form
           className="Login-form"
           onSubmit={handleSubmit}
@@ -97,8 +97,6 @@ function Login() {
                 placeholder="Votre mot de passe"
                 value={password}
                 onChange={changeInputValue}
-              />
-
               />
             </div>
           </div>
