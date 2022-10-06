@@ -31,20 +31,12 @@ function Posts() {
   const copyToClipboard = (postID) => {
     const selectedPost = latestPosts.map((post) => {
     if (post.id === postID) {
-      
+
     const message = post.introduction.content + post.body.content + post.conclusion.content;
     navigator.clipboard.writeText(message);
   }
-
-    });
-    
+    }); 
   };
-
-
-
-
-
-  // eslint-disable-next-line max-len
 
   return (
     <Swiper
