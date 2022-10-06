@@ -13,6 +13,11 @@ import Post from 'src/components/Posts/Post/Post';
 
 function Posts() {
   const dispatch = useDispatch();
+
+  /* Les latests posts du state */
+  const latestPosts = useSelector((state) => state.post.latestPosts);
+  
+
   /*
   Au premier rendu du composant on dispatch actionGetLatestPosts
   pour que le middleware l'intercepte et aille faire la requette vers l'API pour
@@ -23,7 +28,21 @@ function Posts() {
     dispatch(action);
   }, []);
 
-  const latestPosts = useSelector((state) => state.post.latestPosts);
+  const copyToClipboard = (postID) => {
+    const selectedPost = latestPosts.map((post) => {
+    if (post.id === postID) {
+      
+    const message = post.introduction.content + post.body.content + post.conclusion.content;
+    navigator.clipboard.writeText(message);
+  }
+
+    });
+    
+  };
+
+
+
+
 
   // eslint-disable-next-line max-len
 
@@ -36,18 +55,24 @@ function Posts() {
         <ul>
           {latestPosts.map(((post) => (
             <SwiperSlide>
-              <div className="PostCard3">
+              <li key={post.id} className="PostCard3">
                 <div className="PostCard3__container">
                   <div className="PostCard3__container__content">
                     <div className="PostCard3__container__content--contain">
                       <p className="PostCard3__container__content--text">{post.introduction.content}</p>
                       <p className="PostCard3__container__content--text">{post.body.content}</p>
                       <p className="PostCard3__container__content--text">{post.conclusion.content}</p>
-                      <button className="PostCard__container__content--copyBtn" type="button">Copier</button>
+                      <button className="PostCard__container__content--copyBtn" 
+                              type="button"     
+                              onClick={() => {
+                                copyToClipboard(post.id);
+                              }}>
+                        Copier
+                      </button>
                     </div>
                   </div>
                 </div>
-              </div>
+              </li>
             </SwiperSlide>
           )))}
         </ul>
