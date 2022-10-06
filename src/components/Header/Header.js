@@ -1,23 +1,23 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import logo from '../../assets/Images/Logo_3.png';
-
+import './Header.scss';
 import ConnexionButton from 'src/components/Buttons/ConnexionButton/ConnexionButton';
 import RegisterButton from 'src/components/Buttons/RegisterButton/RegisterButton';
 import LogOutButton from 'src/components/Buttons/LogOutButton/LogOutButton';
 import MyPosts from 'src/components/Buttons/MyPosts/MyPosts';
 import ProfileButton from '../Buttons/ProfileButton/ProfileButton';
-
-import './Header.scss';
-
+import logo from '../../assets/Images/Logo_3.png';
 
 function Header() {
-
+  // je veux déterminer si oui ou non le user sera connecté
   const isLogged = useSelector((state) => state.user.isLogged);
-  const firstname = JSON.parse(localStorage.getItem('user'));
+  const firstname = useSelector((state) => state.user.firstname);
 
-  
+  // récupérer le token enregistré dans le state pour le décoder, et récupérer les
+  // infos email, firstname et lastname pour les utiliser côté front
+  // const JWT = useSelector((state) => state.user.token);
+  // const FullName = jwt.decode (JWT);
   return (
     <header className="header">
       <section className="header__main__section">

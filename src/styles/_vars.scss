@@ -8,3 +8,26 @@ $redTrans: rgba(255, 22, 22, 0.3);
 $formInput: #B3B3B3;
 $darkText:#000B60;
 $darkTextTrans:rgba(0, 11, 96, 0.478);
+
+
+// @ mixin pour les medias-queries : on appelle avec @include dans le scss
+// https://openclassrooms.com/fr/courses/6106181-simplifiez-vous-le-css-avec-sass/6606716-ajoutez-des-breakpoints-pour-une-mise-en-page-responsive
+
+$breakpoints: (
+  tablet: 768px,
+  mobile: 480px,
+);
+
+// règles qui ne s'appliquent qu'aux mobiles
+@mixin mobile-only {
+    @media screen and (max-width: map-get($breakpoints, mobile)){
+        @content;
+        }
+}
+
+// règles qui ne s'appliquent qu'aux tablettes
+@mixin tablet-only {
+    @media screen and (max-width: map-get($breakpoints, tablet)){
+        @content;
+        }
+}
