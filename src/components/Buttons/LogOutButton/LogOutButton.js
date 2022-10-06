@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import './LogOutButton.scss';
 import { actionLogOut } from 'src/actions/user';
-import { logOut } from 'src/services/authJWT';
+import { logOut } from 'src/services/authHeader';
 
 function LogOutButton() {
   const dispatch = useDispatch();

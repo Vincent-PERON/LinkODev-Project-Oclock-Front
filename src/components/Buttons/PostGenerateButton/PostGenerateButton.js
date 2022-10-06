@@ -10,7 +10,7 @@ function PostGenerateButton({ disabled = false }) {
 }
 
 PostGenerateButton.propTypes = {
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
 };
 
 export default PostGenerateButton;
