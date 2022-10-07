@@ -94,9 +94,7 @@ function FormGenerator({ setGeneratedPost }) {
             </ul>
           </div>
           <section className="main__container--button">
-            <div className="main__container--redline" />
             <PostGenerateButton disabled={isLoading} />
-            <div className="main__container--redline" />
           </section>
         </form>
       </section>

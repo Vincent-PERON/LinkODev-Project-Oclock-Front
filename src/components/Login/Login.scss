@@ -85,3 +85,14 @@
   border-top: 1px solid #FF1616;
   width: 15rem;
  }
+
+ /*
+    Styles pour les écrans de moins de 480px de large :
+*/
+
+@media screen and (max-width: 480px) {
+  .Login-form-button{
+    margin: 0;
+}
+
+}

@@ -7,10 +7,26 @@
     margin-top: 10rem;
     right: 1rem;
     
-
     &--link {
         color: vars.$white;
         padding-left: 15rem;
         font-size: 2rem;
     }
+}
+
+@media screen and (max-width: 480px) {
+  .Footer {
+    margin-top: 7rem;
+
+    &--link {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      color: vars.$white;
+      font-size: 1.8rem;
+      padding-left: 2rem;
+  }
+
+}
 }
