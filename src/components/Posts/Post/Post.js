@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { actionSaveToFavorites } from 'src/actions/post';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 import './Post.scss';
 
@@ -21,11 +23,11 @@ function PostCard({ generatedPost }) {
     console.log(message);
   };
 
-   /* Fonction copy to  clipboard */
+  /* Fonction copy to  clipboard */
   // const generatedPostFromState = useSelector((state) => state.post.generatedPost);
   const saveToFavorites = () => {
-  const action = actionSaveToFavorites(); // action => { type: 'GET_MY_FAVORITES_POSTS' }
-  dispatch(action);
+    const action = actionSaveToFavorites(); // action => { type: 'GET_MY_FAVORITES_POSTS' }
+    dispatch(action);
   };
 
   useEffect(() => {
@@ -41,11 +43,16 @@ function PostCard({ generatedPost }) {
             <p className="PostCard__container__content--text">{generatedPost.introduction.content}</p>
             <p className="PostCard__container__content--text">{generatedPost.body.content}</p>
             <p className="PostCard__container__content--text">{generatedPost.conclusion.content}</p>
-            <button className="PostCard__container__content--copyBtn" type="button" onClick={copyToClipboard}>Copier</button>
-
-            {isLogged && (
-              <button className="PostCard__container__content--saveBtn" type="button" onClick={saveToFavorites}>Enregistrer</button>
-            )}
+            <div className="PostCard__container__content--icons">
+              {isLogged && (
+                <button className="PostCard__container__content--saveButton" type="button" onClick={saveToFavorites}>
+                  <StarOutlineIcon sx={{ color: 'white', fontSize: 30 }} />
+                </button>
+              )}
+              <button className="PostCard__container__content--copyButton" type="button" onClick={copyToClipboard}>
+                <ContentCopyIcon sx={{ color: 'white', fontSize: 30 }} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -55,15 +62,12 @@ function PostCard({ generatedPost }) {
 
 PostCard.propTypes = {
   generatedPost: PropTypes.shape({
-    introduction: PropTypes.shape({
-        content: PropTypes.string.isRequired,}),
+    introduction: PropTypes.shape({ content: PropTypes.string.isRequired }),
 
-    body: PropTypes.shape({
-        content: PropTypes.string.isRequired,}),
+    body: PropTypes.shape({ content: PropTypes.string.isRequired }),
 
-    conclusion: PropTypes.shape({
-        content: PropTypes.string.isRequired,}),
-        
+    conclusion: PropTypes.shape({ content: PropTypes.string.isRequired }),
+
   }).isRequired,
 };
 

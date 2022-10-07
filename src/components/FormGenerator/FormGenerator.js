@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {  actionSaveGeneratedPost } from 'src/actions/post';
+import { actionSaveGeneratedPost } from 'src/actions/post';
 
 import './FormGenerator.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
@@ -35,10 +35,9 @@ function FormGenerator({ setGeneratedPost }) {
       .then((response) => {
         setGeneratedPost(response.data);
 
-        const generatedPost = [response.data.introduction.id , response.data.body.id , response.data.conclusion.id]
-        const action = actionSaveGeneratedPost(generatedPost); 
+        const generatedPost = [response.data.introduction.id, response.data.body.id, response.data.conclusion.id];
+        const action = actionSaveGeneratedPost(generatedPost);
         dispatch(action);
-
       }).catch((err) => {
         console.error(err);
       })
