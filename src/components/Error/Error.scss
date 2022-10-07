@@ -1,32 +1,14 @@
 @use 'src/styles/vars';
 
 .Error {
-  color: vars.$white;
-  background-color: vars.$mainBackground;
-  background-image: url('src/assets/Images/404_chuck_norris.png');
-  background-repeat: no-repeat;
-  background-position: 95% 100%;
-  background-size: 30%;
-  text-align: left;
-  font-size: 1.8rem;
   height: 100vh;
-  padding : 8rem;
+  width: 100%;
 
-  &-title {
-    font-size: 20rem;
-    font-weight: bold;
-    margin: 0 0 2rem 10rem;;
+  &-picture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    // width: 50%;
   }
-  &-subtitle {
-    font-size: 6rem;
-    margin-bottom: 2rem;
-    &2 {
-      font-size: 6rem;
-      margin-bottom: 2rem;
-    }
-  }
-  &-description {
-    font-size: 3rem;
-    text-transform: uppercase;
-  }
+
 }
