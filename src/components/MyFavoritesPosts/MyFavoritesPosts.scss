@@ -44,39 +44,27 @@ ul {
     text-align: left;
     align-content: center;
   }
-
   &__container__content--copyBtn {
-    background: none;
+    align-items: flex-end;
     border: none;
-    position: absolute;
-    right: 10rem;
-    bottom: 12rem;
+    background-color: vars.$blueText;
+    color: vars.$white;
+    text-transform: uppercase;
+    width: 15rem;
+    height: 3rem;
+    font-weight: bold;
+  }
+  
+  &__container__content--copyBtn:hover{
+    background-color: vars.$red;
+    color: vars.$white;
   }
 }
 
 .swiper-slide {
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
   width: 60rem;
   height: 65rem;
   margin-bottom: 5rem;
-
-  &-prev {
-    & .-shadow-left {
-      opacity: 0.3;
-    }
-    & .-shadow-right {
-      opacity: 0;
-    }
-  }
-
-  &-next {
-    & .swiper-slide-shadow-right {
-      opacity: 0.3;
-    }
-    & .swiper-slide-shadow-left {
-      opacity: 0;
-    }
-  }
 }
-

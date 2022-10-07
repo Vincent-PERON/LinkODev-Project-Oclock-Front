@@ -1,20 +1,17 @@
+import PropTypes from 'prop-types';
 import './Posts.scss';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 /* VIPE */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionGetLatestPosts, actionSaveToFavorites } from 'src/actions/post';
+import { actionGetLatestPosts } from 'src/actions/post';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {
-  EffectCube, Pagination, Mousewheel, Keyboard,
-} from 'swiper';
+import { EffectCube, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
+import Post from 'src/components/Posts/Post/Post';
 // import { initialState } from '../../reducers/post';
 
 function Posts() {
@@ -34,7 +31,6 @@ function Posts() {
     dispatch(action);
   }, []);
 
-
   const copyToClipboard = (postID) => {
     const selectedPost = latestPosts.map((post) => {
     if (post.id === postID) {
@@ -49,50 +45,25 @@ function Posts() {
     <Swiper
       effect="cube"
       grabCursor
-      mousewheel
-      keyboard={{
-        enabled: true,
-      }}
       cubeEffect={{
         shadow: true,
         slideShadows: true,
         shadowOffset: 10,
-        shadowScale: 0.8,
+        shadowScale: 0.5,
       }}
       pagination
-      modules={[EffectCube, Pagination, Mousewheel, Keyboard]}
+      modules={[EffectCube, Pagination]}
       className="mySwiper"
     >
       <div className="content-list">
         <ul>
-          {latestPosts.map(((posts) => (
+          {latestPosts.map(((post) => (
             <SwiperSlide>
               <li key={post.id} className="PostCard3">
                 <div className="PostCard3__container">
                   <div className="PostCard3__container__content">
                     <div className="PostCard3__container__content--contain">
-                    
-                      <p className="PostCard3__container__content--text">{posts.introduction.content}</p>
-                      <p className="PostCard3__container__content--text">{posts.body.content}</p>
-                      <p className="PostCard3__container__content--text">{posts.conclusion.content}</p>
-                      <div className="PostCard__container__content--icons">
-                        {isLogged && (
-                        <button className="PostCard3__container__content--svBtn" type="button" onClick={saveToFavorites}>
-                          <StarOutlineIcon sx={{ color: 'white', fontSize: 30 }} />
-                        </button>
-                        )}
-                        <button
-                          className="PostCard3__container__content--cpBtn"
-                          type="button"
-                          onClick={() => {
-                            copyToClipboard(posts.id);
-                          }}
-                        >
-                          <ContentCopyIcon sx={{ color: 'white', fontSize: 30 }} />
-                        </button>
-                      </div>
-
-                     {/*  DEVELOP <p className="PostCard3__container__content--text">{post.introduction.content}</p>
+                      <p className="PostCard3__container__content--text">{post.introduction.content}</p>
                       <p className="PostCard3__container__content--text">{post.body.content}</p>
                       <p className="PostCard3__container__content--text">{post.conclusion.content}</p>
                       <button className="PostCard__container__content--copyBtn" 
@@ -102,7 +73,6 @@ function Posts() {
                               }}>
                         Copier
                       </button>
-                  */}
                     </div>
                   </div>
                 </div>

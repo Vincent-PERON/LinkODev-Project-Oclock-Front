@@ -1,7 +1,6 @@
 import { useNavigate, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 import './MyFavoritesPosts.scss';
 
@@ -36,7 +35,7 @@ function MyFavoritesPosts() {
     }
   });
 
- const copyToClipboard = (postID) => {
+  const copyToClipboard = (postID) => {
     const selectedPost = favoritesPosts.map((post) => {
     if (post.id === postID) {
 
@@ -73,10 +72,12 @@ function MyFavoritesPosts() {
               stretch: 0,
               depth: 100,
               modifier: 1,
+              slideShadows: true,
             }}
             // eslint-disable-next-line max-len
             modules={[EffectCoverflow, Navigation, Pagination, Scrollbar, Mousewheel, Keyboard, A11y]}
             spaceBetween={25}
+            // slidesPerView={3}
             scrollbar={{ draggable: true }}
             className="myFavoritePost--Swiper"
           >
@@ -92,21 +93,13 @@ function MyFavoritesPosts() {
                             <p className="PostCardFav__container__content--text">{post.introduction.content}</p>
                             <p className="PostCardFav__container__content--text">{post.body.content}</p>
                             <p className="PostCardFav__container__content--text">{post.conclusion.content}</p>
-
-                            <div className="PostCardFav__container__content--icons">
-                              <button
-                                className="PostCardFav__container__content--copyBtn"
-                                type="button"
-                                onClick={() => {
-                                  copyToClipboard(post.id);
-                                }}
-                              >
-                                <ContentCopyIcon
-                                  sx={{ color: 'white', fontSize: 30 }}
-                                />
-                              </button>
-                            </div>
-
+                            <button className="PostCard__container__content--copyBtn" 
+                              type="button"     
+                              onClick={() => {
+                                copyToClipboard(post.id);
+                              }}>
+                        Copier
+                      </button>
                           </div>
                         </div>
                       </div>

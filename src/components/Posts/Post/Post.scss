@@ -40,26 +40,32 @@
     text-align: left;
     align-content: center;
   }
-
-  &__container__content--saveButton {
+  &__container__content--copyBtn {
+    align-items: flex-end;
     border: none;
-    background: none;
+    background-color: vars.$blueText;
+    color: vars.$white;
+    text-transform: uppercase;
+    width: 15rem;
+    height: 3rem;
+    font-weight: bold;
   }
 
-  &__container__content--copyButton {
-    background: none;
+  &__container__content--saveBtn {
+    align-items: flex-end;
     border: none;
-    position: relative;
-    left: 52rem;
-    bottom: -2rem;
-    
+    background-color: vars.$blueText;
+    color: vars.$white;
+    text-transform: uppercase;
+    width: 15rem;
+    height: 3rem;
+    font-weight: bold;
+    margin-left: 3rem;
   }
-
-  &__container__content--icons {
-    margin: 0 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  
+  &__container__content--copyBtn:hover{
+    background-color: vars.$red;
+    color: vars.$white;
   }
 }
 
