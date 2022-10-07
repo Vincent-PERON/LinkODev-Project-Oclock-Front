@@ -26,4 +26,12 @@
 }
 //CSS
 
-
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  .app {
+    max-width: 100vw;
+    min-height: 100vh;
+  }
+}
