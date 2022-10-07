@@ -2,14 +2,14 @@ import {
   CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK,
 } from 'src/actions/user';
 
-const accessToken = JSON.parse(localStorage.getItem('accessToken'));
-const token = accessToken
-  ? { isLogged: true, accessToken }
-  : { isLogged: false, accessToken: null };
+const userToken = JSON.parse(localStorage.getItem('accessToken'));
+
+const loginCondition = userToken ? true : false;
+
 
 export const initialState = {
   // ici le state initial qui concerne les users
-  isLogged: false,
+  isLogged: loginCondition,
   email: '',
   password: '',
   firstname: '',

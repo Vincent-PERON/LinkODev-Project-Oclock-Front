@@ -18,12 +18,10 @@ function Main() {
         <p className="main__container__AboutUs--content">Pour profiter de toutes les fonctionnalités de ce projet, créez-vous un compte : vous pourrez enregistrer vos posts créés et les supprimer au besoin. Dans les versions suivantes, vous pourrez aussi les modifier, et même prévoir un calendrier de publication ! Amusez-vous bien ! </p>
       </section>
       <section className="main__container--button">
-        <div className="main__container--redline" />
         <NavLink
           to="/generator"
         ><PostGenerateButton />
         </NavLink>
-        <div className="main__container--redline" />
       </section>
       <SeparationBar />
       <section className="main__container--posts">

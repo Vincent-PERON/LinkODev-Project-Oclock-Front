@@ -55,7 +55,6 @@ function App() {
           <Route path="/me" element={<InfoProfile />} />
           <Route path="/me/posts" element={<MyFavoritesPosts />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/contact" element={<ContactUs />} />
         </Route>
       </Routes>

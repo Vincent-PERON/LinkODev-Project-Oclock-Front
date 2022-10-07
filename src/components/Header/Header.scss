@@ -47,3 +47,21 @@
   align-items: center;
 }
 
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  .header__main__section {
+    display: flex;
+    position: sticky;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header__Loggedsection--center {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+}

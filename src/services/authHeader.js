@@ -8,7 +8,23 @@ export function authHeader() {
   return {};
 }
 
+/* 
+  Node.js Express back-end 
+----------------------------------------------------------------
+export default function authHeader() {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (user && user.accessToken) {
+    // for Node.js Express back-end
+    return { 'x-access-token': user.accessToken };
+  } else {
+    return {};
+  }
+}
+*/
+
+
 // au moment du logout, on veut supprimer le token du LocalStorage
-export function logOut() {
-  return localStorage.removeItem('accessToken');
+export const logOut = () => {
+  localStorage.removeItem('accessToken');
 }

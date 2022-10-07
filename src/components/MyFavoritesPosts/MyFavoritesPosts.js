@@ -36,13 +36,14 @@ function MyFavoritesPosts() {
     }
   });
 
-  const copyToClipboard = (postID) => {
+ const copyToClipboard = (postID) => {
     const selectedPost = favoritesPosts.map((post) => {
-      if (post.id === postID) {
-        const message = post.introduction.content + post.body.content + post.conclusion.content;
-        navigator.clipboard.writeText(message);
-      }
-    });
+    if (post.id === postID) {
+
+    const message = post.introduction.content + post.body.content + post.conclusion.content;
+    navigator.clipboard.writeText(message);
+  }
+    }); 
   };
 
   return (
@@ -91,6 +92,7 @@ function MyFavoritesPosts() {
                             <p className="PostCardFav__container__content--text">{post.introduction.content}</p>
                             <p className="PostCardFav__container__content--text">{post.body.content}</p>
                             <p className="PostCardFav__container__content--text">{post.conclusion.content}</p>
+
                             <div className="PostCardFav__container__content--icons">
                               <button
                                 className="PostCardFav__container__content--copyBtn"
@@ -104,6 +106,7 @@ function MyFavoritesPosts() {
                                 />
                               </button>
                             </div>
+
                           </div>
                         </div>
                       </div>

@@ -19,31 +19,10 @@ import 'swiper/css/navigation';
 
 function Posts() {
   const dispatch = useDispatch();
-  const isLogged = useSelector((state) => state.user.isLogged);
 
-  /* Un message c'est une intro, un corps, une conclusion */
-  // eslint-disable-next-line max-len
+  /* Les latests posts du state */
   const latestPosts = useSelector((state) => state.post.latestPosts);
-
-  // eslint-disable-next-line max-len
-  // const message = latestPosts.introduction.content + latestPosts.body.content + latestPosts.conclusion.content;
-
-  /* Fonction copy to  clipboard */
-  const copyToClipboard = (postID) => {
-    const selectedPost = latestPosts.map((posts) => {
-      if (posts.id === postID) {
-        const message = posts.introduction.content + posts.body.content + posts.conclusion.content;
-        navigator.clipboard.writeText(message);
-      }
-    });
-  };
-
-  /* Fonction copy to  clipboard */
-  // const generatedPostFromState = useSelector((state) => state.post.generatedPost);
-  const saveToFavorites = () => {
-    const action = actionSaveToFavorites(); // action => { type: 'GET_MY_FAVORITES_POSTS' }
-    dispatch(action);
-  };
+  
 
   /*
   Au premier rendu du composant on dispatch actionGetLatestPosts
@@ -55,7 +34,16 @@ function Posts() {
     dispatch(action);
   }, []);
 
-  // eslint-disable-next-line max-len
+
+  const copyToClipboard = (postID) => {
+    const selectedPost = latestPosts.map((post) => {
+    if (post.id === postID) {
+
+    const message = post.introduction.content + post.body.content + post.conclusion.content;
+    navigator.clipboard.writeText(message);
+  }
+    }); 
+  };
 
   return (
     <Swiper
@@ -79,10 +67,11 @@ function Posts() {
         <ul>
           {latestPosts.map(((posts) => (
             <SwiperSlide>
-              <div className="PostCard3">
+              <li key={post.id} className="PostCard3">
                 <div className="PostCard3__container">
                   <div className="PostCard3__container__content">
                     <div className="PostCard3__container__content--contain">
+                    
                       <p className="PostCard3__container__content--text">{posts.introduction.content}</p>
                       <p className="PostCard3__container__content--text">{posts.body.content}</p>
                       <p className="PostCard3__container__content--text">{posts.conclusion.content}</p>
@@ -102,10 +91,22 @@ function Posts() {
                           <ContentCopyIcon sx={{ color: 'white', fontSize: 30 }} />
                         </button>
                       </div>
+
+                     {/*  DEVELOP <p className="PostCard3__container__content--text">{post.introduction.content}</p>
+                      <p className="PostCard3__container__content--text">{post.body.content}</p>
+                      <p className="PostCard3__container__content--text">{post.conclusion.content}</p>
+                      <button className="PostCard__container__content--copyBtn" 
+                              type="button"     
+                              onClick={() => {
+                                copyToClipboard(post.id);
+                              }}>
+                        Copier
+                      </button>
+                  */}
                     </div>
                   </div>
                 </div>
-              </div>
+              </li>
             </SwiperSlide>
           )))}
         </ul>
