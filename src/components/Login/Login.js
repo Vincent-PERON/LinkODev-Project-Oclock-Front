@@ -110,7 +110,6 @@ function Login() {
             </button>
             <div className="main__container--redline" />
           </section>
-          <Link to="/forgotpassword" className="Login-a">Mot de passe oublié ?</Link>
         </form>
       </>
       )}
