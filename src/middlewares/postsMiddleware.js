@@ -6,27 +6,29 @@ import {  GET_LATEST_POSTS, actionSaveLatestPosts,
 
 import {authHeader} from "src/services/authHeader";
 
+const API_URL = process.env.REACT_APP_API_URL;    
+
 const postsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
 
     case GET_LATEST_POSTS: {
-      axios.get('https://linkodevapi.cyber-one.fr/posts/latest')
+      // axios.get('https://linkodevapi.cyber-one.fr/posts/latest')
+      axios.get(API_URL + "/posts/latest")
         .then((response) => {
           store.dispatch(actionSaveLatestPosts(response.data));
         }).catch((error) => {
-          console.log('erreur', error);
-          // alert('Impossible de récupérer les 3 derniers posts, veuillez réessayer');
+          alert(error.message);
         });
       break;
     }
 
     case GET_MY_FAVORITES_POSTS: {
 
-
-      axios.get('https://linkodevapi.cyber-one.fr/me/posts', { headers: authHeader() })
+      axios.get(API_URL + "/me/posts", { headers: authHeader() })
         .then((response) => { 
           store.dispatch(actionSaveMyFavoritesPosts(response.data.posts));
-        }).catch((error) => { console.log('erreur', error); // alert('Impossible de récupérer les posts favoris, veuillez réessayer');
+        }).catch((error) => { console.log('erreur', error); 
+        alert(error.message);
       });
       break;
     }
@@ -36,7 +38,7 @@ const postsMiddleware = (store) => (next) => (action) => {
 
       const { post: {generatedPost}} = store.getState();
 
-      axios.post('https://linkodevapi.cyber-one.fr/me/posts', 
+      axios.post(API_URL + "/me/posts", 
           { /* Body */ 
           introductionId: generatedPost[0],
           bodyId: generatedPost[1],
@@ -48,10 +50,9 @@ const postsMiddleware = (store) => (next) => (action) => {
           })
 
         .then((response) => { 
-        alert('Le post est sauvegardé en favoris');
+          alert(response);
         }).catch((error) => {
-          console.log('erreur', error);
-        alert('Impossible de récupérer les posts favoris, veuillez réessayer');
+          alert(error.message);
       });
       break;
     }

@@ -9,6 +9,8 @@ import './FormGenerator.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
 
+const API_URL = process.env.REACT_APP_API_URL;  
+
 function FormGenerator({ setGeneratedPost }) {
   const dispatch = useDispatch();
 
@@ -31,7 +33,8 @@ function FormGenerator({ setGeneratedPost }) {
     setIsLoading(true);
 
     const selectedTagsURL = JSON.stringify(checkedTags);
-    axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
+    // axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
+    axios.get(API_URL + `/posts/random?tags=${selectedTagsURL}`)
       .then((response) => {
         setGeneratedPost(response.data);
 
@@ -47,7 +50,7 @@ function FormGenerator({ setGeneratedPost }) {
   // Au premier rendu du composant
   useEffect(() => {
     // Je récupère les tâches depuis l'API
-    axios.get('https://linkodevapi.cyber-one.fr/tags')
+    axios.get(API_URL + "/tags")
       .then((res) => {
         // Je les stocke dans mon state
         setTags(res.data);

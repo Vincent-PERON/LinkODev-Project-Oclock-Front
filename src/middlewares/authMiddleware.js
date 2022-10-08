@@ -5,14 +5,15 @@ import {
   actionErrorBack,
 } from 'src/actions/user';
 
+const API_URL = process.env.REACT_APP_API_URL;
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case CHECK_LOGIN: {
 
+    case CHECK_LOGIN: {  
       const { user: { email, password } } = store.getState();
 
-      axios.post('https://linkodevapi.cyber-one.fr/login', {
+      axios.post( API_URL + "/login", {
         email: email,
         password: password,
       }).then((response) => {
@@ -20,20 +21,16 @@ const authMiddleware = (store) => (next) => (action) => {
         localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken));
         localStorage.setItem('user', JSON.stringify(response.data.user));
       }).catch((error) => {
-        console.log('erreur', error);
-        alert('Le mot de passe ou l\'email sont invalides, veuillez réessayer');
+        alert(error.message);
       });
 
       break;
     }
-    case SUBMIT_REGISTER_FORM: {
 
-      const {
-        user: {
-          lastname, firstname, email, password, confirmPassword,
-        },
-      } = store.getState();
-      axios.post('https://linkodevapi.cyber-one.fr/register', {
+    case SUBMIT_REGISTER_FORM: {
+      const { user: {lastname, firstname, email, password, confirmPassword} } = store.getState();
+      
+        axios.post(API_URL + "/register", {
         lastname: lastname,
         firstname: firstname,
         email: email,
@@ -45,9 +42,8 @@ const authMiddleware = (store) => (next) => (action) => {
         store.dispatch(actionErrorBack(response.data.error));
         action.successCallback();
       }).catch((error) => {
-        console.log('erreur', error, error.response.data.error);
         store.dispatch(actionErrorBack(error.response.data.error));
-        alert('erreur de chargement axios.post route/register, veuillez réessayer');
+        alert(error.message);
       });
 
       break;
