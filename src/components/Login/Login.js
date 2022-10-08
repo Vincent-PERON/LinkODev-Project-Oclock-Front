@@ -2,15 +2,14 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import './Login.scss';
 import { actionChangeInputValue, actionCheckLogin } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
-function Login() {
-  // accès au hook useDispatch() pour dispatcher les actions
-  const dispatch = useDispatch();
+import './Login.scss';
 
-  // accès au hook useNavigate pour la redirection
+function Login() {
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // je récupère l'email et le password du state :
@@ -36,7 +35,6 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(actionCheckLogin());
-    console.log(actionCheckLogin());
   };
 
   /**
