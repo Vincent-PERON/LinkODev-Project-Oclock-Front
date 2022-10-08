@@ -1,45 +1,49 @@
-import PropTypes from 'prop-types';
-import './Posts.scss';
-
-/* VIPE */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionGetLatestPosts } from 'src/actions/post';
+
+import { actionGetLatestPosts, actionSaveToFavorites } from 'src/actions/post';
+
+/* Materiel UI Icons */
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
+
+/* Swiper.JS*/
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCube, Pagination } from 'swiper';
+import { EffectCube, Pagination, Mousewheel, Keyboard} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 
-import Post from 'src/components/Posts/Post/Post';
-// import { initialState } from '../../reducers/post';
+import './Posts.scss';
 
 function Posts() {
+
   const dispatch = useDispatch();
-
-  /* Les latests posts du state */
+  const isLogged = useSelector((state) => state.user.isLogged);
   const latestPosts = useSelector((state) => state.post.latestPosts);
-  
 
-  /*
-  Au premier rendu du composant on dispatch actionGetLatestPosts
-  pour que le middleware l'intercepte et aille faire la requette vers l'API pour
-  recuperer les recettes
-  */
-  useEffect(() => {
-    const action = actionGetLatestPosts(); // action => { type: 'GET_LATEST_POSTS' }
-    dispatch(action);
-  }, []);
 
+  /* Copy to  clipboard */
   const copyToClipboard = (postID) => {
     const selectedPost = latestPosts.map((post) => {
-    if (post.id === postID) {
-
-    const message = post.introduction.content + post.body.content + post.conclusion.content;
-    navigator.clipboard.writeText(message);
-  }
-    }); 
+      if (post.id === postID) {
+        const message = post.introduction.content + post.body.content + post.conclusion.content;
+        navigator.clipboard.writeText(message);
+      }
+    });
   };
+
+  /* Save to favorites */
+  const saveToFavorites = () => {
+    const action = actionSaveToFavorites(); 
+    dispatch(action);
+  };
+
+  /* First component render */
+  useEffect(() => {
+    const action = actionGetLatestPosts(); 
+    dispatch(action);
+  }, []);
 
   return (
     <Swiper
@@ -58,7 +62,7 @@ function Posts() {
       <div className="content-list">
         <ul>
           {latestPosts.map(((post) => (
-            <SwiperSlide>
+            <SwiperSlide key={post.id} >
               <li key={post.id} className="PostCard3">
                 <div className="PostCard3__container">
                   <div className="PostCard3__container__content">
@@ -66,13 +70,22 @@ function Posts() {
                       <p className="PostCard3__container__content--text">{post.introduction.content}</p>
                       <p className="PostCard3__container__content--text">{post.body.content}</p>
                       <p className="PostCard3__container__content--text">{post.conclusion.content}</p>
-                      <button className="PostCard__container__content--copyBtn" 
-                              type="button"     
-                              onClick={() => {
-                                copyToClipboard(post.id);
-                              }}>
-                        Copier
-                      </button>
+                      <div className="PostCard__container__content--icons">
+                        {isLogged && (
+                        <button className="PostCard3__container__content--svBtn" type="button" onClick={saveToFavorites}>
+                          <StarOutlineIcon sx={{ color: 'white', fontSize: 30 }} />
+                        </button>
+                        )}
+                        <button
+                          className="PostCard3__container__content--cpBtn"
+                          type="button"
+                          onClick={() => {
+                            copyToClipboard(post.id);
+                          }}
+                        >
+                          <ContentCopyIcon sx={{ color: 'white', fontSize: 30 }} />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
