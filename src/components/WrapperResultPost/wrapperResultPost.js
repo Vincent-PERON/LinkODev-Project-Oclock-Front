@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import './wrapperResultPost.scss';
 import FormGenerator from '../FormGenerator/FormGenerator';
 import Post from '../Posts/Post/Post';
+
+import './wrapperResultPost.scss';
 
 function WrapperResultPost() {
   // l'objet du dernier post généré

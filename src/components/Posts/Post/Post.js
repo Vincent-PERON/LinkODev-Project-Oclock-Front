@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { actionSaveToFavorites } from 'src/actions/post';
+
+/* Materiel UI Icons */
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
@@ -14,19 +17,16 @@ function PostCard({ generatedPost }) {
   const isLogged = useSelector((state) => state.user.isLogged);
 
   /* Un message c'est une intro, un corps, une conclusion */
-  // eslint-disable-next-line max-len
   const message = generatedPost.introduction.content + generatedPost.body.content + generatedPost.conclusion.content;
 
-  /* Fonction copy to  clipboard */
+  /* Copy to  clipboard */
   const copyToClipboard = () => {
     navigator.clipboard.writeText(message);
-    console.log(message);
   };
 
-  /* Fonction copy to  clipboard */
-  // const generatedPostFromState = useSelector((state) => state.post.generatedPost);
+  /* Save to favorites */
   const saveToFavorites = () => {
-    const action = actionSaveToFavorites(); // action => { type: 'GET_MY_FAVORITES_POSTS' }
+    const action = actionSaveToFavorites(); 
     dispatch(action);
   };
 
@@ -36,7 +36,6 @@ function PostCard({ generatedPost }) {
 
   return (
     <div className="PostCard">
-
       <div className="PostCard__container">
         <div className="PostCard__container__content" ref={postRef}>
           <div className="PostCard__container__content--contain">
@@ -63,11 +62,8 @@ function PostCard({ generatedPost }) {
 PostCard.propTypes = {
   generatedPost: PropTypes.shape({
     introduction: PropTypes.shape({ content: PropTypes.string.isRequired }),
-
     body: PropTypes.shape({ content: PropTypes.string.isRequired }),
-
     conclusion: PropTypes.shape({ content: PropTypes.string.isRequired }),
-
   }).isRequired,
 };
 
