@@ -8,6 +8,7 @@ export const SUBMIT_REGISTER_FORM = 'SUBMIT_REGISTER_FORM';
 export const RESET_REGISTER_FORM = 'RESET_REGISTER_FORM';
 export const ERROR_CONFIRM_PASSWORD = 'ERROR_CONFIRM_PASSWORD';
 export const ERROR_BACK = 'ERROR_BACK';
+export const GET_USER_INFOS = 'GET_USER_INFOS';
 
 /**
  * action dispatchée sur le onChange d'un input du Login form ou du Register form
@@ -28,6 +29,14 @@ export const actionChangeInputValue = (newValue, inputName) => ({
  */
 export const actionCheckLogin = () => ({
   type: CHECK_LOGIN,
+});
+
+/**
+ * action dispatchée sur le submit du Login.  action interceptée par
+ * un middleware pour qu'il interroge l'api sur la route /login
+ */
+ export const actionGetUserInfos = () => ({
+  type: GET_USER_INFOS,
 });
 
 /**

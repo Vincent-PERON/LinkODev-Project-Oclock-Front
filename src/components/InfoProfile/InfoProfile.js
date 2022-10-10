@@ -2,6 +2,8 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
+import { actionGetUserInfos } from 'src/actions/user';
+
 import './InfoProfile.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
@@ -21,6 +23,14 @@ function InfoProfile() {
       navigate('/');
     }
   });
+
+/* Get infos at component render */
+useEffect(() => {
+  const action = actionGetUserInfos(); 
+  dispatch(action);
+}, []);
+
+
   return (
     <div className="InfoProfile">
       {!isLogged && (
