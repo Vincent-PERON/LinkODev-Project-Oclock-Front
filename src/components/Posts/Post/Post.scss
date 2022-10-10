@@ -63,8 +63,57 @@
   }
 }
 
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
 
+.PostCard {
+  margin: 0rem;
 
+  &__container {
+    // background-image: url("../../../assets/Images/posts-mobile.svg");
+    // background-size: 300%;
+    // max-height: 80rem;
+    // margin-top: 4.5rem;
+    background-image: none;
+  }
 
+  &__container__content {
+    background-image: url("../../../assets/Images/posts-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: center;
+    font-size: 1.15rem;
+    margin: 4.5rem 0rem 0rem 0rem;
+    min-height: 75rem;
+    width: 39rem;
+  }
 
+  &__container__content--contain {
+    margin: 0 3.8rem;
+    display: flex;
+    flex-direction: column;
+  }
 
+  &__container__content--text {
+    margin: 0 2rem 2rem 1.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+    align-content: center;
+  }
+
+  &__container__content--saveButton {
+    border: none;
+    background: none;
+  }
+
+  &__container__content--copyButton {
+    background: none;
+    border: none;
+    position: relative;
+    left: 12rem;
+    bottom: -5rem;
+  }
+}
+}
