@@ -164,7 +164,7 @@ const changePassword = (event) => {
         </div>
       )}
     </div>
-  );
+  )
 }
 
 export default InfoProfile;
