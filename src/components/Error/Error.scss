@@ -25,7 +25,7 @@
 
   &--text--end {
     font-size: 2em;
-    margin-top: 13em;
+    margin-top: 14em;
   }
 
 }
@@ -33,3 +33,40 @@
 .grey {
   fill: rgba(255, 255, 255, 0.859);
 }
+
+.blue {
+  color: #225CAA;
+  text-decoration: underline;
+}
+
+/*
+    Styles pour les écrans de moins de 768px de large :
+*/
+@media screen and (max-width: 768px) {
+  
+  .Error {
+
+  &--text--end {
+    font-size: 2em;
+    margin-top: 10em;
+  }
+}
+}
+
+
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  
+  .Error {
+
+  &--text--end {
+    font-size: 2em;
+    margin-top: 7em;
+  }
+}
+}
+
+
+

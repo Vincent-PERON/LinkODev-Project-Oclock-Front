@@ -6,8 +6,7 @@ function Error() {
     <div className="Error grey">
       <p className="Error--code">404</p>
       <p className="Error--text">Il semble que vous vous soyez perdu !</p>
-      <p className="Error--text--end" >Un tour sur l'accueil devrait vous aider à retrouver votre route.</p>
-
+      <p className="Error--text--end" >Un tour sur <a href="/" className="blue">l'accueil</a> devrait vous aider à retrouver votre route.</p>
     </div>
   );
 }
