@@ -87,7 +87,7 @@ function MyFavoritesPosts() {
             <section className="favorites__container swiper-container">
               <ul className="swiper-wrapper">
                 {favoritesPosts.map(((post) => (
-                  <SwiperSlide key={post.id} >
+                  <SwiperSlide key={post.id}>
                     <div className="PostCardFav swiper-slide">
                       <div className="PostCardFav__container">
                         <div className="PostCardFav__container__content">
