@@ -9,7 +9,7 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 /* Swiper.JS*/
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCube, Pagination, Mousewheel, Keyboard} from 'swiper';
+import { EffectCube, Pagination, Mousewheel, Keyboard } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
@@ -35,13 +35,13 @@ function Posts() {
 
   /* Save to favorites */
   const saveToFavorites = () => {
-    const action = actionSaveToFavorites(); 
+    const action = actionSaveToFavorites();
     dispatch(action);
   };
 
   /* First component render */
   useEffect(() => {
-    const action = actionGetLatestPosts(); 
+    const action = actionGetLatestPosts();
     dispatch(action);
   }, []);
 
@@ -62,7 +62,7 @@ function Posts() {
       <div className="content-list">
         <ul>
           {latestPosts.map(((post) => (
-            <SwiperSlide key={post.id} >
+            <SwiperSlide key={post.id}>
               <li key={post.id} className="PostCard3">
                 <div className="PostCard3__container">
                   <div className="PostCard3__container__content">

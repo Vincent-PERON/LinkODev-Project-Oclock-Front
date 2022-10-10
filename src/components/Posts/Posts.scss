@@ -75,14 +75,46 @@ ul {
 */
 @media screen and (max-width: 480px) {
   .mySwiper {
-    width: 90%;
+    width: 100%;
   }
 
   .PostCard3 {
 
     &__container {
+      background-image: url("../../assets/Images/posts-mobile.svg");
+      background-size: 600px 120%;
       max-height: 80rem;
-      margin-top: 10rem;
+      margin-top: 0rem;
     }
+
+    &__container__content {
+    font-size: 1.15rem;
+    margin: 0rem 0rem;
+    }
+
+    &__container__content--contain {
+      margin: 0;
+    }
+
+    &__container__content--text {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      align-content: center;
+    }
+
+    &__container__content--svBtn {
+      border: none;
+      background: none;
+    }
+  
+    &__container__content--cpBtn {
+      background: none;
+      border: none;
+      position: absolute;
+      right: 11.5rem;
+      bottom: -9rem;
+    }
+  
+
   }
 }

@@ -49,6 +49,10 @@
 */
 @media screen and (max-width: 480px) {
 
+  .main__container {
+    font-size: 1.4rem;
+  }
+
   .main__container--button {
     display: flex;
     flex-wrap: wrap;

@@ -73,3 +73,21 @@ input[type="checkbox"]:checked {
   display: flex;
   justify-content: center;
 }
+
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  .FormGenerator {
+    &-card {
+    padding-top: 5.5rem;
+    background-image: url('src/assets/Images/PostsFormBg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25rem;
+    height: 20rem;
+  }
+  }
+  
+
+}
