@@ -103,22 +103,25 @@
     align-content: center;
   }
 
-  // &__container__content--saveButton {
-  //   border: none;
-  //   background: none;
-  // }
+  &__container__content--saveButton {
+    border: none;
+    background: none;
+    position: absolute;
+    left: 4rem;
+    bottom: -155rem;
+  }
 
-  // &__container__content--copyButton {
-  //   background: none;
-  //   border: none;
-  //   position: absolute;
-  //   left: 30rem;
-  //   bottom: -120rem;
-  // }
+  &__container__content--copyButton {
+    background: none;
+    border: none;
+    position: absolute;
+    left: 30rem;
+    bottom: -155rem;
+  }
 }
 
-.PostCard__container__content--icons {
-  display: flex;
-  justify-content: space-between;
-}
+// .PostCard__container__content--icons {
+//   display: flex;
+//   justify-content: space-between;
+// }
 }

@@ -103,23 +103,30 @@ ul {
     }
 
     &__container__content--icons {
-      margin: 0;
-      justify-content: space-between;
+      margin-top: 20rem;
+      justify-content: center;
     }
 
-    // &__container__content--svBtn {
-    //   border: none;
-    //   background: none;
-    // }
+    &__container__content--svBtn {
+      border: none;
+      background: none;
+      position: absolute;
+      left: 1rem;
+      bottom: 2rem;
+    }
   
-    // &__container__content--cpBtn {
-    //   background: none;
-    //   border: none;
-    //   position: absolute;
-    //   right: 2rem;
-    //   bottom: 2rem;
-    // }
+    &__container__content--cpBtn {
+      background: none;
+      border: none;
+      position: absolute;
+      right: 1rem;
+      bottom: 2rem;
+    }
   
 
   }
+
+  // .PostCard__container__content--icons {
+  //   justify-content: space-between;
+  // }
 }

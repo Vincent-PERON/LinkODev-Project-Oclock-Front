@@ -16,7 +16,10 @@
 
 @media screen and (max-width: 480px) {
   .Footer {
+    position: relative;
     margin-top: 7rem;
+    width: 100%;
+    text-align: center;
 
     &--link {
       margin-bottom: 1rem;

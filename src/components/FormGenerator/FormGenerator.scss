@@ -79,7 +79,7 @@ input[type="checkbox"]:checked {
 */
 @media screen and (max-width: 480px) {
   .FormGenerator {
-    height: 100vh;
+    // height: 100vh;
     &-description {
       margin-bottom: 0rem;
   
@@ -98,7 +98,8 @@ input[type="checkbox"]:checked {
     margin: 0 auto;
     margin-bottom: 8rem;
   }
+
+
   }
-  
 
 }
