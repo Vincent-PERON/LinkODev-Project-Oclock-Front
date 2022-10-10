@@ -1,5 +1,5 @@
-import {
-  CHANGE_INPUT_VALUE, SAVE_USER, SAVE_EMAIL_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK,
+import { CHANGE_INPUT_VALUE, SAVE_USER, SAVE_EMAIL_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK,
+
 } from 'src/actions/user';
 
 const userToken = JSON.parse(localStorage.getItem('accessToken'));
@@ -10,10 +10,12 @@ const loginCondition = userToken ? true : false;
 export const initialState = {
   // ici le state initial qui concerne les users
   isLogged: loginCondition,
-  email: '',
-  password: '',
   firstname: '',
   lastname: '',
+  email: '',
+  newEmail: '',
+  password: '',
+  newPassword: '',
   confirmPassword: '',
   // Name for Backend = "apitoken"
   token: null,

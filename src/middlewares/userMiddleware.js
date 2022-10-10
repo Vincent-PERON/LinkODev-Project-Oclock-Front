@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_USER_INFOS, actionSaveEmailUser } from 'src/actions/user';
+import { GET_USER_INFOS, actionSaveEmailUser, CHANGE_MY_EMAIL} from 'src/actions/user';
 
 import {authHeader} from "src/services/authHeader";
 
@@ -16,6 +16,31 @@ const userMiddleware = (store) => (next) => (action) => {
 
         .then((response) => { 
           store.dispatch(actionSaveEmailUser(response.data.email));
+        }).catch((error) => {
+          alert(error.message);
+      });
+      break;
+    }
+
+    case CHANGE_MY_EMAIL: {
+
+      const { user: {email, newEmail, password, } } = store.getState();
+
+      axios.put(API_URL + "/me", 
+          { /* Body */ 
+          email: email,
+          password: password,
+          update: {
+                    email: newEmail
+                }
+          },
+      
+          { /*Headers */
+            headers: authHeader() 
+          })
+
+        .then((response) => { 
+          console.log(response.data.msg);
         }).catch((error) => {
           alert(error.message);
       });

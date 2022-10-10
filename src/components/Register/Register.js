@@ -2,9 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './Register.scss';
-import {
-  actionChangeInputValue, actionSubmitRegisterForm, actionErrorConfirmPassword,
-} from 'src/actions/user';
+import { actionChangeInputValue, actionSubmitRegisterForm, actionErrorConfirmPassword } from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
 function Register() {
