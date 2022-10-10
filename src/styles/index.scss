@@ -1,10 +1,8 @@
 @use 'reset';
 @use 'vars';
 
-@font-face {
-    font-family: 'Chau Philomene One';
-    src: url('../assets/fonts/LeagueSpartan-VariableFont_wght.ttf');
-  }
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One&family=Pacifico&display=swap');
   
   html {
     font-size: 10px;

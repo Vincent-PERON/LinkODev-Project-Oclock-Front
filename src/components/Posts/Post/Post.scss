@@ -40,37 +40,88 @@
     text-align: left;
     align-content: center;
   }
-  &__container__content--copyBtn {
-    align-items: flex-end;
+
+  &__container__content--saveButton {
     border: none;
-    background-color: vars.$blueText;
-    color: vars.$white;
-    text-transform: uppercase;
-    width: 15rem;
-    height: 3rem;
-    font-weight: bold;
+    background: none;
   }
 
-  &__container__content--saveBtn {
-    align-items: flex-end;
+  &__container__content--copyButton {
+    background: none;
     border: none;
-    background-color: vars.$blueText;
-    color: vars.$white;
-    text-transform: uppercase;
-    width: 15rem;
-    height: 3rem;
-    font-weight: bold;
-    margin-left: 3rem;
+    position: relative;
+    left: 52rem;
+    bottom: -2rem;
+    
   }
-  
-  &__container__content--copyBtn:hover{
-    background-color: vars.$red;
-    color: vars.$white;
+
+  &__container__content--icons {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
 
+.PostCard {
+  margin: 0rem;
 
+  &__container {
+    // background-image: url("../../../assets/Images/posts-mobile.svg");
+    // background-size: 300%;
+    // max-height: 80rem;
+    // margin-top: 4.5rem;
+    background-image: none;
+  }
 
+  &__container__content {
+    background-image: url("../../../assets/Images/posts-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: center;
+    font-size: 1.15rem;
+    margin: 4.5rem 0rem 0rem 0rem;
+    min-height: 75rem;
+    width: 39rem;
+  }
 
+  &__container__content--contain {
+    margin: 0 3.8rem;
+    display: flex;
+    flex-direction: column;
+  }
 
+  &__container__content--text {
+    margin: 0 2rem 2rem 1.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+    align-content: center;
+  }
+
+  &__container__content--saveButton {
+    border: none;
+    background: none;
+    position: absolute;
+    left: 4rem;
+    bottom: -155rem;
+  }
+
+  &__container__content--copyButton {
+    background: none;
+    border: none;
+    position: absolute;
+    left: 30rem;
+    bottom: -155rem;
+  }
+}
+
+// .PostCard__container__content--icons {
+//   display: flex;
+//   justify-content: space-between;
+// }
+}

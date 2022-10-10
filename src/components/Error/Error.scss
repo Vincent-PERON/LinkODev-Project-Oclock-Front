@@ -1,32 +1,72 @@
 @use 'src/styles/vars';
 
 .Error {
+  height: 60vh;
   color: vars.$white;
-  background-color: vars.$mainBackground;
-  background-image: url('src/assets/Images/404_chuck_norris.png');
+  text-align: center;
+  background-image: url("src/assets/Images/404.svg");
   background-repeat: no-repeat;
-  background-position: 95% 100%;
-  background-size: 30%;
-  text-align: left;
-  font-size: 1.8rem;
-  height: 100vh;
-  padding : 8rem;
+  background-size: 90%;
+  background-position: center;
+  margin-left: auto;
+  margin-right: auto;
 
-  &-title {
-    font-size: 20rem;
-    font-weight: bold;
-    margin: 0 0 2rem 10rem;;
+  &--code {
+    font-family: 'Pacifico', cursive;
+    font-size: 15em;
+    margin: 0.2em auto;
+  
   }
-  &-subtitle {
-    font-size: 6rem;
-    margin-bottom: 2rem;
-    &2 {
-      font-size: 6rem;
-      margin-bottom: 2rem;
-    }
+
+  &--text {
+    font-size: 2em;
+    color: vars.$red;
   }
-  &-description {
-    font-size: 3rem;
-    text-transform: uppercase;
+
+  &--text--end {
+    font-size: 2em;
+    margin-top: 14em;
+  }
+
+}
+
+.grey {
+  fill: rgba(255, 255, 255, 0.859);
+}
+
+.blue {
+  color: #225CAA;
+  text-decoration: underline;
+}
+
+/*
+    Styles pour les écrans de moins de 768px de large :
+*/
+@media screen and (max-width: 768px) {
+  
+  .Error {
+
+  &--text--end {
+    font-size: 2em;
+    margin-top: 10em;
   }
 }
+}
+
+
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  
+  .Error {
+
+  &--text--end {
+    font-size: 2em;
+    margin-top: 7em;
+  }
+}
+}
+
+
+

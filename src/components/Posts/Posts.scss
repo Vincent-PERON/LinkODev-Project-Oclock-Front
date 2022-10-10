@@ -48,20 +48,85 @@ ul {
     text-align: left;
     align-content: center;
   }
-  &__container__content--copyBtn {
-    align-items: flex-end;
+
+  &__container__content--svBtn {
     border: none;
-    background-color: vars.$blueText;
-    color: vars.$white;
-    text-transform: uppercase;
-    width: 15rem;
-    height: 3rem;
-    font-weight: bold;
+    background: none;
   }
-  
-  &__container__content--copyBtn:hover{
-    background-color: vars.$red;
-    color: vars.$white;
+
+  &__container__content--cpBtn {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 10rem;
+    bottom: 8rem;
+  }
+
+  &__container__content--icons {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  .mySwiper {
+    width: 100%;
+  }
+
+  .PostCard3 {
+
+    &__container {
+      background-image: url("../../assets/Images/posts-mobile.svg");
+      background-size: 600px 120%;
+      max-height: 80rem;
+      margin-top: 4.5rem;
+    }
+
+    &__container__content {
+    font-size: 1.15rem;
+    margin: 0rem 0rem;
+    }
+
+    &__container__content--contain {
+      margin: 0;
+    }
+
+    &__container__content--text {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      align-content: center;
+    }
+
+    &__container__content--icons {
+      margin-top: 20rem;
+      justify-content: center;
+    }
+
+    &__container__content--svBtn {
+      border: none;
+      background: none;
+      position: absolute;
+      left: 1rem;
+      bottom: 2rem;
+    }
+  
+    &__container__content--cpBtn {
+      background: none;
+      border: none;
+      position: absolute;
+      right: 1rem;
+      bottom: 2rem;
+    }
+  
+
+  }
+
+  // .PostCard__container__content--icons {
+  //   justify-content: space-between;
+  // }
+}

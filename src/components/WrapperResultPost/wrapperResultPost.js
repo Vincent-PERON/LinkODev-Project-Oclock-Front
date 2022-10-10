@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import './wrapperResultPost.scss';
 import FormGenerator from '../FormGenerator/FormGenerator';
 import Post from '../Posts/Post/Post';
+
+import './wrapperResultPost.scss';
 
 function WrapperResultPost() {
   // l'objet du dernier post généré
@@ -10,12 +11,16 @@ function WrapperResultPost() {
 
   return (
     <div className="WrapperResultPost">
-      <FormGenerator
-        setGeneratedPost={setGeneratedPost}
-      />
-      {generatedPost && (
+      <div className="WrapperResultPost--form">
+        <FormGenerator
+          setGeneratedPost={setGeneratedPost}
+        />
+      </div>
+      <div className="WrapperResultPost--post">
+        {generatedPost && (
         <Post generatedPost={generatedPost} />
-      )}
+        )}
+      </div>
     </div>
   );
 }

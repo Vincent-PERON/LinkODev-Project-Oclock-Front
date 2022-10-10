@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {  actionSaveGeneratedPost } from 'src/actions/post';
+import { actionSaveGeneratedPost } from 'src/actions/post';
 
 import './FormGenerator.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
 import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function FormGenerator({ setGeneratedPost }) {
   const dispatch = useDispatch();
@@ -31,14 +33,14 @@ function FormGenerator({ setGeneratedPost }) {
     setIsLoading(true);
 
     const selectedTagsURL = JSON.stringify(checkedTags);
-    axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
+    // axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
+    axios.get(`${API_URL}/posts/random?tags=${selectedTagsURL}`)
       .then((response) => {
         setGeneratedPost(response.data);
 
-        const generatedPost = [response.data.introduction.id , response.data.body.id , response.data.conclusion.id]
-        const action = actionSaveGeneratedPost(generatedPost); 
+        const generatedPost = [response.data.introduction.id, response.data.body.id, response.data.conclusion.id];
+        const action = actionSaveGeneratedPost(generatedPost);
         dispatch(action);
-
       }).catch((err) => {
         console.error(err);
       })
@@ -48,7 +50,7 @@ function FormGenerator({ setGeneratedPost }) {
   // Au premier rendu du composant
   useEffect(() => {
     // Je récupère les tâches depuis l'API
-    axios.get('https://linkodevapi.cyber-one.fr/tags')
+    axios.get(`${API_URL}/tags`)
       .then((res) => {
         // Je les stocke dans mon state
         setTags(res.data);
@@ -59,6 +61,7 @@ function FormGenerator({ setGeneratedPost }) {
 
   return (
     <div className="FormGenerator">
+
       <h1 className="FormGenerator-title">Générateur de posts LinkedIn pour les développeurs Web</h1>
       <SeparationBar />
       <h2 className="FormGenerator-subtitle">Pour poster facilement sur des sujets dev' sans prise de tête !</h2>
@@ -94,9 +97,7 @@ function FormGenerator({ setGeneratedPost }) {
             </ul>
           </div>
           <section className="main__container--button">
-            <div className="main__container--redline" />
             <PostGenerateButton disabled={isLoading} />
-            <div className="main__container--redline" />
           </section>
         </form>
       </section>

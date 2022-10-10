@@ -22,7 +22,29 @@
     color: vars.$button;
 }
 
+.main__container--redline {
+  border-top: 1px solid #FF1616;
+  width: 15rem;
+  margin: 4.5rem 5rem 0 5rem;
+}
 
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
 
+  .PostGenerateButton {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
+  .PostGenerateButton--button {
+    margin-top: 0rem;
+    width: 30rem;
+  }
 
+  .main__container--redline {
+    border-top: 1px solid #FF1616;
+  }
+
+}

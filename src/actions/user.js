@@ -1,13 +1,16 @@
-import { authHeader } from 'src/services/authHeader';
 
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const CHECK_LOGIN = 'CHECK_LOGIN';
 export const SAVE_USER = 'SAVE_USER';
+export const SAVE_EMAIL_USER = 'SAVE_EMAIL_USER';
+export const CHANGE_MY_EMAIL = 'CHANGE_MY_EMAIL';
+export const CHANGE_MY_PASSWORD = 'CHANGE_MY_PASSWORD';
 export const LOG_OUT = 'LOG_OUT';
 export const SUBMIT_REGISTER_FORM = 'SUBMIT_REGISTER_FORM';
 export const RESET_REGISTER_FORM = 'RESET_REGISTER_FORM';
 export const ERROR_CONFIRM_PASSWORD = 'ERROR_CONFIRM_PASSWORD';
 export const ERROR_BACK = 'ERROR_BACK';
+export const GET_USER_INFOS = 'GET_USER_INFOS';
 
 /**
  * action dispatchée sur le onChange d'un input du Login form ou du Register form
@@ -29,6 +32,7 @@ export const actionChangeInputValue = (newValue, inputName) => ({
 export const actionCheckLogin = () => ({
   type: CHECK_LOGIN,
 });
+
 
 /**
  * action dispatchée quand le authmiddelware reçoit une réponse du serveur /login
@@ -82,3 +86,28 @@ export const actionErrorBack = (messageBack) => ({
 export const actionErrorConfirmPassword = () => ({
   type: ERROR_CONFIRM_PASSWORD,
 });
+
+/**
+ * action dispatchée sur le submit du Login.  action interceptée par
+ * un middleware pour qu'il interroge l'api sur la route /login
+ */
+export const actionGetUserInfos = () => ({
+  type: GET_USER_INFOS,
+});
+
+export const actionSaveEmailUser = (email) => ({
+  type: SAVE_EMAIL_USER,
+  email,
+});
+
+export const actionChangeMyEmail = () => ({
+  type: CHANGE_MY_EMAIL,
+});
+
+export const actionChangeMyPassword = () => ({
+  type: CHANGE_MY_PASSWORD,
+});
+
+
+
+
