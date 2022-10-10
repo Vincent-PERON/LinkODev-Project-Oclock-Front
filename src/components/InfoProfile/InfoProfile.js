@@ -15,6 +15,7 @@ function InfoProfile() {
   const navigate = useNavigate();
 
   const isLogged = useSelector((state) => state.user.isLogged);
+  const emailValue= useSelector((state) => state.user.email);
   /**
  * hook useEffect qui redirige le user vers la home au changement de isLogged = false
  */
@@ -47,7 +48,7 @@ useEffect(() => {
             <div className="InfoProfile-group InfoProfile-group-left">
               <div className="InfoProfile-group-content">
                 <label htmlFor="email" className="InfoProfile-form-label">ADRESSE E-MAIL</label>
-                <input id="email" type="email" className="InfoProfile-form-input" placeholder="Email déjà enregistré" />
+                <input id="email" type="email" value={emailValue} className="InfoProfile-form-input" placeholder="Email déjà enregistré" />
               </div>
               <div className="InfoProfile-group-content">
                 <label htmlFor="email" className="InfoProfile-form-label">NOUVEL E-MAIL</label>
