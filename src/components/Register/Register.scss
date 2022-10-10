@@ -108,22 +108,18 @@
     &-form-group {
       display: flex;
       flex-direction: column;
+      gap: 0;
     }
     &-form-elem {
       width: 20rem;
       align-items: center;
     }
-    &-form-group { 
-      gap: 0;
-    }
     &-form-button {
       width: 20rem;
+      margin: 0;
     }
     &-form-label {
       padding-left: 0;
-    }
-    &-form-button {
-      margin: 0;
     }
     &-separation {
       width: 70vw;

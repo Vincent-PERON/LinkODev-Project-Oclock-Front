@@ -49,8 +49,16 @@
 */
 @media screen and (max-width: 480px) {
 
+  .main__container {
+    font-size: 1.4rem;
+  }
+
   .main__container--button {
     display: flex;
     flex-wrap: wrap;
+  }
+  .main__container__separationBar {
+    margin-top: 4.5rem;
+    margin-bottom: 0rem;
   }
 }

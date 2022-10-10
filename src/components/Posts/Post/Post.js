@@ -26,7 +26,7 @@ function PostCard({ generatedPost }) {
 
   /* Save to favorites */
   const saveToFavorites = () => {
-    const action = actionSaveToFavorites(); 
+    const action = actionSaveToFavorites();
     dispatch(action);
   };
 

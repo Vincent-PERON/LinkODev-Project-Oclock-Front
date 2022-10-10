@@ -11,12 +11,16 @@ function WrapperResultPost() {
 
   return (
     <div className="WrapperResultPost">
-      <FormGenerator
-        setGeneratedPost={setGeneratedPost}
-      />
-      {generatedPost && (
+      <div className="WrapperResultPost--form">
+        <FormGenerator
+          setGeneratedPost={setGeneratedPost}
+        />
+      </div>
+      <div className="WrapperResultPost--post">
+        {generatedPost && (
         <Post generatedPost={generatedPost} />
-      )}
+        )}
+      </div>
     </div>
   );
 }
