@@ -66,4 +66,42 @@
       height: 22.5rem;;
     }
   }
+
+  /*
+    Styles pour les écrans de moins de 480px de large :
+*/
+
+@media screen and (max-width: 480px) {
+
+  .ContactUs {
+    margin: 0;
+    &-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    &-form-elem {
+      width: 20rem;
+      align-items: center;
+    }
+    &-form-button {
+      width: 20rem;
+      margin: 0;
+    }
+    &-form-label {
+      padding-left: 0;
+    }
+    &-separation {
+      width: 70vw;
+      margin: 0 auto;
+    }
+  }
+  .main__container--button {
+    margin: 0;
+  }
+  .main__container--redline {
+    margin: 20px;
+  }
+}
+
 }

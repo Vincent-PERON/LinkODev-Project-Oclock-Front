@@ -103,17 +103,22 @@
     align-content: center;
   }
 
-  &__container__content--saveButton {
-    border: none;
-    background: none;
-  }
+  // &__container__content--saveButton {
+  //   border: none;
+  //   background: none;
+  // }
 
-  &__container__content--copyButton {
-    background: none;
-    border: none;
-    position: relative;
-    left: 12rem;
-    bottom: -5rem;
-  }
+  // &__container__content--copyButton {
+  //   background: none;
+  //   border: none;
+  //   position: absolute;
+  //   left: 30rem;
+  //   bottom: -120rem;
+  // }
+}
+
+.PostCard__container__content--icons {
+  display: flex;
+  justify-content: space-between;
 }
 }
