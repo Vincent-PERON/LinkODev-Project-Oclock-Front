@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_USER_INFOS, actionSaveEmailUser, CHANGE_MY_EMAIL} from 'src/actions/user';
+import { GET_USER_INFOS, actionSaveEmailUser, CHANGE_MY_EMAIL, CHANGE_MY_PASSWORD, actionResetRegisterForm} from 'src/actions/user';
 
 import {authHeader} from "src/services/authHeader";
 
@@ -37,10 +37,34 @@ const userMiddleware = (store) => (next) => (action) => {
       
           { /*Headers */
             headers: authHeader() 
-          })
+          }).then((response) => { 
+          alert(response.data.msg);
+        }).catch((error) => {
+          alert(error.message);
+      });
+      break;
+    }
 
-        .then((response) => { 
-          console.log(response.data.msg);
+    case CHANGE_MY_PASSWORD: {
+
+      const { user: { email, password, newPassword, confirmPassword } } = store.getState();
+
+      axios.put(API_URL + "/me", 
+          { /* Body */ 
+          email: email,
+          password: password,
+          update: {
+                      password: newPassword,
+                      confirmPassword: confirmPassword
+                    }
+          },
+
+          { /*Headers */
+            headers: authHeader() 
+          })
+          .then((response) => { 
+            store.dispatch(actionResetRegisterForm());
+            alert(response.data.msg);
         }).catch((error) => {
           alert(error.message);
       });

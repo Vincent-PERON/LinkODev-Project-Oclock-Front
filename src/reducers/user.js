@@ -69,7 +69,9 @@ function reducer(state = initialState, action = {}) {
         lastname: '',
         firstname: '',
         email: '',
+        newEmail: '',
         password: '',
+        newPassword: '',
         confirmPassword: '',
       };
     case ERROR_CONFIRM_PASSWORD:

@@ -1,10 +1,10 @@
-import { authHeader } from 'src/services/authHeader';
 
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const CHECK_LOGIN = 'CHECK_LOGIN';
 export const SAVE_USER = 'SAVE_USER';
 export const SAVE_EMAIL_USER = 'SAVE_EMAIL_USER';
 export const CHANGE_MY_EMAIL = 'CHANGE_MY_EMAIL';
+export const CHANGE_MY_PASSWORD = 'CHANGE_MY_PASSWORD';
 export const LOG_OUT = 'LOG_OUT';
 export const SUBMIT_REGISTER_FORM = 'SUBMIT_REGISTER_FORM';
 export const RESET_REGISTER_FORM = 'RESET_REGISTER_FORM';
@@ -103,5 +103,11 @@ export const actionSaveEmailUser = (email) => ({
 export const actionChangeMyEmail = () => ({
   type: CHANGE_MY_EMAIL,
 });
+
+export const actionChangeMyPassword = () => ({
+  type: CHANGE_MY_PASSWORD,
+});
+
+
 
 

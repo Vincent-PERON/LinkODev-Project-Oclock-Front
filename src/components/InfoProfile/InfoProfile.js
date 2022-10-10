@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import { actionGetUserInfos, actionChangeInputValue, actionChangeMyEmail } from 'src/actions/user';
+import { actionGetUserInfos, actionChangeInputValue, actionChangeMyEmail , actionChangeMyPassword} from 'src/actions/user';
 
 import './InfoProfile.scss';
 import SeparationBar from '../SeparationBar/SeparationBar';
@@ -12,10 +12,11 @@ function InfoProfile() {
   const navigate = useNavigate();
 
 // je récupère l'email et le password du state, le lastname, firstname aussi :
-const lastname = useSelector((state) => state.user.lastname);
 const email = useSelector((state) => state.user.email);
 const newEmail = useSelector((state) => state.user.newEmail);
 const password = useSelector((state) => state.user.password);
+const newPassword = useSelector((state) => state.user.newPassword);
+const confirmPassword = useSelector((state) => state.user.confirmPassword);
 
 
   const isLogged = useSelector((state) => state.user.isLogged);
@@ -35,9 +36,7 @@ useEffect(() => {
   dispatch(action);
 }, []);
 
-
 const changeInputValue = (event) => {
-  console.log(event.target.value);
   const newValue = event.target.value;
   const inputName = event.target.name;
   dispatch(actionChangeInputValue(newValue, inputName));
@@ -46,6 +45,12 @@ const changeInputValue = (event) => {
 const handleSubmit = (event) => {
   event.preventDefault();
   const action = actionChangeMyEmail();
+  dispatch(action);
+};
+
+const changePassword = (event) => {
+  event.preventDefault();
+  const action = actionChangeMyPassword();
   dispatch(action);
 };
 
@@ -67,14 +72,14 @@ const handleSubmit = (event) => {
 
           <form 
             className="InfoProfile-form" 
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit} 
             >
             <div className="InfoProfile-group InfoProfile-group-left">
               <div className="InfoProfile-group-content">
                 <label htmlFor={email} className="InfoProfile-form-label">ADRESSE E-MAIL</label>
                   <input 
                     id={email} 
-                    type="email" 
+                    type="my-email" 
                     name="email"
                     className="InfoProfile-form-input" 
                     placeholder="Email déjà enregistré"  
@@ -84,7 +89,7 @@ const handleSubmit = (event) => {
               <div className="InfoProfile-group-content">
                 <label htmlFor={newEmail} className="InfoProfile-form-label">NOUVEL E-MAIL</label>
                   <input 
-                    id={newEmail} 
+                    id="my-newEmail "
                     type="email" 
                     name='newEmail'
                     className="InfoProfile-form-input" 
@@ -96,7 +101,7 @@ const handleSubmit = (event) => {
               <div className="InfoProfile-group-content">
                 <label htmlFor={password} className="InfoProfile-form-label">MOT DE PASSE </label>
                   <input 
-                    id={password} 
+                    id="my-password"
                     type="password" 
                     name='password'
                     className="InfoProfile-form-input" 
@@ -110,21 +115,48 @@ const handleSubmit = (event) => {
           </form>
 
 
-          <form className="InfoProfile-form">
+          <form 
+            className="InfoProfile-form"
+            onSubmit={changePassword} 
+            >
             <div className="InfoProfile-group InfoProfile-group-right">
               <div className="InfoProfile-group-content">
                 <label htmlFor="password" className="InfoProfile-form-label">MOT DE PASSE ACTUEL</label>
-                <input id="password-old" type="password" className="InfoProfile-form-input" placeholder="Mot de passe déjà enregistré" />
+                  <input 
+                    id="my-old-password" 
+                    type="password" 
+                    name='password'
+                    className="InfoProfile-form-input" 
+                    placeholder="Mot de passe déjà enregistré" 
+                    value={password}
+                    onChange={changeInputValue} 
+                    />
               </div>
               <div className="InfoProfile-group-content">
                 <label htmlFor="password" className="InfoProfile-form-label">NOUVEAU MOT DE PASSE</label>
-                <input id="new-password" type="password" className="InfoProfile-form-input" placeholder="Tapez votre nouveau mot de passe" />
+                  <input 
+                    id="my-new-password" 
+                    type="password" 
+                    name='newPassword'
+                    className="InfoProfile-form-input" 
+                    placeholder="Tapez votre nouveau mot de passe" 
+                    value={newPassword}
+                    onChange={changeInputValue} 
+                    />
               </div>
               <div className="InfoProfile-group-content">
                 <label htmlFor="password" className="InfoProfile-form-label">CONFIRMATION DU MOT DE PASSE</label>
-                <input id="new-password-confirm" type="password" className="InfoProfile-form-input" placeholder="Tapez votre nouveau mot de passe" />
+                  <input 
+                    id="my-new-password-confirm" 
+                    type="password" 
+                    name='confirmPassword'
+                    className="InfoProfile-form-input" 
+                    placeholder="Tapez votre nouveau mot de passe" 
+                    value={confirmPassword}
+                    onChange={changeInputValue} 
+                    />
               </div>
-              <button className="InfoProfile-button InfoProfile-button-password" type="button">Mettre à jour mon mot de passe</button>
+              <button type="submit" className="InfoProfile-button InfoProfile-button-password" >Mettre à jour mon mot de passe</button>
             </div>
           </form>
 
