@@ -1,5 +1,5 @@
 import {
-  CHANGE_INPUT_VALUE, SAVE_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK,
+  CHANGE_INPUT_VALUE, SAVE_USER, SAVE_EMAIL_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK,
 } from 'src/actions/user';
 
 const userToken = JSON.parse(localStorage.getItem('accessToken'));
@@ -46,6 +46,13 @@ function reducer(state = initialState, action = {}) {
         email: '',
         password: '',
       };
+
+      case SAVE_EMAIL_USER:
+      return {
+        ...state,
+        email: action.email,
+      };
+
     case LOG_OUT:
       return {
         ...state,

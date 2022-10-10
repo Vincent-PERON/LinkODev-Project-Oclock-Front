@@ -2,6 +2,7 @@ import { applyMiddleware, legacy_createStore as createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import authMiddleware from 'src/middlewares/authMiddleware';
 import postsMiddleware from 'src/middlewares/postsMiddleware';
+import userMiddleware from 'src/middlewares/userMiddleware';
 
 import reducer from '../reducers';
 
@@ -14,6 +15,7 @@ const middlewareEnhancer = applyMiddleware(
   // les actions passerons dans les middleware dans l'ordre indiqué ici:
   postsMiddleware,
   authMiddleware,
+  userMiddleware,
 );
 
 const enhancers = composeEnhancers(
