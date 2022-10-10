@@ -25,7 +25,7 @@ function Main() {
         ><PostGenerateButton />
         </NavLink>
       </section>
-      <SeparationBar />
+      <SeparationBar className="main__container__separationBar" />
       <section className="main__container--posts">
         <Posts />
       </section>
