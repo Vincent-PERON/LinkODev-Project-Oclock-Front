@@ -5,8 +5,8 @@ import imgVincent from 'src/assets/Images/VPN.png';
 import imgLoic from 'src/assets/Images/LPT.png';
 import imgAlexandre from 'src/assets/Images/AJY.png';
 
-import SeparationBar from 'src/components/SeparationBar/SeparationBar';
-import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
+// import SeparationBar from 'src/components/SeparationBar/SeparationBar';
+// import PostGenerateButton from '../Buttons/PostGenerateButton/PostGenerateButton';
 
 function AboutUs() {
   return (
