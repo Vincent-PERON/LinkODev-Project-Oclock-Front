@@ -1,12 +1,14 @@
 @use 'src/styles/vars';
 
-.PostGenerateButton--button {
+.PostGenerateButton {
+  display: flex;
+
+  &--button {
   background-color: vars.$button;
   color: vars.$white;
   padding: 1rem 2rem;
   border-radius: 25px;
   border: none;
-  margin-top: 2rem;
   font-weight: bold;
   font-size: 1.5rem;
   display: flex;
@@ -17,15 +19,33 @@
   height: 5rem;
 }
 
-.PostGenerateButton--button:hover {
+&--button:hover {
     background-color: vars.$white;
     color: vars.$button;
 }
 
-.main__container--redline {
+&--redline {
   border-top: 1px solid #FF1616;
   width: 15rem;
-  margin: 4.5rem 5rem 0 5rem;
+  margin: auto 3% ;
+}
+
+}
+
+
+/*
+    Styles pour les écrans entre 480px et 768 px de large :
+*/
+@media screen and (max-width: 768px) {
+
+  .PostGenerateButton {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .PostGenerateButton--redline {
+    display: none;
+  }
 }
 
 /*
@@ -41,10 +61,6 @@
   .PostGenerateButton--button {
     margin-top: 0rem;
     width: 30rem;
-  }
-
-  .main__container--redline {
-    border-top: 1px solid #FF1616;
   }
 
 }

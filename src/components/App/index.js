@@ -55,7 +55,7 @@ function App() {
           <Route path="/me" element={<InfoProfile />} />
           <Route path="/me/posts" element={<MyFavoritesPosts />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
+          {/* <Route path="/contact" element={<ContactUs />} /> */}
         </Route>
       </Routes>
     </div>

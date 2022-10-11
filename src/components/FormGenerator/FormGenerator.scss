@@ -4,12 +4,13 @@
   color: vars.$white;
   font-size: 1.8rem;
   font-weight: bold;
+  margin: 0 auto ;
 
   &-title {
     font-size: 2.5rem;
     text-transform: uppercase;
-    margin-top: 6rem;
-    margin-bottom: 4.5rem;
+    margin-top: 3rem;
+    margin-bottom: 3%;
   }
 
   &-subtitle {
@@ -18,40 +19,50 @@
     margin-bottom: 1rem;
   }
 
-  &-description {
-    margin-bottom: 3rem;
-
-}
-  &-card {
-    padding-top: 5.5rem;
+  &-container {
+    margin-top: 5%;
     background-image: url('src/assets/Images/PostsFormBg.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 65rem;
-    height: 33rem;
+    padding: 3em 2rem; 
+    background-size: 40%  90%;
   }
 
   &-card-title {
+    // margin-top: 8%;
     font-size: 2.2rem;
     margin-bottom: 1rem;
   }
 
-  &-card-description {
-    margin-bottom: 4rem;
+  &-content {
+    margin-bottom: 1.3em;
+  }
+
+
+  &-form-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 40%;
+    margin: 2% auto 1% auto;
   }
 
   &-form-group {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    width: 60rem;
-    margin: 0 auto;
-    margin-bottom: 12.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
   }
 
   &-label {
     text-transform: uppercase;
+  }
+
+  &-form-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
   }
 
 }
@@ -69,36 +80,71 @@ input[type="checkbox"]:checked {
   background: vars.$red -1.9rem top no-repeat;
 }
 
-.main__container--button {
-  display: flex;
-  justify-content: center;
+
+
+/*
+    Styles pour les écrans entre 768px et 1200px de large :
+*/
+@media screen and (max-width: 1200px) {
+  
+  .FormGenerator {
+    
+    &-form-tags {
+      margin: 6% auto 1% auto;
+    }
+
+  }
+  
 }
 
 /*
-    Styles pour les écrans de moins de 480px de large :
+    Styles pour les écrans entre 480px et 768px de large :
+*/
+
+@media screen and (max-width: 768px) {
+
+  .FormGenerator {
+
+    &-container {
+      background-size: 80%  100%;
+    }
+
+  }
+}
+
+
+/*
+    Styles pour les écrans jusqu'à 480px de large :
 */
 @media screen and (max-width: 480px) {
   .FormGenerator {
-    // height: 100vh;
-    &-description {
-      margin-bottom: 0rem;
-  
-  }
-    &-card {
-    padding-top: 5rem;
-    background-image: url('src/assets/Images/PostsFormBg_mobile.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 30rem;
-    height: 46rem;
+      font-size: 1.5em;
+
+    &-container {
+    background-size: 100%  100%;
   }
 
-  &-form-group {
-    width: 28rem;
-    margin: 0 auto;
-    margin-bottom: 8rem;
+  &-title{
+    margin-top: 12%;
+    margin-bottom: 8%;
+    
+  }
+    
+  &-subtitle{
+    margin-bottom: 15%;
+
   }
 
+  &-form-tags {
+    size: 80%;
+    width: 80%;
+    margin: 6% auto 1% auto;
+    // margin-bottom: 8rem;
+  }
+
+  &-form-button {
+    margin-top: 15%;
+  }
 
   }
 

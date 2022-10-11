@@ -6,7 +6,7 @@ function Footer() {
   return (
     <nav className="Footer">
       <Link to="/about" className="Footer--link">A Propos</Link>
-      <Link to="/contact" className="Footer--link">Contactez-nous</Link>
+      {/* <Link to="/contact" className="Footer--link">Contactez-nous</Link> */}
     </nav>
   );
 }
