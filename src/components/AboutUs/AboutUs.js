@@ -18,28 +18,28 @@ function AboutUs() {
           <img className="AboutUs-card-img" src={imgEstelle} alt="photo Estelle" />
           <div className="AboutUs-card-content">
             <h3 className="AboutUs-card-content-name">Estelle Rozée</h3>
-            <p className="AboutUs-card-content-role">Product owner</p>
+            <p className="AboutUs-card-content-role">Product owner / Dev Front</p>
           </div>
         </div>
         <div className="AboutUs-card">
           <img className="AboutUs-card-img" src={imgVincent} alt="photo Vincent" />
           <div className="AboutUs-card-content">
             <h3 className="AboutUs-card-content-name">Vincent Péron</h3>
-            <p className="AboutUs-card-content-role">Scrum / Git Master</p>
+            <p className="AboutUs-card-content-role">Scrum / Git Master / Dev Full Stack</p>
           </div>
         </div>
         <div className="AboutUs-card">
           <img className="AboutUs-card-img" src={imgLoic} alt="photo Loic" />
           <div className="AboutUs-card-content">
             <h3 className="AboutUs-card-content-name">Loïc Picart</h3>
-            <p className="AboutUs-card-content-role">Lead Dev' Front</p>
+            <p className="AboutUs-card-content-role">Lead Dev Front</p>
           </div>
         </div>
         <div className="AboutUs-card">
           <img className="AboutUs-card-img" src={imgAlexandre} alt="photo Alexandre" />
           <div className="AboutUs-card-content">
             <h3 className="AboutUs-card-content-name">Alexandre Jouany</h3>
-            <p className="AboutUs-card-content-role">Lead Dev' Back</p>
+            <p className="AboutUs-card-content-role">Lead Dev Back</p>
           </div>
         </div>
       </section>

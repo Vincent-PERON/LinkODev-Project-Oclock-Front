@@ -2,7 +2,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './Register.scss';
-import { actionChangeInputValue, actionSubmitRegisterForm, actionErrorConfirmPassword } from 'src/actions/user';
+import {
+  actionChangeInputValue, actionSubmitRegisterForm, actionErrorConfirmPassword,
+} from 'src/actions/user';
 import SeparationBar from '../SeparationBar/SeparationBar';
 
 function Register() {
@@ -148,15 +150,15 @@ function Register() {
             <p className="Register-form-message">{message}</p>
           </section>
         </div>
-        <section className="main__container--button">
-          <div className="main__container--redline" />
+        <section className="register__container--button">
+          <div className="register__container--redline" />
           <button
             type="submit"
             className="Register-form-button"
           >
             S'INSCRIRE
           </button>
-          <div className="main__container--redline" />
+          <div className="register__container--redline" />
         </section>
       </form>
       <p className="Register-p">Les champs avec(*) sont obligatoires</p>
