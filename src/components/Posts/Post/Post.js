@@ -37,20 +37,22 @@ function PostCard({ generatedPost }) {
   return (
     <div className="PostCard">
       <div className="PostCard__container">
-        <div className="PostCard__container__content" ref={postRef}>
-          <div className="PostCard__container__content--contain">
-            <p className="PostCard__container__content--text">{generatedPost.introduction.content}</p>
-            <p className="PostCard__container__content--text">{generatedPost.body.content}</p>
-            <p className="PostCard__container__content--text">{generatedPost.conclusion.content}</p>
-            <div className="PostCard__container__content--icons">
-              {isLogged && (
+        <div className="PostCard__container--card">
+          <div className="PostCard__container__content" ref={postRef}>
+            <div className="PostCard__container__content--contain">
+              <p className="PostCard__container__content--text">{generatedPost.introduction.content}</p>
+              <p className="PostCard__container__content--text">{generatedPost.body.content}</p>
+              <p className="PostCard__container__content--text">{generatedPost.conclusion.content}</p>
+              <div className="PostCard__container__content--icons">
+                {isLogged && (
                 <button className="PostCard__container__content--saveButton" type="button" onClick={saveToFavorites}>
                   <StarOutlineIcon sx={{ color: 'white', fontSize: 30 }} />
                 </button>
-              )}
-              <button className="PostCard__container__content--copyButton" type="button" onClick={copyToClipboard}>
-                <ContentCopyIcon sx={{ color: 'white', fontSize: 30 }} />
-              </button>
+                )}
+                <button className="PostCard__container__content--copyButton" type="button" onClick={copyToClipboard}>
+                  <ContentCopyIcon sx={{ color: 'white', fontSize: 30 }} />
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -65,41 +65,45 @@ function FormGenerator({ setGeneratedPost }) {
       <SeparationBar />
       <h2 className="FormGenerator-subtitle">Pour poster facilement sur des sujets dev' sans prise de tête !</h2>
       <h3 className="FormGenerator-description">Pour créer votre premier post, sélectionnez les tags qui correspondent à votre envie du jour et découvrez votre résultat.</h3>
-      <section className="FormGenerator-card">
-        <h4 className="FormGenerator-card-title">Que voulez-vous écrire aujourd'hui ?</h4>
-        <p className="FormGenerator-card-description">(plusieurs choix possibles)</p>
-
-        <form
-          className="FormGenerator-form"
-          onSubmit={handleSubmit}
-        >
-          <div className="FormGenerator-form-group-by-3">
-            <ul className="FormGenerator-form-group">
-              {tags.map((tag) => (
-                <li key={tag.id} className="FormGenerator-li">
-                  <label htmlFor={tag.id} className="FormGenerator-label">
-                    <input
-                      type="checkbox"
-                      id={tag.id}
-                      value={tag.id}
-                      className="FormGenerator-checkbox"
-                      disabled={isLoading}
+      <div className="FormGenerator-container">
+        <section className="FormGenerator-title">
+          <h4 className="FormGenerator-card-title">Que voulez-vous écrire aujourd'hui ?</h4>
+          <p className="FormGenerator-card-description">(plusieurs choix possibles)</p>
+        </section>
+        <section className="FormGenerator-form-container">
+          <form
+            className="FormGenerator-form"
+            onSubmit={handleSubmit}
+          >
+            <div className="FormGenerator-form-group-by-3">
+              <ul className="FormGenerator-form-group">
+                {tags.map((tag) => (
+                  <li key={tag.id} className="FormGenerator-li">
+                    <label htmlFor={tag.id} className="FormGenerator-label">
+                      <input
+                        type="checkbox"
+                        id={tag.id}
+                        value={tag.id}
+                        className="FormGenerator-checkbox"
+                        disabled={isLoading}
                       // dans notre tableau checkedTags, on vérifie la présence du tag.id :
                       // si oui, c'est coché, sinon non
-                      checked={checkedTags.includes(tag.id)}
-                      onChange={selectedTag}
-                    />
-                    {tag.title}
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <section className="main__container--button">
-            <PostGenerateButton disabled={isLoading} />
-          </section>
-        </form>
-      </section>
+                        checked={checkedTags.includes(tag.id)}
+                        onChange={selectedTag}
+                      />
+                      {tag.title}
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <section className="main__container--button">
+              <PostGenerateButton disabled={isLoading} />
+            </section>
+          </form>
+        </section>
+
+      </div>
 
     </div>
   );

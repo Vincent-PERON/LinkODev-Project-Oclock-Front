@@ -20,11 +20,6 @@
   padding-left: 4rem;
 }
 
-.RegisterButton--img {
-  width: 1.7rem;
-  margin-right: 2.5rem;
-}
-
 .RegisterButton--button:hover {
   background-image: url('src/assets/Images/signUpHover.png');
   background-color: vars.$white;
