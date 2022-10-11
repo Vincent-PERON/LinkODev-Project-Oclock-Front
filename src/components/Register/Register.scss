@@ -125,11 +125,16 @@
       width: 70vw;
       margin: 0 auto;
     }
+    &-form-message {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
   }
-  .main__container--button {
+  .register__container--button {
     margin: 0;
   }
-  .main__container--redline {
+  .register__container--redline {
     margin: 20px;
   }
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 
 import { actionSaveGeneratedPost } from 'src/actions/post';
 
@@ -33,7 +33,6 @@ function FormGenerator({ setGeneratedPost }) {
     setIsLoading(true);
 
     const selectedTagsURL = JSON.stringify(checkedTags);
-    // axios.get(`https://linkodevapi.cyber-one.fr/posts/random?tags=${selectedTagsURL}`)
     axios.get(`${API_URL}/posts/random?tags=${selectedTagsURL}`)
       .then((response) => {
         setGeneratedPost(response.data);
@@ -60,50 +59,48 @@ function FormGenerator({ setGeneratedPost }) {
   }, []);
 
   return (
-    <div className="FormGenerator">
-
-      <h1 className="FormGenerator-title">Générateur de posts LinkedIn pour les développeurs Web</h1>
+<div className="FormGenerator">
+      <h1 className="FormGenerator-title">Générateur de posts LinkedIn pour les développeurs web</h1>
       <SeparationBar />
-      <h2 className="FormGenerator-subtitle">Pour poster facilement sur des sujets dev' sans prise de tête !</h2>
-      <h3 className="FormGenerator-description">Pour créer votre premier post, sélectionnez les tags qui correspondent à votre envie du jour et découvrez votre résultat.</h3>
-      <section className="FormGenerator-card">
-        <h4 className="FormGenerator-card-title">Que voulez-vous écrire aujourd'hui ?</h4>
-        <p className="FormGenerator-card-description">(plusieurs choix possibles)</p>
-
-        <form
-          className="FormGenerator-form"
-          onSubmit={handleSubmit}
-        >
-          <div className="FormGenerator-form-group-by-3">
-            <ul className="FormGenerator-form-group">
-              {tags.map((tag) => (
-                <li key={tag.id} className="FormGenerator-li">
-                  <label htmlFor={tag.id} className="FormGenerator-label">
-                    <input
-                      type="checkbox"
-                      id={tag.id}
-                      value={tag.id}
-                      className="FormGenerator-checkbox"
-                      disabled={isLoading}
-                      // dans notre tableau checkedTags, on vérifie la présence du tag.id :
-                      // si oui, c'est coché, sinon non
-                      checked={checkedTags.includes(tag.id)}
-                      onChange={selectedTag}
-                    />
-                    {tag.title}
-                  </label>
-                </li>
-              ))}
-            </ul>
+      <p className="FormGenerator-subtitle">Pour créer votre premier post, sélectionnez les tags qui correspondent à votre envie du jour et découvrez votre résultat.</p>
+    
+    <form
+        className="FormGenerator-form"
+        onSubmit={handleSubmit}
+    >
+            
+        <div className="FormGenerator-container">
+            <p className="FormGenerator-card-title">Que voulez-vous écrire aujourd'hui ?</p>
+            <p className="FormGenerator-card-description">(plusieurs choix possibles)</p>
+                <div className="FormGenerator-form-tags">
+                    <ul className="FormGenerator-form-group">
+                      {tags.map((tag) => (
+                        <li key={tag.id} className="FormGenerator-li">
+                          <label htmlFor={tag.id} className="FormGenerator-label">
+                            <input
+                              type="checkbox"
+                              id={tag.id}
+                              value={tag.id}
+                              className="FormGenerator-checkbox"
+                              disabled={isLoading}
+                            // dans notre tableau checkedTags, on vérifie la présence du tag.id :
+                            // si oui, c'est coché, sinon non
+                              checked={checkedTags.includes(tag.id)}
+                              onChange={selectedTag}
+                            />
+                            {tag.title}
+                          </label>
+                        </li>
+                      ))}
+                    </ul>
+                </div>
           </div>
-          <section className="main__container--button">
-            <PostGenerateButton disabled={isLoading} />
-          </section>
-        </form>
-      </section>
-
-    </div>
-  );
+        <div className="FormGenerator-form-button"> 
+          <PostGenerateButton  disabled={isLoading} />
+        </div> 
+    </form>
+</div>
+);
 }
 
 FormGenerator.propTypes = {
