@@ -83,6 +83,12 @@
         transition: 0.3s;
     }
 
+    &-message-alert {
+      color: vars.$white;
+      font-size: 2em;
+      margin: 3% auto;
+  }
+
 
 /*
   Styles pour les écrans entre 440px et 768px de large :

@@ -1,17 +1,24 @@
 
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
-export const CHECK_LOGIN = 'CHECK_LOGIN';
 export const SAVE_USER = 'SAVE_USER';
+
+/* User Profile */
+export const GET_USER_INFOS = 'GET_USER_INFOS';
 export const SAVE_EMAIL_USER = 'SAVE_EMAIL_USER';
 export const CHANGE_MY_EMAIL = 'CHANGE_MY_EMAIL';
 export const CHANGE_MY_PASSWORD = 'CHANGE_MY_PASSWORD';
-export const LOG_OUT = 'LOG_OUT';
+export const MESSAGE_USER_PROFILE = 'MESSAGE_USER_PROFILE';
+
+/* Authentication */
 export const SUBMIT_REGISTER_FORM = 'SUBMIT_REGISTER_FORM';
 export const RESET_REGISTER_FORM = 'RESET_REGISTER_FORM';
+export const CHECK_LOGIN = 'CHECK_LOGIN';
+export const LOG_OUT = 'LOG_OUT';
 export const ERROR_CONFIRM_PASSWORD = 'ERROR_CONFIRM_PASSWORD';
 export const ERROR_BACK = 'ERROR_BACK';
 export const ERROR_LOGIN = 'ERROR_LOGIN';
-export const GET_USER_INFOS = 'GET_USER_INFOS';
+
+
 
 /**
  * action dispatchée sur le onChange d'un input du Login form ou du Register form
@@ -95,6 +102,15 @@ export const actionErrorBack = (messageBack) => ({
  */
 export const actionErrorConfirmPassword = () => ({
   type: ERROR_CONFIRM_PASSWORD,
+});
+
+/**
+ * action dispatchée au changement d'infos dans le profil utilisateur
+ * elle doit s'afficher en profileMessage dans le state pour être utilisée dans le InfoProfile
+ */
+export const actionMessageUserProfile = (profileMessage) => ({
+  type: MESSAGE_USER_PROFILE,
+  profileMessage,
 });
 
 /**

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_USER_INFOS, actionSaveEmailUser, CHANGE_MY_EMAIL, CHANGE_MY_PASSWORD, actionResetRegisterForm} from 'src/actions/user';
+import { GET_USER_INFOS, actionSaveEmailUser, CHANGE_MY_EMAIL, CHANGE_MY_PASSWORD, actionResetRegisterForm, actionMessageUserProfile} from 'src/actions/user';
 
 import {authHeader} from "src/services/authHeader";
 
@@ -38,9 +38,11 @@ const userMiddleware = (store) => (next) => (action) => {
           { /*Headers */
             headers: authHeader() 
           }).then((response) => { 
-          alert(response.data.msg);
+          store.dispatch(actionMessageUserProfile(response.data.msg));
         }).catch((error) => {
-          alert(error.message);
+          console.log(error);
+          // store.dispatch(actionResetRegisterForm());
+          store.dispatch(actionMessageUserProfile(error.response.data.error));
       });
       break;
     }
@@ -63,10 +65,10 @@ const userMiddleware = (store) => (next) => (action) => {
             headers: authHeader() 
           })
           .then((response) => { 
-            store.dispatch(actionResetRegisterForm());
-            alert(response.data.msg);
+            // store.dispatch(actionResetRegisterForm());
+            store.dispatch(actionMessageUserProfile(response.data.msg));
         }).catch((error) => {
-          alert(error.message);
+          store.dispatch(actionMessageUserProfile(error.response.data.error));
       });
       break;
     }

@@ -19,6 +19,7 @@ function InfoProfile() {
   const password = useSelector((state) => state.user.password);
   const newPassword = useSelector((state) => state.user.newPassword);
   const confirmPassword = useSelector((state) => state.user.confirmPassword);
+  const profileMessage = useSelector((state) => state.user.profileMessage);
 
   const isLogged = useSelector((state) => state.user.isLogged);
 
@@ -114,6 +115,9 @@ function InfoProfile() {
               <button type="submit" className="InfoProfile-button InfoProfile-button-password"> Mettre à jour mon e-mail </button>
             </div>
           </form>
+          <div className='InfoProfile-message'>
+          <p className="InfoProfile-message-alert">{profileMessage}</p>
+          </div>
 
           <form
             className="InfoProfile-form"

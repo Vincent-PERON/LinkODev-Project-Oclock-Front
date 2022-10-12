@@ -1,5 +1,5 @@
 import {
-  CHANGE_INPUT_VALUE, SAVE_USER, SAVE_EMAIL_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK, ERROR_LOGIN,
+  CHANGE_INPUT_VALUE, SAVE_USER, SAVE_EMAIL_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK, ERROR_LOGIN, MESSAGE_USER_PROFILE
 
 } from 'src/actions/user';
 
@@ -22,6 +22,7 @@ export const initialState = {
   // to check password and confirmPassword
   isValid: true,
   message: '',
+  profileMessage: '',
   messageBack: '',
   messageLogin: '',
 };
@@ -95,6 +96,12 @@ function reducer(state = initialState, action = {}) {
         ...state,
         isLogged: false,
         messageLogin: action.messageLogin,
+      };
+      case MESSAGE_USER_PROFILE:
+      // on sauvegarde le message d'erreur pour l'afficher à l'utilisateur
+      return {
+        ...state,
+        profileMessage: action.profileMessage,
       };
     default:
       return state;

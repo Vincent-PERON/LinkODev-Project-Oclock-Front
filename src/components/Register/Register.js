@@ -66,7 +66,7 @@ function Register() {
                 NOM (*)
               </label>
               <input
-                id={lastname}
+                id="register-lastname"
                 type="text"
                 name="lastname"
                 className="Register-form-input"
@@ -83,7 +83,7 @@ function Register() {
                 PRENOM (*)
               </label>
               <input
-                id={firstname}
+                id="register-firstname"
                 type="text"
                 name="firstname"
                 className="Register-form-input"
@@ -100,7 +100,7 @@ function Register() {
                 EMAIL (*)
               </label>
               <input
-                id={email}
+                id="register-email"
                 type="email"
                 name="email"
                 className="Register-form-input"
@@ -119,7 +119,7 @@ function Register() {
                 MOT DE PASSE (*)
               </label>
               <input
-                id={password}
+                id="register-password"
                 type="password"
                 name="password"
                 className="Register-form-input"
@@ -136,7 +136,7 @@ function Register() {
                 CONFIRMER VOTRE MOT DE PASSE (*)
               </label>
               <input
-                id={confirmPassword}
+                id="register-confirmPwd"
                 type="password"
                 name="confirmPassword"
                 className="Register-form-input"
