@@ -42,7 +42,6 @@ function Register() {
  * on dispatch actionChangeInputValue
  */
   const changeInputValue = (event) => {
-    console.log(event.target.value);
     const newValue = event.target.value;
     const inputName = event.target.name;
     dispatch(actionChangeInputValue(newValue, inputName));

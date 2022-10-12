@@ -1,11 +1,11 @@
-import { CHANGE_INPUT_VALUE, SAVE_USER, SAVE_EMAIL_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK,
+import {
+  CHANGE_INPUT_VALUE, SAVE_USER, SAVE_EMAIL_USER, LOG_OUT, RESET_REGISTER_FORM, ERROR_CONFIRM_PASSWORD, ERROR_BACK, ERROR_LOGIN,
 
 } from 'src/actions/user';
 
 const userToken = JSON.parse(localStorage.getItem('accessToken'));
 
-const loginCondition = userToken ? true : false;
-
+const loginCondition = !!userToken;
 
 export const initialState = {
   // ici le state initial qui concerne les users
@@ -23,6 +23,7 @@ export const initialState = {
   isValid: true,
   message: '',
   messageBack: '',
+  messageLogin: '',
 };
 
 function reducer(state = initialState, action = {}) {
@@ -49,7 +50,7 @@ function reducer(state = initialState, action = {}) {
         password: '',
       };
 
-      case SAVE_EMAIL_USER:
+    case SAVE_EMAIL_USER:
       return {
         ...state,
         email: action.email,
@@ -87,6 +88,13 @@ function reducer(state = initialState, action = {}) {
         ...state,
         isLogged: false,
         messageBack: action.messageBack,
+      };
+    case ERROR_LOGIN:
+      // on sauvegarde le message d'erreur pour l'afficher à l'utilisateur
+      return {
+        ...state,
+        isLogged: false,
+        messageLogin: action.messageLogin,
       };
     default:
       return state;

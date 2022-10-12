@@ -15,6 +15,7 @@ function Login() {
   // je récupère l'email et le password du state :
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
+  const messageLogin = useSelector((state) => state.user.messageLogin);
 
   // je veux déterminer si oui ou non le user sera connecté
   const isLogged = useSelector((state) => state.user.isLogged);
@@ -98,6 +99,7 @@ function Login() {
               />
             </div>
           </div>
+          <p className="Login-form-message">{messageLogin}</p>
           <section className="main__container--button">
             <div className="main__container--redline" />
             <button

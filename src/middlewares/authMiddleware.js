@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
   CHECK_LOGIN, actionSaveUser, 
   SUBMIT_REGISTER_FORM, actionResetRegisterForm,
-  actionErrorBack,
+  actionErrorBack, actionErrorLogin,
 } from 'src/actions/user';
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -21,7 +21,7 @@ const authMiddleware = (store) => (next) => (action) => {
         localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken));
         localStorage.setItem('user', JSON.stringify(response.data.user));
       }).catch((error) => {
-        alert(error.message);
+        store.dispatch(actionErrorLogin(error.response.data.error));
       });
 
       break;
@@ -43,7 +43,6 @@ const authMiddleware = (store) => (next) => (action) => {
         action.successCallback();
       }).catch((error) => {
         store.dispatch(actionErrorBack(error.response.data.error));
-        alert(error.message);
       });
 
       break;

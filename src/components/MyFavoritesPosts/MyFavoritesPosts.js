@@ -10,23 +10,23 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 import './MyFavoritesPosts.scss';
 
-/* Swiper.JS*/
+/* Swiper.JS */
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Mousewheel, Keyboard} from 'swiper';
+import {
+  Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Mousewheel, Keyboard,
+} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-coverflow';
 
-
 function MyFavoritesPosts() {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const action = actionGetMyFavoritesPosts(); 
+    const action = actionGetMyFavoritesPosts();
     dispatch(action);
   }, []);
 
@@ -86,34 +86,36 @@ function MyFavoritesPosts() {
 
             <section className="favorites__container swiper-container">
               <ul className="swiper-wrapper">
-                {favoritesPosts.map(((post) => (
-                  <SwiperSlide key={post.id}>
-                    <div className="PostCardFav swiper-slide">
-                      <div className="PostCardFav__container">
-                        <div className="PostCardFav__container__content">
-                          <div className="PostCardFav__container__content--contain">
-                            <p className="PostCardFav__container__content--text">{post.introduction.content}</p>
-                            <p className="PostCardFav__container__content--text">{post.body.content}</p>
-                            <p className="PostCardFav__container__content--text">{post.conclusion.content}</p>
-                            <div className="PostCardFav__container__content--icons">
-                              <button
-                                className="PostCardFav__container__content--copyBtn"
-                                type="button"
-                                onClick={() => {
-                                  copyToClipboard(post.id);
-                                }}
-                              >
-                                <ContentCopyIcon
-                                  sx={{ color: 'white', fontSize: 30 }}
-                                />
-                              </button>
+                {(favoritesPosts && favoritesPosts.length != 0)
+                  ? favoritesPosts.map(((post) => (
+                    <SwiperSlide key={post.id}>
+                      <div className="PostCardFav swiper-slide">
+                        <div className="PostCardFav__container">
+                          <div className="PostCardFav__container__content">
+                            <div className="PostCardFav__container__content--contain">
+                              <p className="PostCardFav__container__content--text">{post.introduction.content}</p>
+                              <p className="PostCardFav__container__content--text">{post.body.content}</p>
+                              <p className="PostCardFav__container__content--text">{post.conclusion.content}</p>
+                              <div className="PostCardFav__container__content--icons">
+                                <button
+                                  className="PostCardFav__container__content--copyBtn"
+                                  type="button"
+                                  onClick={() => {
+                                    copyToClipboard(post.id);
+                                  }}
+                                >
+                                  <ContentCopyIcon
+                                    sx={{ color: 'white', fontSize: 30 }}
+                                  />
+                                </button>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </SwiperSlide>
-                )))}
+                    </SwiperSlide>
+                  )))
+                  : <p className="Message">Vous n'avez pas encore de posts enregistrés en favoris.</p>}
               </ul>
             </section>
           </Swiper>

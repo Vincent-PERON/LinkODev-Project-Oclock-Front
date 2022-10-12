@@ -50,7 +50,7 @@ const postsMiddleware = (store) => (next) => (action) => {
           })
 
         .then((response) => { 
-          alert(response);
+          console.log(response.data.status);
         }).catch((error) => {
           alert(error.message);
       });
