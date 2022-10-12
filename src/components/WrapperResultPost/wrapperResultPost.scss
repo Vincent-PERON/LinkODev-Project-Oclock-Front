@@ -30,11 +30,11 @@
 /*
     Styles pour les écrans de moins de 480px de large :
 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
 
   .WrapperResultPost {
     &--post {
-      margin-top: 0%;
+      margin-top: 8%;
       margin-bottom: 0%;
     }
   }
