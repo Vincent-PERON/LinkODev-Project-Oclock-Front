@@ -22,6 +22,19 @@
       font-weight: bold;
     }
 
+
+/*
+  Styles pour les écrans entre 480px et 768px de large :
+*/
+@media screen and (max-width: 768px) {
+  .ProfilSeparationBar {
+    &--rectangle {
+      width: 25%;
+      margin-left: 37%;
+    }
+
+  }
+}
 /*
   Styles pour les écrans de moins de 480px de large :
 */

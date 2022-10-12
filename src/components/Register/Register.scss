@@ -20,7 +20,8 @@
   }
 
   &-separation {
-    width: 80vw;;
+    width: 80vw;
+    margin: 0 auto;
   }
 
   &-form-group {
@@ -91,6 +92,7 @@
   }
 
   &-p {
+    margin-top: 1rem;
     color: vars.$white;
     font-weight: bold;
     font-size: 1.2rem;
@@ -98,10 +100,10 @@
 }
 
 /*
-    Styles pour les écrans de moins de 480px de large :
+    Styles pour les écrans de moins de 768px de large :
 */
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
 
   .Register {
     margin: 0;

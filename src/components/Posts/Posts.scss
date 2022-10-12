@@ -28,7 +28,7 @@ ul {
     display: flex;
     flex-direction: row;
     color: vars.$white;
-    font-size: 1.37rem;
+    font-size: 1.45rem;
     height: 60rem;
     max-width: 100%;
     margin-top: 2rem;
@@ -57,9 +57,6 @@ ul {
   &__container__content--cpBtn {
     background: none;
     border: none;
-    position: absolute;
-    right: 10rem;
-    bottom: 8rem;
   }
 
   &__container__content--icons {
@@ -70,10 +67,12 @@ ul {
   }
 }
 
+
 /*
-    Styles pour les écrans de moins de 480px de large :
+    Styles pour les écrans entre 480px et 640px de large :
+    Breakpoint car responsive discontinué entre 640 et 480px
 */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 640px) {
   .mySwiper {
     width: 100%;
   }
@@ -88,12 +87,11 @@ ul {
     }
 
     &__container__content {
-    font-size: 1.15rem;
-    margin: 0rem 0rem;
+    font-size: 1.2rem;
     }
 
     &__container__content--contain {
-      margin: 0;
+      margin: 0 25%;
     }
 
     &__container__content--text {
@@ -106,27 +104,23 @@ ul {
       margin-top: 20rem;
       justify-content: center;
     }
-
-    &__container__content--svBtn {
-      border: none;
-      background: none;
-      position: absolute;
-      left: 1rem;
-      bottom: 2rem;
-    }
-  
-    &__container__content--cpBtn {
-      background: none;
-      border: none;
-      position: absolute;
-      right: 1rem;
-      bottom: 2rem;
-    }
-  
-
   }
 
-  // .PostCard__container__content--icons {
-  //   justify-content: space-between;
-  // }
+}
+
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  .mySwiper {
+    width: 100%;
+  }
+
+  .PostCard3 {
+
+    &__container__content--contain {
+      margin: 0 4rem;
+    }
+
+  }
 }
