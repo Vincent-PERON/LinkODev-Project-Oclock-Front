@@ -83,4 +83,18 @@
         transition: 0.3s;
     }
 
+
+/*
+  Styles pour les écrans entre 480px et 768px de large :
+*/
+
+@media screen and (max-width: 768px) {
+
+  .InfoProfile {
+    &-form {
+      margin: 4.5rem 3rem;
+    }
+  }
+}
+
 }
