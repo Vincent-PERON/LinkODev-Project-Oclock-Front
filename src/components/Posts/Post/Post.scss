@@ -72,18 +72,41 @@
 }
 
 /*
-    Styles pour les écrans entre 480px et 768px de large :
+    Styles pour les écrans entre 768px et 950px de large :
+    responsive discontinué donc nouveau breakpoint
+*/
+@media screen and (max-width: 950px) {
+  .PostCard {
+    &__container {
+    background-image: url("../../../assets/Images/posts-mobile.svg");
+    background-size: 80%;
+    
+  }
+  &__container__content {
+    font-size: 140%;
+    margin: 0 8%;
+  }
+  &__container__content--text {
+    text-align: center;
+  }
+  }
+}
+
+/*
+    Styles pour les écrans entre 700px et 768px de large :
 */
 @media screen and (max-width: 768px) {
   .PostCard {
     &__container {
     background-image: url("../../../assets/Images/posts-mobile.svg");
+    background-size: 100%;
   }
   &__container__content {
-    font-size: 150%;
+    font-size: 145%;
+    margin: 0;
   }
   &__container__content--contain {
-    margin: 12rem 12rem ;
+    margin: 12rem 10rem ;
   }
   &__container__content--text {
     text-align: center;
@@ -93,43 +116,45 @@
 }
 
 /*
-    Styles pour les écrans de moins de 480px de large :
+    Styles pour les écrans de moins 700px de large (idem responsive 480px mobile) :
+    responsive discontinué donc nouveau breakpoint
 */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 700px) {
 
-.PostCard {
-  margin: 0rem;
-
-  &__container {
-    background-image: none;
-  }
-
-  &__container__content {
-    background-image: url("../../../assets/Images/posts-mobile.svg");
-    background-repeat: no-repeat;
-    background-size: 120%;
-    background-position: center;
-    font-size: 1.15rem;
-    margin: 0rem 0rem 0rem 0rem;
-    min-height: 75rem;
-    width: 39rem;
-  }
-
-  &__container__content--contain {
-    margin: 0 3.8rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__container__content--text {
-    margin: 0 2rem 2rem 1.5rem;
-    font-size: 125%;
-    text-align: center;
-    align-content: center;
-  }
-
-  &__container__content--icons {
-    gap: 55%;
+  .PostCard {
+    margin: 0rem;
+  
+    &__container {
+      background-image: none;
+    }
+  
+    &__container__content {
+      background-image: url("../../../assets/Images/posts-mobile.svg");
+      background-repeat: no-repeat;
+      background-size: 120%;
+      background-position: center;
+      font-size: 1.15rem;
+      margin: 0rem 0rem 0rem 0rem;
+      min-height: 75rem;
+      width: 39rem;
+    }
+  
+    &__container__content--contain {
+      margin: 0 3.8rem;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    &__container__content--text {
+      margin: 0 2rem 2rem 1.5rem;
+      font-size: 125%;
+      text-align: center;
+      align-content: center;
+    }
+  
+    &__container__content--icons {
+      gap: 55%;
+    }
   }
 }
-}
+
