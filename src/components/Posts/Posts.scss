@@ -67,10 +67,12 @@ ul {
   }
 }
 
+
 /*
-    Styles pour les écrans de moins de 480px de large :
+    Styles pour les écrans entre 480px et 640px de large :
+    Breakpoint car responsive discontinué entre 640 et 480px
 */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 640px) {
   .mySwiper {
     width: 100%;
   }
@@ -89,7 +91,7 @@ ul {
     }
 
     &__container__content--contain {
-      margin: 0 8rem;
+      margin: 0 25%;
     }
 
     &__container__content--text {
@@ -101,6 +103,23 @@ ul {
     &__container__content--icons {
       margin-top: 20rem;
       justify-content: center;
+    }
+  }
+
+}
+
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 480px) {
+  .mySwiper {
+    width: 100%;
+  }
+
+  .PostCard3 {
+
+    &__container__content--contain {
+      margin: 0 4rem;
     }
 
   }
