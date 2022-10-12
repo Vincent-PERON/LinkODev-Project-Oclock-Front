@@ -1,0 +1,43 @@
+/*
+    Styles pour les écrans entre 768px et 1200px de large :
+*/
+@media screen and (max-width: 1200px) {
+
+  .WrapperResultPost {
+    &--post {
+      margin-top: 6rem;
+    }
+  }
+
+
+}
+
+/*
+    Styles pour les écrans entre 480px et 768px de large :
+*/
+@media screen and (max-width: 768px) {
+
+  .WrapperResultPost {
+    &--post {
+      margin-top: 13rem;
+      margin-bottom: 5rem;
+    }
+  }
+
+
+}
+
+/*
+    Styles pour les écrans de moins de 480px de large :
+*/
+@media screen and (max-width: 768px) {
+
+  .WrapperResultPost {
+    &--post {
+      margin-top: 0%;
+      margin-bottom: 0%;
+    }
+  }
+
+
+}
