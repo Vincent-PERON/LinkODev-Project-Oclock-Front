@@ -61,6 +61,12 @@
     border-radius: 10px;
   }
 
+  &-form-message {
+    color: vars.$red;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
   &-form-button{
     background-color: vars.$button;
     color: vars.$white;

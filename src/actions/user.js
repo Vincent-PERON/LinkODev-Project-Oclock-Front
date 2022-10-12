@@ -10,6 +10,7 @@ export const SUBMIT_REGISTER_FORM = 'SUBMIT_REGISTER_FORM';
 export const RESET_REGISTER_FORM = 'RESET_REGISTER_FORM';
 export const ERROR_CONFIRM_PASSWORD = 'ERROR_CONFIRM_PASSWORD';
 export const ERROR_BACK = 'ERROR_BACK';
+export const ERROR_LOGIN = 'ERROR_LOGIN';
 export const GET_USER_INFOS = 'GET_USER_INFOS';
 
 /**
@@ -68,6 +69,15 @@ export const actionSubmitRegisterForm = (successCallback) => ({
 
 export const actionResetRegisterForm = () => ({
   type: RESET_REGISTER_FORM,
+});
+
+/**
+ * action dispatchée au submit du Login Form, si une erreur est remontée par le back
+ * elle doit s'afficher en messageBack dans le state pour être utilisée dans le LoginForm
+ */
+export const actionErrorLogin = (messageLogin) => ({
+  type: ERROR_LOGIN,
+  messageLogin,
 });
 
 /**
