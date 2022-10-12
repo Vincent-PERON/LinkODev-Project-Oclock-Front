@@ -110,7 +110,6 @@ function Register() {
                 onChange={changeInputValue}
               />
             </div>
-            <p className="Register-form-message">{messageBack}</p>
           </section>
           <section className="Register-form-section">
             <div className="Register-form-elem">
@@ -147,9 +146,10 @@ function Register() {
                 onChange={changeInputValue}
               />
             </div>
-            <p className="Register-form-message">{message}</p>
           </section>
         </div>
+        <p className="Register-form-message">{message}</p>
+        <p className="Register-form-message">{messageBack}</p>
         <section className="register__container--button">
           <div className="register__container--redline" />
           <button

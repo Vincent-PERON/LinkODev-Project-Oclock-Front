@@ -98,8 +98,6 @@
 
 }
 
- 
-
 /*
 Styles pour les écrans entre 480px et 768px de large :
 */
@@ -125,6 +123,15 @@ Styles pour les écrans de moins de 480px de large :
     &-form-button {
       width: 80%;
     }
+    &-form-input {
+      width: 20rem;
+    }
+    &-form-button {
+      width: 20rem;
+      margin-top: 2rem;
+    }
+
+
   }
   .main__container--button {
     flex-direction: column;
@@ -136,6 +143,7 @@ Styles pour les écrans de moins de 480px de large :
   
   .main__container--redline {
     width: 50%;
+    margin-top: 2rem;
   }
 }
 
