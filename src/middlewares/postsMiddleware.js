@@ -12,12 +12,11 @@ const postsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
 
     case GET_LATEST_POSTS: {
-      // axios.get('https://linkodevapi.cyber-one.fr/posts/latest')
       axios.get(API_URL + "/posts/latest")
         .then((response) => {
           store.dispatch(actionSaveLatestPosts(response.data));
         }).catch((error) => {
-          alert(error.message);
+          alert("Problème de connexion avec l'API");
         });
       break;
     }
@@ -28,13 +27,14 @@ const postsMiddleware = (store) => (next) => (action) => {
         .then((response) => { 
           store.dispatch(actionSaveMyFavoritesPosts(response.data.posts));
         }).catch((error) => { console.log('erreur', error); 
-        alert(error.message);
+        alert("Problème de connexion avec l'API");
       });
       break;
     }
 
 
     case SAVE_A_POST_IN_FAVORITES: {
+      console.log(store.getState())
 
       const { post: {generatedPost}} = store.getState();
 
@@ -50,9 +50,9 @@ const postsMiddleware = (store) => (next) => (action) => {
           })
 
         .then((response) => { 
-          alert(response);
+          alert(response.data.status);
         }).catch((error) => {
-          alert(error.message);
+          console.log(error);
       });
       break;
     }

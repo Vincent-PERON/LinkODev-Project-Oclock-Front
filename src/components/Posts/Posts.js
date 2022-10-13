@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { actionGetLatestPosts, actionSaveToFavorites } from 'src/actions/post';
+import { actionGetLatestPosts, actionSaveToFavorites, actionSaveGeneratedPost } from 'src/actions/post';
 
 /* Materiel UI Icons */
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
@@ -34,9 +34,17 @@ function Posts() {
   };
 
   /* Save to favorites */
-  const saveToFavorites = () => {
-    const action = actionSaveToFavorites();
-    dispatch(action);
+  const saveToFavorites = (post) => {
+    // setGeneratedPost(post);
+
+    // When we click on the button to save the post in favorites, save the generated post
+    const generatedPost = [post.introduction.id, post.body.id, post.conclusion.id];
+    const action1 = actionSaveGeneratedPost(generatedPost);
+    dispatch(action1);
+
+    // actionSaveToFavorites will get the last generated post to send a request to the API, so the post in parameter of this function
+    const action2 = actionSaveToFavorites();
+    dispatch(action2);
   };
 
   /* First component render */
@@ -72,7 +80,11 @@ function Posts() {
                       <p className="PostCard3__container__content--text">{post.conclusion.content}</p>
                       <div className="PostCard__container__content--icons">
                         {isLogged && (
-                        <button className="PostCard3__container__content--svBtn" type="button" onClick={saveToFavorites}>
+                        <button
+                          className="PostCard3__container__content--svBtn" 
+                          type="button"
+                          onClick={() => saveToFavorites(post)}
+                        >
                           <StarOutlineIcon sx={{ color: 'white', fontSize: 30 }} />
                         </button>
                         )}

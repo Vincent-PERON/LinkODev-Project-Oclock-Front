@@ -14,18 +14,17 @@ function reducer(state = initialState, action = {}) {
         latestPosts: action.data,
       };
 
-      case SAVE_MY_FAVORITES_POSTS:
+    case SAVE_MY_FAVORITES_POSTS:
       return {
         ...state,
         favoritesPosts: action.data,
       };
 
-      case SAVE_GENERATED_POSTS:
-        return {
-          ...state,
-          generatedPost: action.data,
-        };
-
+    case SAVE_GENERATED_POSTS:
+      return {
+        ...state,
+        generatedPost: action.data,
+      };
 
     default:
       return state;

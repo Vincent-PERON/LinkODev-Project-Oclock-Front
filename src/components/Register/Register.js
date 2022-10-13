@@ -42,7 +42,6 @@ function Register() {
  * on dispatch actionChangeInputValue
  */
   const changeInputValue = (event) => {
-    console.log(event.target.value);
     const newValue = event.target.value;
     const inputName = event.target.name;
     dispatch(actionChangeInputValue(newValue, inputName));
@@ -67,7 +66,7 @@ function Register() {
                 NOM (*)
               </label>
               <input
-                id={lastname}
+                id="register-lastname"
                 type="text"
                 name="lastname"
                 className="Register-form-input"
@@ -84,7 +83,7 @@ function Register() {
                 PRENOM (*)
               </label>
               <input
-                id={firstname}
+                id="register-firstname"
                 type="text"
                 name="firstname"
                 className="Register-form-input"
@@ -101,7 +100,7 @@ function Register() {
                 EMAIL (*)
               </label>
               <input
-                id={email}
+                id="register-email"
                 type="email"
                 name="email"
                 className="Register-form-input"
@@ -110,7 +109,6 @@ function Register() {
                 onChange={changeInputValue}
               />
             </div>
-            <p className="Register-form-message">{messageBack}</p>
           </section>
           <section className="Register-form-section">
             <div className="Register-form-elem">
@@ -121,7 +119,7 @@ function Register() {
                 MOT DE PASSE (*)
               </label>
               <input
-                id={password}
+                id="register-password"
                 type="password"
                 name="password"
                 className="Register-form-input"
@@ -138,7 +136,7 @@ function Register() {
                 CONFIRMER VOTRE MOT DE PASSE (*)
               </label>
               <input
-                id={confirmPassword}
+                id="register-confirmPwd"
                 type="password"
                 name="confirmPassword"
                 className="Register-form-input"
@@ -147,9 +145,10 @@ function Register() {
                 onChange={changeInputValue}
               />
             </div>
-            <p className="Register-form-message">{message}</p>
           </section>
         </div>
+        <p className="Register-form-message">{message}</p>
+        <p className="Register-form-message">{messageBack}</p>
         <section className="register__container--button">
           <div className="register__container--redline" />
           <button

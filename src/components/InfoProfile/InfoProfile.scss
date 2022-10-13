@@ -40,7 +40,7 @@
   }
 
   &-form-label {
-    font-size: 1.5rem;
+    font-size: 150%;
     color: vars.$darkText;
   }
 
@@ -54,7 +54,7 @@
 
   &-form-input::placeholder {
     color: vars.$darkTextTrans;
-    font-size: 1.5rem;
+    font-size: 100%;
   }
 
   &-button {
@@ -65,7 +65,7 @@
       border-radius: 25px;
       border: 1px solid vars.$white;
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 130%;
       transition: 0.3s;
     }
     
@@ -83,4 +83,48 @@
         transition: 0.3s;
     }
 
+    &-message-alert {
+      color: vars.$white;
+      font-size: 2em;
+      margin: 3% auto;
+  }
+
+
+/*
+  Styles pour les écrans entre 440px et 768px de large :
+*/
+
+@media screen and (max-width: 768px) {
+
+  .InfoProfile {
+    &-form {
+      margin: 4.5rem 3rem;
+    }
+  }
 }
+
+}
+
+/*
+  Styles pour les écrans de moins de 440px de large :
+*/
+
+@media screen and (max-width: 440px) {
+
+  .InfoProfile {
+    &-group-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &-button {
+      width: 16rem;
+      font-size: 100%;
+      margin: 0 auto;
+    }
+    &-form-input {
+      width: 75%;
+    }
+  }
+}
+
