@@ -34,6 +34,7 @@ const postsMiddleware = (store) => (next) => (action) => {
 
 
     case SAVE_A_POST_IN_FAVORITES: {
+      console.log(store.getState())
 
       const { post: {generatedPost}} = store.getState();
 
