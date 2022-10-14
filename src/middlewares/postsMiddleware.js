@@ -50,7 +50,13 @@ const postsMiddleware = (store) => (next) => (action) => {
           })
 
         .then((response) => { 
+          // alert(response);
+          console.log(response);
+          if (response.status === 201) {
           alert(response.data.status);
+          } else {
+          alert(response.data.error);
+          }
         }).catch((error) => {
           console.log(error);
       });
